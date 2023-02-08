@@ -9,21 +9,24 @@
 
 int main()
 {
-	int nx = 200;
-	int ny = 100;
-	std::cout << "P3\n" << nx << " " << ny << "\n255\n";
-	for (int j = ny - 1; j >= 0; j--)
+	int image_width = 256;
+	int image_height = 256;
+	
+		std::cout << "P3\n" << image_width << " " << image_height << "\n255\n";
+	for (int j = image_height -1; j >= 0; j--)
 	{
-		std::cerr << "r\Scanlines remaining: " << j << ' ' << std::flush << '\n';		
-		for (int i = 0; i < nx; i++)
+		std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush << '\n';		
+	
+			
+		for (int i = 0; i < image_width ;i++)
 		{
-			float r = float(i) / float(nx);
-			float g = float(j) / float(ny);
-			float b = 0.2;
+			auto r = double(i) /(image_width);
+			auto g = double(j) /(image_height);
+			auto b = 0.25;
 
-			int ir = int(255.99 * r);
-			int ig = int(255.99 * g);
-			int ib = int(255.99 * b);
+			int ir = static_cast<int>(255.999 * r);
+			int ig = static_cast<int>(255.999 * g);
+			int ib = static_cast<int>(255.999 * b);
 
 			std::cout << ir << " " << ig << " " << ib << "\n";
 
