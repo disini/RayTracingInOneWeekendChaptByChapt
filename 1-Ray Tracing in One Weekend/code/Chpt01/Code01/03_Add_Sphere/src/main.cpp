@@ -77,12 +77,12 @@ int main()
 			
 		for (int i = 0; i < image_width ;i++)
 		{
-			//if (i > 180)// 仅部分列（columns）绘制
-			//{
-			//	write_color(std::cout, color(0, 0, 0));
-			//}
-			//else
-			//{
+			if (i > 180)// 仅部分列（columns）绘制
+			{
+				write_color(std::cout, color(0, 0, 0));
+			}
+			else
+			{
 						
 				auto u = double(i) / (image_width - 1);
 				auto v = double(j) / (image_height - 1);
@@ -105,14 +105,14 @@ int main()
 					system("pause");
 				}*/
 
-			//}
+			}
 					
 		}
 
-		if ( j < image_height - 180)// 仅部分行（rows）绘制
-		{
-			return 0;
-		}
+		//if ( j < image_height - 180)// 仅部分行（rows）绘制
+		//{
+		//	return 0;
+		//}
 	}
 
 	std::cerr << "\nDone.\n";
