@@ -20,7 +20,7 @@ public:
 	point3 origin() const { return orig; }
 	vec3 direction() const { return dir; }
 
-	point3 at(double t) const 
+	point3 at(double t) const // 根据t值返回该处的坐标值
 	{
 		return orig + t * dir;
 	}

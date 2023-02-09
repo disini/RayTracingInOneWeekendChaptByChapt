@@ -10,24 +10,43 @@
 
 #include <iostream>
 
-bool hit_sphere(const point3& center, double radius, const ray& r) 
+//bool hit_sphere(const point3& center, double radius, const ray& r) 
+double hit_sphere(const point3& center, double radius, const ray& r) 
 {
 	vec3 oc = r.origin() - center;
 	auto a = dot(r.direction(), r.direction());
 	auto b = 2.0 * dot(oc, r.direction());
 	auto c = dot(oc, oc) - radius * radius;
 	auto discriminant = b * b - 4 * a * c;
-	return (discriminant > 0);
+	if (discriminant < 0)
+	{
+		return -1.0;
+	}
+	else
+	{
+		return (-b - sqrt(discriminant)) / (2.0 * a);
+	}
+
+
+	//return (discriminant > 0);
 }
 
 color ray_color(const ray& r)
 {
-	if (hit_sphere(point3(0, 0, -1), 0.5, r))
+	
+	//if (hit_sphere(point3(0, 0, -1), 0.5, r))
 	//if (hit_sphere(point3(-1, 0, -2), 0.5, r))
-		return color(1, 0, 0);
+		//return color(1, 0, 0);// 球形内部统一为红色
+	auto t = hit_sphere(point3(0, 0, -1), 0.5, r);// 计算光线r与球形的碰撞点的r的t值
+	if (t > 0.0)
+	{
+		vec3 N = unit_vector(r.at(t) - vec3(0, 0, -1));// 得到t值对应坐标点的球的法线
+		return 0.5*color(N.x() + 1, N.y() + 1, N.z() + 1);// (-1, 1) --> (0, 1)， 根据法线的值得到不同的颜色，渐变色
+	}
+			
 	vec3 unit_direction = unit_vector(r.direction());
-	auto t = 0.5 * (unit_direction.y() + 1.0);// (-1, 1) --> (0, 1)
-	return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);
+	t = 0.5 * (unit_direction.y() + 1.0);// (-1, 1) --> (0, 1)
+	return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);// 球形外部随着y值变化而为线性渐变色
 }
 
 
@@ -58,27 +77,42 @@ int main()
 			
 		for (int i = 0; i < image_width ;i++)
 		{
-			auto u = double(i) / (image_width - 1);
-			auto v = double(j) / (image_height - 1);
-			//auto b = 0.25;
-			ray r(origin, lower_left_corner + u * horizontal + v * vertical - origin);
-			//color pixel_color(double(i) / (image_width-1), double(j)/(image_height-1), 0.25);
+			//if (i > 180)// 仅部分列（columns）绘制
+			//{
+			//	write_color(std::cout, color(0, 0, 0));
+			//}
+			//else
+			//{
+						
+				auto u = double(i) / (image_width - 1);
+				auto v = double(j) / (image_height - 1);
+				//auto b = 0.25;
+				ray r(origin, lower_left_corner + u * horizontal + v * vertical - origin);
+				//color pixel_color(double(i) / (image_width-1), double(j)/(image_height-1), 0.25);
 
-			/*int ir = static_cast<int>(255.999 * r);
-			int ig = static_cast<int>(255.999 * g);
-			int ib = static_cast<int>(255.999 * b);*/
+				/*int ir = static_cast<int>(255.999 * r);
+				int ig = static_cast<int>(255.999 * g);
+				int ib = static_cast<int>(255.999 * b);*/
 
-			color pixel_color = ray_color(r);
+				color pixel_color = ray_color(r);
 
-			write_color(std::cout, pixel_color);
+				write_color(std::cout, pixel_color);
 
-			//std::cout << ir << " " << ig << " " << ib << "\n";
+				//std::cout << ir << " " << ig << " " << ib << "\n";
 
-			/*if (i > 500)
-			{
-				system("pause");
-			}*/
+				/*if (i > 500)
+				{
+					system("pause");
+				}*/
+
+			//}
+					
 		}
+
+		//if ( j < image_height - 180)// 仅部分行（rows）绘制
+		//{
+		//	return 0;
+		//}
 	}
 
 	std::cerr << "\nDone.\n";
