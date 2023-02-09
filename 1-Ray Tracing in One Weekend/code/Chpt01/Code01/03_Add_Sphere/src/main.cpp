@@ -11,7 +11,7 @@
 #include <iostream>
 
 //bool hit_sphere(const point3& center, double radius, const ray& r) 
-double hit_sphere(const point3& center, double radius, const ray& r) 
+/*double hit_sphere(const point3& center, double radius, const ray& r) // before denominator '2' extracted
 {
 	vec3 oc = r.origin() - center;
 	auto a = dot(r.direction(), r.direction());
@@ -25,6 +25,31 @@ double hit_sphere(const point3& center, double radius, const ray& r)
 	else
 	{
 		return (-b - sqrt(discriminant)) / (2.0 * a);
+	}
+
+
+	//return (discriminant > 0);
+}
+*/
+
+double hit_sphere(const point3& center, double radius, const ray& r)// after denominator '2' extracted
+{
+	vec3 oc = r.origin() - center;
+	auto a = r.direction().length_squared();// r^2
+	//auto b = 2.0 * dot(oc, r.direction());
+	auto half_b = dot(oc, r.direction());
+	//auto c = dot(oc, oc) - radius * radius;
+	auto c = oc.length_squared() - radius * radius;
+	//auto discriminant = b * b - 4 * a * c;
+	auto discriminant = half_b * half_b - a * c;// equal 1/4 former discriminant
+	if (discriminant < 0)
+	{
+		return -1.0;
+	}
+	else
+	{
+		//return (-b - sqrt(discriminant)) / (2.0 * a);// before denominator '2.0' extracted
+		return (-half_b - sqrt(discriminant)) / a;// after denominator '2.0' extracted
 	}
 
 
@@ -77,12 +102,12 @@ int main()
 			
 		for (int i = 0; i < image_width ;i++)
 		{
-			if (i > 180)// 仅部分列（columns）绘制
-			{
-				write_color(std::cout, color(0, 0, 0));
-			}
-			else
-			{
+			//if (i > 180)// 仅部分列（columns）绘制
+			//{
+			//	write_color(std::cout, color(0, 0, 0));
+			//}
+			//else
+			//{
 						
 				auto u = double(i) / (image_width - 1);
 				auto v = double(j) / (image_height - 1);
@@ -105,7 +130,7 @@ int main()
 					system("pause");
 				}*/
 
-			}
+			//}
 					
 		}
 
