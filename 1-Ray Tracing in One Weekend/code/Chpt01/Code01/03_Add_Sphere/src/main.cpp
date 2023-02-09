@@ -109,10 +109,10 @@ int main()
 					
 		}
 
-		//if ( j < image_height - 180)// 仅部分行（rows）绘制
-		//{
-		//	return 0;
-		//}
+		if ( j < image_height - 180)// 仅部分行（rows）绘制
+		{
+			return 0;
+		}
 	}
 
 	std::cerr << "\nDone.\n";
