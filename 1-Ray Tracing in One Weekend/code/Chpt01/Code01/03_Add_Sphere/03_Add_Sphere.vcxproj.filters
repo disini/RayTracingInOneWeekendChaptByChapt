@@ -29,5 +29,11 @@
     <ClInclude Include="src\vec3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\sphere.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hittable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

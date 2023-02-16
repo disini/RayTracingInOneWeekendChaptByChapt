@@ -134,7 +134,7 @@ int main()
 					
 		}
 
-		//if ( j < image_height - 180)// 仅部分行（rows）绘制
+		//if ( j <= image_height - 6)// 仅部分行（rows）绘制
 		//{
 		//	return 0;
 		//}
