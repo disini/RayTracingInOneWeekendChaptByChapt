@@ -4,8 +4,12 @@
 
 //#include <stdio.h>
 //#include <stdlib.h>
+
+#include "rtweekend.h"
 #include "color.h"
+#include "hittable_list.h"
 #include "ray.h"
+#include "sphere.h"
 
 
 #include <iostream>
@@ -56,21 +60,30 @@ double hit_sphere(const point3& center, double radius, const ray& r)// after den
 	//return (discriminant > 0);
 }
 
-color ray_color(const ray& r)
+//color ray_color(const ray& r)
+color ray_color(const ray& r, const hittable& world)
 {
 	
 	//if (hit_sphere(point3(0, 0, -1), 0.5, r))
 	//if (hit_sphere(point3(-1, 0, -2), 0.5, r))
 		//return color(1, 0, 0);// 球形内部统一为红色
+	/*
 	auto t = hit_sphere(point3(0, 0, -1), 0.5, r);// 计算光线r与球形的碰撞点的r的t值
 	if (t > 0.0)
 	{
 		vec3 N = unit_vector(r.at(t) - vec3(0, 0, -1));// 得到t值对应坐标点的球的法线
 		return 0.5*color(N.x() + 1, N.y() + 1, N.z() + 1);// (-1, 1) --> (0, 1)， 根据法线的值得到不同的颜色，渐变色
 	}
-			
+	*/
+
+	hit_record rec;
+	if (world.hit(r, 0, infinity, rec))
+	{
+		return 0.5 * (rec.normal + color(1, 1, 1));
+	}
+				
 	vec3 unit_direction = unit_vector(r.direction());
-	t = 0.5 * (unit_direction.y() + 1.0);// (-1, 1) --> (0, 1)
+	auto t = 0.5 * (unit_direction.y() + 1.0);// (-1, 1) --> (0, 1)
 	return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);// 球形外部随着y值变化而为线性渐变色
 }
 
@@ -81,6 +94,13 @@ int main()
 	const auto aspect_ratio = 16.0 / 9.0;
 	const int image_width = 400;
 	const int image_height = static_cast<int>(image_width /aspect_ratio);
+
+	// World(Objects)
+	hittable_list world;
+	//world.add(make_shared<sphere>(point3(0, 0, -1), 0.5));// small sphere on the top
+	world.add(make_shared<sphere>(point3(0, -100.5, -1), 100));// big sphere at the bottom
+	//world.add(make_shared<sphere>(point3(0, -100.6, -1), 100.6));// big sphere at the bottom
+
 
 	// Camera
 	auto viewport_height = 2.0;
@@ -119,7 +139,8 @@ int main()
 				int ig = static_cast<int>(255.999 * g);
 				int ib = static_cast<int>(255.999 * b);*/
 
-				color pixel_color = ray_color(r);
+				//color pixel_color = ray_color(r);
+				color pixel_color = ray_color(r, world);
 
 				write_color(std::cout, pixel_color);
 

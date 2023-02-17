@@ -35,5 +35,11 @@
     <ClInclude Include="src\hittable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\hittable_list.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rtweekend.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
