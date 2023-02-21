@@ -10,6 +10,7 @@
 #include "hittable_list.h"
 #include "ray.h"
 #include "sphere.h"
+#include "camera.h"
 
 
 #include <iostream>
@@ -94,6 +95,7 @@ int main()
 	const auto aspect_ratio = 16.0 / 9.0;
 	const int image_width = 400;
 	const int image_height = static_cast<int>(image_width /aspect_ratio);
+	const int samples_per_pixel = 100;
 
 	// World(Objects)
 	hittable_list world;
@@ -103,6 +105,7 @@ int main()
 
 
 	// Camera
+	/*
 	auto viewport_height = 2.0;
 	auto viewport_width = aspect_ratio * viewport_height;
 	auto focal_length = 1.0;
@@ -111,16 +114,18 @@ int main()
 	auto horizontal = vec3(viewport_width, 0, 0);
 	auto vertical = vec3(0, viewport_height, 0);
 	auto lower_left_corner = origin - horizontal / 2 - vertical / 2 - vec3(0, 0, focal_length);
+	*/
+	camera cam;
 	
 	// Render
 
 	std::cout << "P3\n" << image_width << " " << image_height << "\n255\n";
-	for (int j = image_height -1; j >= 0; j--)
+	for (int j = image_height -1; j >= 0; --j)
 	{
 		std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush << '\n';		
 	
 			
-		for (int i = 0; i < image_width ;i++)
+		for (int i = 0; i < image_width ;++i)
 		{
 			//if (i > 180)// 仅部分列（columns）绘制
 			//{
@@ -128,21 +133,30 @@ int main()
 			//}
 			//else
 			//{
-						
-				auto u = double(i) / (image_width - 1);
-				auto v = double(j) / (image_height - 1);
-				//auto b = 0.25;
-				ray r(origin, lower_left_corner + u * horizontal + v * vertical - origin);
-				//color pixel_color(double(i) / (image_width-1), double(j)/(image_height-1), 0.25);
+				color pixel_color(0, 0, 0);
+				for (int s=0; s < samples_per_pixel;++s)
+				{
+					//auto u = double(i) / (image_width - 1);// 单一采样
+					//auto v = double(j) / (image_height - 1);
+					auto u = (i + random_double()) / (image_width - 1);// 随机多重采样				
+					auto v = (j + random_double()) / (image_height - 1);						
 
-				/*int ir = static_cast<int>(255.999 * r);
-				int ig = static_cast<int>(255.999 * g);
-				int ib = static_cast<int>(255.999 * b);*/
+					//auto b = 0.25;
+					//ray r(origin, lower_left_corner + u * horizontal + v * vertical - origin);
+					// //color pixel_color(double(i) / (image_width-1), double(j)/(image_height-1), 0.25);
+					ray r = cam.get_ray(u, v);
 
-				//color pixel_color = ray_color(r);
-				color pixel_color = ray_color(r, world);
+					/*int ir = static_cast<int>(255.999 * r);
+					int ig = static_cast<int>(255.999 * g);
+					int ib = static_cast<int>(255.999 * b);*/
 
-				write_color(std::cout, pixel_color);
+					// //color pixel_color = ray_color(r);
+					//color pixel_color = ray_color(r, world);
+					pixel_color += ray_color(r, world);
+				}
+
+				//write_color(std::cout, pixel_color);
+				write_color(std::cout, pixel_color, samples_per_pixel);
 
 				//std::cout << ir << " " << ig << " " << ib << "\n";
 
