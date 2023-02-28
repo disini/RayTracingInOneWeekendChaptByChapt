@@ -25,7 +25,9 @@ using std::sqrt;
 const double infinity = std::numeric_limits<double>::infinity();
 const double pi = 3.1415926535897932385;
 
-// Utility Funcitons
+// Utility Functions
+
+double random_double();
 
 inline double degrees_to_radians(double degrees)
 {

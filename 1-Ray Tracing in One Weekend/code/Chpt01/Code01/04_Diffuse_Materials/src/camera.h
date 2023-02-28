@@ -3,6 +3,7 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
+//#include "../../common/rtweekend.h"
 #include "rtweekend.h"
 
 class camera {

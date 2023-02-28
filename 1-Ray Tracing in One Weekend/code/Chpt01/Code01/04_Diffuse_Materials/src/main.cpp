@@ -3,6 +3,8 @@
 //#include <stdio.h>
 //#include <stdlib.h>
 
+//#include "../../common/rtweekend.h"
+#include "vec3.h"
 #include "rtweekend.h"
 #include "color.h"
 #include "hittable_list.h"
@@ -37,9 +39,14 @@ color ray_color(const ray& r, const hittable& world)
 	
 
 	hit_record rec;
+	vec3 vec;
 	if (world.hit(r, 0, infinity, rec))
 	{
-		return 0.5 * (rec.normal + color(1, 1, 1));
+		//return 0.5 * (rec.normal + color(1, 1, 1));
+		//point3 target = rec.p + rec.normal + random_in_unit_sphere();
+		//point3 target = rec.p + rec.normal + vec.random_in_unit_sphere();
+		point3 target = rec.p + rec.normal + vec3::random_in_unit_sphere();
+		return 0.5 * ray_color(ray(rec.p, target - rec.p), world);
 	}
 				
 	vec3 unit_direction = unit_vector(r.direction());

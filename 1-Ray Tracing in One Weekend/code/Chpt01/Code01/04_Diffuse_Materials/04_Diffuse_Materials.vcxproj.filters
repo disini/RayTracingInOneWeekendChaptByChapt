@@ -26,9 +26,6 @@
     <ClInclude Include="src\ray.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\rtweekend.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="src\sphere.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -42,6 +39,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\hittable.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rtweekend.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
