@@ -70,7 +70,7 @@ color ray_color(const ray& r, const hittable& world, int depth)
 		point3 target = rec.p + rec.normal + random_in_unit_sphere();
 		//point3 target = rec.p + rec.normal + vec.random_in_unit_sphere();
 		//point3 target = rec.p + rec.normal + vec3::random_in_unit_sphere();
-		return 0.5 * ray_color(ray(rec.p, target - rec.p), world, depth - 1);
+		return 0.5 * ray_color(ray(rec.p, target - rec.p), world, depth - 1);// the factor(coefficient) 0.5 : our spheres only absorb half the energy on each bounce, so they are 50% reflectors.
 	}
 
 	vec3 unit_direction = unit_vector(r.direction());
