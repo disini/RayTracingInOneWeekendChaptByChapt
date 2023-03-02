@@ -12,11 +12,14 @@ class sphere : public hittable
 	public:
 		point3 center;
 		double radius = 0.0;
+		shared_ptr<material> mat_ptr;
 
 
 	public:
 		sphere() {};
 		sphere(point3 cen, double r) : center(cen), radius(r) {};
+		sphere(point3 cen, double r, shared_ptr<material> m)
+		: center(cen), radius(r), mat_ptr(m) {};
 		
 		virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) const override;
 
@@ -48,6 +51,7 @@ bool sphere::hit(const ray& r, double t_min, double t_max, hit_record& rec) cons
 	//rec.normal = (rec.p - center) / radius;
 	vec3 outward_normal = (rec.p - center) / radius;
 	rec.set_face_normal(r, outward_normal);//determinate the normal direction inner or outward by calculate the dot.
+	rec.mat_ptr = mat_ptr;
 
 	return true;
 }

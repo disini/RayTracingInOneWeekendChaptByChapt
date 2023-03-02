@@ -55,7 +55,16 @@ public:
 		return e[0] * e[0] + e[1] * e[1] + e[2] * e[2];
 	}
 
+	bool near_zero() const
+	{
+		// Return true if the vector is close to zero in all dimensions.
+		const auto s = 1e-8;
+		// fabs(float x) or  fabs(double x): 求浮点数x的绝对值
+		return (fabs(e[0]) < s) && (fabs(e[1]) < s)&& (fabs(e[2]) < s);
+	}
 
+
+	
 
 
 	inline static vec3 random()
@@ -169,7 +178,13 @@ vec3 random_in_hemisphere(const vec3& normal)
 }
 
 
-
+//inline vec3 reflect(const vec3& v, const vec3& n) // Same as the books
+//inline static vec3 reflect(const vec3& v, const vec3& n)
+vec3 reflect(const vec3& v, const vec3& n)
+{
+	return v - 2 * dot(v, n) * n;
+	// B == dot(v, -N) * N,  v + 2B == v + 2*(dot(v, -N)) * N  == v - 2*dot(v, N)* N, N is unit normal!
+}
 
 
 
