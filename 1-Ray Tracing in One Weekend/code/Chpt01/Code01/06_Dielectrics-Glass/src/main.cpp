@@ -121,6 +121,7 @@ int main()
 	auto material_ground = make_shared<lambertian>(color(0.8, 0.8, 0.0));// only red and green, no blue, that makes yellow!
 	//auto material_ground = make_shared<metal>(color(0.8, 0.8, 0.0), 0.1);// only red and green, no blue, that makes yellow!
 	auto material_center = make_shared<lambertian>(color(0.7, 0.3, 0.3));// mainly red, that makes brown! diffuse!
+	//auto material_center = make_shared<dielectric>(1.5);// transparent glass ball
 	auto material_left = make_shared<metal>(color(0.8, 0.8, 0.8), 0.3);// more shiny!
 	auto material_right = make_shared<metal>(color(0.8, 0.6, 0.2), 1.0);//more shineless!
 

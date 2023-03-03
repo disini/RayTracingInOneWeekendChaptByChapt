@@ -188,8 +188,31 @@ vec3 reflect(const vec3& v, const vec3& n)
 	// B == dot(v, -N) * N,  v + 2B == v + 2*(dot(v, -N)) * N  == v - 2*dot(v, N)* N, N is unit normal!
 }
 
+/**
+* @brief 计算折射光线
+* @param uv 入射光线,也就是书中的R
+* @param n 入射面法线
+* @param etai_over_etat 出射介质与入射介质相对折射率
 
+*/
+//************************************
+// Method:    refract
+// FullName:  refract
+// Access:    public 
+// Returns:   vec3
+// Qualifier:
+// Parameter: const vec3 & uv
+// Parameter: const vec3 & n
+// Parameter: double etai_over_etat
+//************************************
+vec3 refract(const vec3& uv, const vec3& n, double etai_over_etat)
+{
+	auto cos_theta = fmin(dot(-uv, n), 1.0);
+	vec3 r_out_perp = etai_over_etat * (uv + cos_theta * n);// 出射光线的垂直于入射面法线的分量 : R′⊥
+	vec3 r_out_parallel = -sqrt(fabs(1.0 - r_out_perp.length_squared())) *n;// 出射光线的平行于入射面法线的分量 : R'||
 
+	return r_out_perp + r_out_parallel;// 合成 : R' = R′⊥ + R'||
+}
 
 
 
