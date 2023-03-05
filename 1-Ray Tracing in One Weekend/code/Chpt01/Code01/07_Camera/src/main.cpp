@@ -155,7 +155,8 @@ int main()
 	//camera cam;
 	//camera cam(90.0, aspect_ratio);
 	//camera cam(point3(0,0,0), point3(0,0, -1), vec3(0, 1, 0), 90, aspect_ratio);
-	camera cam(point3(-2,2,1), point3(0,0, -1), vec3(0, 1, 0), 90, aspect_ratio);
+	//camera cam(point3(-2,2,1), point3(0,0, -1), vec3(0, 1, 0), 90, aspect_ratio);
+	camera cam(point3(-2,2,1), point3(0,0, -1), vec3(0, 1, 0), 20, aspect_ratio);
 	
 	// Render
 
