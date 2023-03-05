@@ -135,25 +135,27 @@ int main()
 	auto material_left1 = make_shared<lambertian>(color(0, 0, 1));
 	auto material_right1 = make_shared<lambertian>(color(1, 0, 0));
 
-	/*
+	
 	world.add(make_shared<sphere>(point3(0, -100.5, -1), 100.0, material_ground));// Biggest ball as the ground!
 	//world.add(make_shared<sphere>(point3(0, -100.5, -1), 100.0, material_left));// Biggest ball as the ground!
+	
 	world.add(make_shared<sphere>(point3(0, 0, -1), 0.5, material_center));// diffuse ball!
 	world.add(make_shared<sphere>(point3(-1.0, 0, -1), 0.5, material_left));//shiny Metal ball!
 	world.add(make_shared<sphere>(point3(-1.0, 0, -1), -0.4, material_left));//adding a inner hollow ball, with a negative radius, to make a bubble
 	world.add(make_shared<sphere>(point3(1.0, 0, -1), 0.5, material_right));//Shineless Metal ball!
-	*/
+	
 
 
 	// Chapter 11:
-	world.add(make_shared<sphere>(point3(-R, 0, -1), R, material_left1));
-	world.add(make_shared<sphere>(point3(R, 0, -1), R, material_right1));
+	/*world.add(make_shared<sphere>(point3(-R, 0, -1), R, material_left1));
+	world.add(make_shared<sphere>(point3(R, 0, -1), R, material_right1));*/
 
 
 	// Camera
 	//camera cam;
 	//camera cam(90.0, aspect_ratio);
-	camera cam(point3(0,0,0), point3(0,0, -1), vec3(0, 1, 0), 90, aspect_ratio);
+	//camera cam(point3(0,0,0), point3(0,0, -1), vec3(0, 1, 0), 90, aspect_ratio);
+	camera cam(point3(-2,2,1), point3(0,0, -1), vec3(0, 1, 0), 90, aspect_ratio);
 	
 	// Render
 
