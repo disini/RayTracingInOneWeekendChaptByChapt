@@ -109,6 +109,7 @@ int main()
 	const int samples_per_pixel = 100;
 	const int max_depth = 50;
 
+	auto R = cos(pi/4);
 	// World(Objects)
 	hittable_list world;
 
@@ -130,13 +131,23 @@ int main()
 	//auto material_right = make_shared<metal>(color(0.8, 0.6, 0.2), 1.0);//more shineless!
 	auto material_right = make_shared<metal>(color(0.8, 0.6, 0.2), 0.0);//most shiny!
 
+	// Chapter 11:
+	auto material_left1 = make_shared<lambertian>(color(0, 0, 1));
+	auto material_right1 = make_shared<lambertian>(color(1, 0, 0));
 
+	/*
 	world.add(make_shared<sphere>(point3(0, -100.5, -1), 100.0, material_ground));// Biggest ball as the ground!
 	//world.add(make_shared<sphere>(point3(0, -100.5, -1), 100.0, material_left));// Biggest ball as the ground!
 	world.add(make_shared<sphere>(point3(0, 0, -1), 0.5, material_center));// diffuse ball!
 	world.add(make_shared<sphere>(point3(-1.0, 0, -1), 0.5, material_left));//shiny Metal ball!
 	world.add(make_shared<sphere>(point3(-1.0, 0, -1), -0.4, material_left));//adding a inner hollow ball, with a negative radius, to make a bubble
 	world.add(make_shared<sphere>(point3(1.0, 0, -1), 0.5, material_right));//Shineless Metal ball!
+	*/
+
+
+	// Chapter 11:
+	world.add(make_shared<sphere>(point3(-R, 0, -1), R, material_left1));
+	world.add(make_shared<sphere>(point3(R, 0, -1), R, material_right1));
 
 
 	// Camera
