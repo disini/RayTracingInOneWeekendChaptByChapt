@@ -82,7 +82,7 @@ class dielectric : public material {
 			vec3 direction;
 
 			//if (cannot_refract)
-			if (cannot_refract || reflectance(sin_theta, refraction_ratio) > random_double())// 增加反射的光线的比例， 随机挑选
+			if (cannot_refract || reflectance(sin_theta, refraction_ratio) > random_double())// 增加反射的光线的比例, 随机挑选
 				direction = reflect(unit_direction, rec.normal);
 			else
 			//vec3 refracted = refract(unit_direction, rec.normal, refraction_ratio);
