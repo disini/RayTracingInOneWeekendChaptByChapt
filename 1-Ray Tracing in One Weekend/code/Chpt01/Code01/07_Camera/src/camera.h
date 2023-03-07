@@ -21,8 +21,8 @@ class camera {
 			vec3 vup,
 			double vfov, // vertical field-of-view in degrees
 			double aspect_ratio,// 画幅宽高比
-			double aperture,//光圈
-			double focus_dist// 完全清楚对焦距离
+			double aperture,//光圈，与通常镜头标注的光圈数值大小相反
+			double focus_dist// 完全清楚对焦距离，手动对焦焦平面位置
 		) {
 			//auto aspect_ratio = 16.0 / 9.0;
 			auto theta = degrees_to_radians(vfov);
