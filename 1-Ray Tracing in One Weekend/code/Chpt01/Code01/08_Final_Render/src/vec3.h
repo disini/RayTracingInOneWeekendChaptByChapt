@@ -147,6 +147,16 @@ inline vec3 unit_vector(vec3 v)
 	return v / v.length();
 }
 
+vec3 random_in_unit_disk()// 返回单位圆盘内的一个随机点坐标
+{
+	while (true)
+	{
+		auto p = vec3(random_double(-1, 1), random_double(-1, 1), 0);
+		if (p.length_squared() >= 1)
+			continue;
+		return p;	
+	}
+}
 
 inline vec3 random_in_unit_sphere()
 {
@@ -179,16 +189,7 @@ vec3 random_in_hemisphere(const vec3& normal)
 		return -in_unit_sphere;
 }
 
-vec3 random_in_unit_disk()// 返回单位圆盘内的一个随机点坐标
-{
-	while (true)
-	{
-		auto p = vec3(random_double(-1, 1), random_double(-1, 1), 0);
-		if (p.length_squared() >= 1)
-			continue;
-		return p;	
-	}
-}
+
 
 
 //inline vec3 reflect(const vec3& v, const vec3& n) // Same as the books

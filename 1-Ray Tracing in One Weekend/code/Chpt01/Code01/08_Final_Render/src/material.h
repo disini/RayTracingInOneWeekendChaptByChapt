@@ -49,14 +49,14 @@ class metal : public material
 		metal(const color& a) : albedo(a){};
 		metal(const color& a, double f) : albedo(a), fuzz(f < 1 ? f : 1) {};
 
-		virtual bool scatter(const ray& r_in, const hit_record& rec, color& attenuation, ray& scatterd)
+		virtual bool scatter(const ray& r_in, const hit_record& rec, color& attenuation, ray& scattered)
 			const override {
 			vec3 reflected = reflect(unit_vector(r_in.direction()), rec.normal);
-			//scatterd = ray(rec.p, reflected);
+			//scattered = ray(rec.p, reflected);
 			double reflectedLengthSq = reflected.length_squared();
-			scatterd = ray(rec.p, reflected + fuzz * random_in_unit_sphere());
+			scattered = ray(rec.p, reflected + fuzz * random_in_unit_sphere());
 			attenuation = albedo;
-			return (dot(scatterd.direction(), rec.normal) > 0);
+			return (dot(scattered.direction(), rec.normal) > 0);
 		};
 
 
@@ -82,7 +82,7 @@ class dielectric : public material {
 			vec3 direction;
 
 			//if (cannot_refract)
-			if (cannot_refract || reflectance(sin_theta, refraction_ratio) > random_double())// 增加反射的光线的比例, 随机挑选
+			if (cannot_refract || reflectance(cos_theta, refraction_ratio) > random_double())// 增加反射的光线的比例, 随机挑选
 				direction = reflect(unit_direction, rec.normal);
 			else
 			//vec3 refracted = refract(unit_direction, rec.normal, refraction_ratio);
