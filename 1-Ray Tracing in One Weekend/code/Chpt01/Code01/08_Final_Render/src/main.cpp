@@ -154,6 +154,14 @@ hittable_list random_scene()
 
 int main()
 {
+	// http://c.biancheng.net/view/1352.html
+	unsigned seed;// Random generator seed
+	double result;
+	seed = time(0);// 从“time_t”转换到“unsigned int”，可能丢失数据
+	srand(seed);
+
+	
+	
 	// Image
 	const auto aspect_ratio = 16.0 / 9.0;
 	//const auto aspect_ratio = 3.0 / 2.0;
