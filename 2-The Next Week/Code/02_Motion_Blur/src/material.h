@@ -33,7 +33,8 @@ class lambertian : public material
 			if (scatter_direction.near_zero())
 				scatter_direction = rec.normal;
 			
-			scattered = ray(rec.p, scatter_direction);
+//			scattered = ray(rec.p, scatter_direction);
+			scattered = ray(rec.p, scatter_direction, r_in.time());
 			attenuation = albedo;// ·´ÕÕÂÊ
 			return true;
 		}
@@ -54,7 +55,8 @@ class metal : public material
 			vec3 reflected = reflect(unit_vector(r_in.direction()), rec.normal);
 			//scattered = ray(rec.p, reflected);
 			double reflectedLengthSq = reflected.length_squared();
-			scattered = ray(rec.p, reflected + fuzz * random_in_unit_sphere());
+//			scattered = ray(rec.p, reflected + fuzz * random_in_unit_sphere());
+			scattered = ray(rec.p, reflected + fuzz * random_in_unit_sphere(), r_in.time());
 			attenuation = albedo;
 			return (dot(scattered.direction(), rec.normal) > 0);
 		};
@@ -89,7 +91,8 @@ class dielectric : public material {
 				direction = refract(unit_direction, rec.normal, refraction_ratio);
 
 			//scattered = ray(rec.p, refracted);
-			scattered = ray(rec.p, direction);
+//			scattered = ray(rec.p, direction);
+			scattered = ray(rec.p, direction, r_in.time());
 			return true;
 
 		}

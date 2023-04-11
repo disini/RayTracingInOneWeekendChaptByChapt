@@ -10,6 +10,7 @@
 #include "hittable_list.h"
 #include "ray.h"
 #include "sphere.h"
+#include "moving_sphere.h"
 #include "camera.h"
 #include "material.h"
 
@@ -52,7 +53,7 @@ color ray_color(const ray& r, const hittable& world)
 				
 	vec3 unit_direction = unit_vector(r.direction());
 	auto t = 0.5 * (unit_direction.y() + 1.0);// (-1, 1) --> (0, 1)
-	return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);// ï¿½ï¿½ï¿½ï¿½ï¿½â²¿ï¿½ï¿½ï¿½ï¿½yÖµï¿½ä»¯ï¿½ï¿½Îªï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½É«
+	return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);// ÇòÐÎÍâ²¿Ëæ×ÅyÖµ±ä»¯¶øÎªÏßÐÔ½¥±äÉ«
 }
 
 color ray_color(const ray& r, const hittable& world, int depth)
@@ -91,7 +92,7 @@ color ray_color(const ray& r, const hittable& world, int depth)
 
 	vec3 unit_direction = unit_vector(r.direction());
 	auto t = 0.5 * (unit_direction.y() + 1.0);// (-1, 1) --> (0, 1)
-	return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);// ï¿½ï¿½ï¿½ï¿½ï¿½â²¿ï¿½ï¿½ï¿½ï¿½yÖµï¿½ä»¯ï¿½ï¿½Îªï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½É«
+	return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);// ÇòÐÎÍâ²¿Ëæ×ÅyÖµ±ä»¯¶øÎªÏßÐÔ½¥±äÉ«
 	
 
 
@@ -111,34 +112,38 @@ hittable_list random_scene()
 		{
 			auto choose_mat = random_double();
 			//point3 center(a + 0.9 * random_double(), 0.2, b + 0.9 * random_double());
-			point3 center(a + 0.8 * random_double(), 0.2, b + 0.8 * random_double());// ï¿½ï¿½ï¿½Ù½ï¿½ï¿½ï¿½ï¿½Øµï¿½,ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-			//point3 center(a + 0.6 * random_double(), 0.2, b + 0.6 * random_double());// ï¿½ï¿½È«ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½,ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			point3 center(a + 0.8 * random_double(), 0.2, b + 0.8 * random_double());// ¼õÉÙ½»²æÖØµþ,³öÏÖÇ¶ÈëµÄÇé¿ö
+			//point3 center(a + 0.6 * random_double(), 0.2, b + 0.6 * random_double());// ÍêÈ«·ÀÖ¹½»²æÖØµþ,³öÏÖÇ¶ÈëµÄÇé¿ö
 
 			if ((center - point3(0, 0.2, 0)).length() > 0.9 && (center - point3(-4, 0.2, 0)).length() > 0.9 && (center - point3(4, 0.2, 0)).length() > 0.9)
-			// ï¿½ï¿½ï¿½ï¿½ï¿½Å´ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ë£©ï¿½ï¿½ï¿½È½Ï£ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½,ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			// ÓëÈý¿Å´óÇòµÄÎ»ÖÃ£¨¾àÀë£©×ö±È½Ï£¬·ÀÖ¹½»²æÖØµþ,³öÏÖÇ¶ÈëµÄÇé¿ö
 			{
 				shared_ptr<material> sphere_material;
 
-				//if (choose_mat < 0.8)// ï¿½Ë·Ö²ï¿½ï¿½ï¿½Î§ï¿½ï¿½ï¿½ï¿½ï¿½ä£©ï¿½ï¿½ã£¬Ò²ï¿½ï¿½ï¿½ï¿½ï¿½Ã´ó²¿·ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½Îªdiffuse
-				if (choose_mat < 0.6)// ï¿½Ë·Ö²ï¿½ï¿½ï¿½Î§ï¿½ï¿½ï¿½ï¿½ï¿½ä£©ï¿½ï¿½ã£¬Ò²ï¿½ï¿½ï¿½ï¿½ï¿½Ã´ó²¿·ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½Îªdiffuse
+				//if (choose_mat < 0.8)// ´Ë·Ö²¼·¶Î§£¨Çø¼ä£©×î¹ã£¬Ò²¾ÍÊÇÈÃ´ó²¿·ÖÇòµÄ²ÄÖÊÎªdiffuse
+				if (choose_mat < 0.6)// ´Ë·Ö²¼·¶Î§£¨Çø¼ä£©×î¹ã£¬Ò²¾ÍÊÇÈÃ´ó²¿·ÖÇòµÄ²ÄÖÊÎªdiffuse
 				{
 					// diffuse
 					auto albedo = color::random();
 					sphere_material = make_shared<lambertian>(albedo);
-					
-				//} else if (choose_mat < 0.95)// ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½Ö²ï¿½ï¿½ï¿½ï¿½Ê£ï¿½ï¿½Ã½ï¿½ï¿½Ùµï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½Îªmetal;
-				} else if (choose_mat < 0.85)// ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½Ö²ï¿½ï¿½ï¿½ï¿½Ê£ï¿½ï¿½Ã½ï¿½ï¿½Ùµï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½Îªmetal;
+                    auto center2 = center + vec3(0, random_double(0, 0.5), 0);
+//                    world.add(make_shared<sphere>(center, 0.2, sphere_material));
+                    world.add(make_shared<moving_sphere>(center, center2, 0.0, 1.0, 0.2, sphere_material));
+				//} else if (choose_mat < 0.95)// ½øÒ»²½¼õÐ¡·Ö²¼¸ÅÂÊ£¬ÈÃ½ÏÉÙµÄÇòµÄ²ÄÖÊÎªmetal;
+				} else if (choose_mat < 0.85)// ½øÒ»²½¼õÐ¡·Ö²¼¸ÅÂÊ£¬ÈÃ½ÏÉÙµÄÇòµÄ²ÄÖÊÎªmetal;
 				{
 					// metal
-					auto albedo = color::random(0.5, 1);// ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½Ò»Ð©
-					auto fuzz = random_double(0, 0.5);// ï¿½ï¿½Ã«ï¿½ï¿½Ä£ï¿½ï¿½
+					auto albedo = color::random(0.5, 1);// ÈÃ½ðÊôÇòÑÕÉ«ÁÁÒ»Ð©
+					auto fuzz = random_double(0, 0.5);// ÈÞÃ«£»Ä£ºý
 					sphere_material = make_shared<metal>(albedo, fuzz);
+                    world.add(make_shared<sphere>(center, 0.2, sphere_material));
 				} else {
 					// glass
-					sphere_material = make_shared<dielectric>(1.5);// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+					sphere_material = make_shared<dielectric>(1.5);// ²£Á§ÇòÕ¼±È×îÉÙ
+                    world.add(make_shared<sphere>(center, 0.2, sphere_material));
 				}
 
-				world.add(make_shared<sphere>(center, 0.2, sphere_material));
+//				world.add(make_shared<sphere>(center, 0.2, sphere_material));
 			}
 
 
@@ -146,12 +151,12 @@ hittable_list random_scene()
 	}
 
 	auto material1 = make_shared<dielectric>(1.5);// glass
-	world.add(make_shared<sphere>(point3(0, 1, 0), 1.0, material1));// ï¿½Ð¼ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½
+	world.add(make_shared<sphere>(point3(0, 1, 0), 1.0, material1));// ÖÐ¼äµÄ´ó²£Á§Çò
 
-	auto material2 = make_shared<lambertian>(color(0.4, 0.2, 0.1));// ï¿½ï¿½É«
+	auto material2 = make_shared<lambertian>(color(0.4, 0.2, 0.1));// ×ØÉ«
 	world.add(make_shared<sphere>(point3(-4, 1, 0), 1.0, material2));
 
-	auto material3 = make_shared<metal>(color(0.7, 0.6, 0.5), 0.0);// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½fuzz
+	auto material3 = make_shared<metal>(color(0.7, 0.6, 0.5), 0.0);// ´¿¾µÃæÒøÉ«½ðÊôÇò£¬ ÎÞfuzz
 	world.add(make_shared<sphere>(point3(4, 1, 0), 1.0, material3));
 	
 	return world;
@@ -162,7 +167,7 @@ int main()
 	// http://c.biancheng.net/view/1352.html
 	unsigned seed;// Random generator seed
 	double result;
-	seed = time(0);// ï¿½Ó¡ï¿½time_tï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½unsigned intï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¶ï¿½Ê§ï¿½ï¿½ï¿½ï¿½
+	seed = time(0);// ´Ó¡°time_t¡±×ª»»µ½¡°unsigned int¡±£¬¿ÉÄÜ¶ªÊ§Êý¾Ý
 	srand(seed);
 
 	
@@ -195,7 +200,7 @@ int main()
 	point3 lookat(0, 0, 0);
 	vec3 vup(0, 1, 0);
 	//auto dist_to_focus = (lookfrom - lookat).length();// 5.1961524227066320
-	auto dist_to_focus = 10.0;// ï¿½Ö¶ï¿½ï¿½Ô½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½Î»ï¿½ï¿½
+	auto dist_to_focus = 10.0;// ÊÖ¶¯¶Ô½¹½¹Æ½ÃæÎ»ÖÃ
 	//auto aperture = 2.0;
 	auto aperture = 0.1;
 
@@ -211,7 +216,7 @@ int main()
 			
 		for (int i = 0; i < image_width ;++i)
 		{
-			//if (i > 180)// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½columnsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			//if (i > 180)// ½ö²¿·ÖÁÐ£¨columns£©»æÖÆ
 			//{
 			//	write_color(std::cout, color(0, 0, 0));
 			//}
@@ -220,7 +225,7 @@ int main()
 				color pixel_color(0, 0, 0);
 				for (int s=0; s < samples_per_pixel;++s)
 				{
-					auto u = (i + random_double()) / (image_width - 1);// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½				
+					auto u = (i + random_double()) / (image_width - 1);// Ëæ»ú¶àÖØ²ÉÑù				
 					auto v = (j + random_double()) / (image_height - 1);						
 
 					ray r = cam.get_ray(u, v);
@@ -243,7 +248,7 @@ int main()
 					
 		}
 
-		//if ( j <= image_height - 6)// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½rowsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//if ( j <= image_height - 6)// ½ö²¿·ÖÐÐ£¨rows£©»æÖÆ
 		//{
 		//	return 0;
 		//}

@@ -14,6 +14,7 @@ class camera {
 		vec3 vertical;
 		vec3 u, v, w;
 		double lens_radius;// 镜片半（孔）径（半光圈孔径）
+        double time0, time1;// shutter open/close times
 	public:
 		camera(
 			point3 lookfrom,
@@ -22,7 +23,9 @@ class camera {
 			double vfov, // vertical field-of-view in degrees
 			double aspect_ratio,// 画幅宽高比
 			double aperture,//光圈，与通常镜头标注的光圈数值大小相反
-			double focus_dist// 完全清楚对焦距离，手动对焦焦平面位置
+			double focus_dist,// 完全清楚对焦距离，手动对焦焦平面位置
+            double _time0 = 0,// beginning of  shtter time delta
+            double _time1 = 0// end of shutter time delta
 		) {
 			//auto aspect_ratio = 16.0 / 9.0;
 			auto theta = degrees_to_radians(vfov);
@@ -49,6 +52,8 @@ class camera {
 			lower_left_corner = origin - horizontal / 2 - vertical / 2 - focus_dist * w;// 焦平面的左下角
 
 			lens_radius = aperture / 2;
+            time0 = _time0;
+            time1 = _time1;
 		}
 
 
@@ -63,7 +68,8 @@ class camera {
 
 			return ray(
 				origin + offset, 
-				lower_left_corner + s * horizontal + t * vertical - origin - offset
+				lower_left_corner + s * horizontal + t * vertical - origin - offset,
+                random_double(time0, time1)
 			);
 		}
 
