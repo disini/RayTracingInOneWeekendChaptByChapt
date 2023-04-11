@@ -181,7 +181,7 @@ int main()
 	const int image_height = static_cast<int>(image_width /aspect_ratio);
 //	const int samples_per_pixel = 500;
 //	const int samples_per_pixel = 200;
-	const int samples_per_pixel = 10;
+	const int samples_per_pixel = 50;
 	const int max_depth = 50;
 
 	auto R = cos(pi/4);
@@ -204,8 +204,9 @@ int main()
 	//auto aperture = 2.0;
 	auto aperture = 0.1;
 
-	camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus);
-	
+//	camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus);
+	camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus, 0.0, 1.0);
+
 	// Render
 
 	std::cout << "P3\n" << image_width << " " << image_height << "\n255\n";
