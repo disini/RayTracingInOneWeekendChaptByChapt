@@ -9,3 +9,7 @@ https://raytracing.github.io/books/RayTracingInOneWeekend.html
 https://raytracing.github.io/books/RayTracingTheNextWeek.html
 
 https://raytracing.github.io/books/RayTracingTheRestOfYourLife.html
+
+![](1-Ray Tracing in One Weekend/code/Chpt01/Code01/build_ubuntu/08_Final_Render-03_3840_500_Samples.png)
+
+#### Book 1 Final Result : 3840x2160, 500 Samples per Pixel
