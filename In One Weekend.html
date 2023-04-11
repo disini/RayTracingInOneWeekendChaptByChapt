@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)https://in1weekend.blogspot.com/ -->
+<html class="v2" dir="ltr" lang="en"><script src="./In One Weekend_files/cb=gapi(1).loaded_0" async=""></script><script>
+    (function() {
+    class RuffleMimeType {
+        constructor(a, b, c) {
+            this.type = a, this.description = b, this.suffixes = c
+        }
+    }
+    class RuffleMimeTypeArray {
+        constructor(a) {
+            this.__mimetypes = [], this.__named_mimetypes = {};
+            for (let b of a) this.install(b)
+        }
+        install(a) {
+            let b = this.__mimetypes.length;
+            this.__mimetypes.push(a), this.__named_mimetypes[a.type] = a, this[a.type] = a, this[b] = a
+        }
+        item(a) {
+            return this.__mimetypes[a]
+        }
+        namedItem(a) {
+            return this.__named_mimetypes[a]
+        }
+        get length() {
+            return this.__mimetypes.length
+        }
+    }
+    class RufflePlugin extends RuffleMimeTypeArray {
+        constructor(a, b, c, d) {
+            super(d), this.name = a, this.description = b, this.filename = c
+        }
+        install(a) {
+            a.enabledPlugin || (a.enabledPlugin = this), super.install(a)
+        }
+    }
+    class RufflePluginArray {
+        [Symbol.iterator]() {
+            return this.__plugins[Symbol.iterator]()
+        }
+        constructor(a) {
+            this.__plugins = [], this.__named_plugins = {};
+            for (let b of a) this.install(b)
+        }
+        install(a) {
+            let b = this.__plugins.length;
+            this.__plugins.push(a), this.__named_plugins[a.name] = a, this[a.name] = a, this[b] = a
+        }
+        item(a) {
+            return this.__plugins[a]
+        }
+        namedItem(a) {
+            return this.__named_plugins[a]
+        }
+        refresh() {}
+        get length() {
+            return this.__plugins.length
+        }
+    }
+    const FLASH_PLUGIN = new RufflePlugin("Shockwave Flash", "Shockwave Flash 32.0 r0", "ruffle.js", [new RuffleMimeType("application/futuresplash", "Shockwave Flash", "spl"), new RuffleMimeType("application/x-shockwave-flash", "Shockwave Flash", "swf"), new RuffleMimeType("application/x-shockwave-flash2-preview", "Shockwave Flash", "swf"), new RuffleMimeType("application/vnd.adobe.flash.movie", "Shockwave Flash", "swf")]);
+
+    function install_plugin(a) {
+        navigator.plugins.install || Object.defineProperty(navigator, "plugins", {
+            value: new RufflePluginArray(navigator.plugins),
+            writable: !1
+        }), navigator.plugins.install(a), 0 < a.length && !navigator.mimeTypes.install && Object.defineProperty(navigator, "mimeTypes", {
+            value: new RuffleMimeTypeArray(navigator.mimeTypes),
+            writable: !1
+        });
+        for (var b = 0; b < a.length; b += 1) navigator.mimeTypes.install(a[b])
+    }
+    install_plugin(FLASH_PLUGIN);
+})();
+</script><script src="chrome-extension://ljfgijlbekebdhniagdekklbmmchhjja/injected_content.js"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="./In One Weekend_files/3566091532-css_bundle_v2.css" rel="stylesheet" type="text/css">
+<meta content="width=1100" name="viewport">
+
+<meta content="blogger" name="generator">
+<link href="https://in1weekend.blogspot.com/favicon.ico" rel="icon" type="image/x-icon">
+<link href="http://in1weekend.blogspot.com/" rel="canonical">
+<link rel="alternate" type="application/atom+xml" title="In One Weekend - Atom" href="https://in1weekend.blogspot.com/feeds/posts/default">
+<link rel="alternate" type="application/rss+xml" title="In One Weekend - RSS" href="https://in1weekend.blogspot.com/feeds/posts/default?alt=rss">
+<link rel="service.post" type="application/atom+xml" title="In One Weekend - Atom" href="https://www.blogger.com/feeds/8132805539473515195/posts/default">
+<link rel="me" href="https://www.blogger.com/profile/17871569418798062417">
+<!--Can't find substitution for tag [blog.ieCssRetrofitLinks]-->
+<meta content="http://in1weekend.blogspot.com/" property="og:url">
+<meta content="In One Weekend" property="og:title">
+<meta content="Weekends are a great chunk of time to get a significant project done, and limiting it to a weekend helps to stay on task.    This blog is inspired by a how-to book on ray tracing, but that is just the initial driving example." property="og:description">
+<title>In One Weekend</title>
+<style id="page-skin-1" type="text/css"><!--
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Simple
+Designer: Blogger
+URL:      www.blogger.com
+----------------------------------------------- */
+/* Content
+----------------------------------------------- */
+body {
+font: normal normal 12px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #222222;
+background: #eeaa00 none repeat scroll top left;
+padding: 0 40px 40px 40px;
+}
+html body .region-inner {
+min-width: 0;
+max-width: 100%;
+width: auto;
+}
+h2 {
+font-size: 22px;
+}
+a:link {
+text-decoration:none;
+color: #cc6611;
+}
+a:visited {
+text-decoration:none;
+color: #888888;
+}
+a:hover {
+text-decoration:underline;
+color: #ff9900;
+}
+.body-fauxcolumn-outer .fauxcolumn-inner {
+background: transparent url(https://resources.blogblog.com/blogblog/data/1kt/simple/body_gradient_tile_light.png) repeat scroll top left;
+_background-image: none;
+}
+.body-fauxcolumn-outer .cap-top {
+position: absolute;
+z-index: 1;
+height: 400px;
+width: 100%;
+}
+.body-fauxcolumn-outer .cap-top .cap-left {
+width: 100%;
+background: transparent url(https://resources.blogblog.com/blogblog/data/1kt/simple/gradients_light.png) repeat-x scroll top left;
+_background-image: none;
+}
+.content-outer {
+-moz-box-shadow: 0 0 40px rgba(0, 0, 0, .15);
+-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .15);
+-goog-ms-box-shadow: 0 0 10px #333333;
+box-shadow: 0 0 40px rgba(0, 0, 0, .15);
+margin-bottom: 1px;
+}
+.content-inner {
+padding: 10px 10px;
+}
+.content-inner {
+background-color: #ffffff;
+}
+/* Header
+----------------------------------------------- */
+.header-outer {
+background: #cc6611 url(//www.blogblog.com/1kt/simple/gradients_light.png) repeat-x scroll 0 -400px;
+_background-image: none;
+}
+.Header h1 {
+font: normal normal 60px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #ffffff;
+text-shadow: 1px 2px 3px rgba(0, 0, 0, .2);
+}
+.Header h1 a {
+color: #ffffff;
+}
+.Header .description {
+font-size: 140%;
+color: #ffffff;
+}
+.header-inner .Header .titlewrapper {
+padding: 22px 30px;
+}
+.header-inner .Header .descriptionwrapper {
+padding: 0 30px;
+}
+/* Tabs
+----------------------------------------------- */
+.tabs-inner .section:first-child {
+border-top: 0 solid #eeeeee;
+}
+.tabs-inner .section:first-child ul {
+margin-top: -0;
+border-top: 0 solid #eeeeee;
+border-left: 0 solid #eeeeee;
+border-right: 0 solid #eeeeee;
+}
+.tabs-inner .widget ul {
+background: #f5f5f5 url(https://resources.blogblog.com/blogblog/data/1kt/simple/gradients_light.png) repeat-x scroll 0 -800px;
+_background-image: none;
+border-bottom: 1px solid #eeeeee;
+margin-top: 0;
+margin-left: -30px;
+margin-right: -30px;
+}
+.tabs-inner .widget li a {
+display: inline-block;
+padding: .6em 1em;
+font: normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #999999;
+border-left: 1px solid #ffffff;
+border-right: 1px solid #eeeeee;
+}
+.tabs-inner .widget li:first-child a {
+border-left: none;
+}
+.tabs-inner .widget li.selected a, .tabs-inner .widget li a:hover {
+color: #000000;
+background-color: #eeeeee;
+text-decoration: none;
+}
+/* Columns
+----------------------------------------------- */
+.main-outer {
+border-top: 0 solid #eeeeee;
+}
+.fauxcolumn-left-outer .fauxcolumn-inner {
+border-right: 1px solid #eeeeee;
+}
+.fauxcolumn-right-outer .fauxcolumn-inner {
+border-left: 1px solid #eeeeee;
+}
+/* Headings
+----------------------------------------------- */
+div.widget > h2,
+div.widget h2.title {
+margin: 0 0 1em 0;
+font: normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #000000;
+}
+/* Widgets
+----------------------------------------------- */
+.widget .zippy {
+color: #999999;
+text-shadow: 2px 2px 1px rgba(0, 0, 0, .1);
+}
+.widget .popular-posts ul {
+list-style: none;
+}
+/* Posts
+----------------------------------------------- */
+h2.date-header {
+font: normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+}
+.date-header span {
+background-color: transparent;
+color: #222222;
+padding: inherit;
+letter-spacing: inherit;
+margin: inherit;
+}
+.main-inner {
+padding-top: 30px;
+padding-bottom: 30px;
+}
+.main-inner .column-center-inner {
+padding: 0 15px;
+}
+.main-inner .column-center-inner .section {
+margin: 0 15px;
+}
+.post {
+margin: 0 0 25px 0;
+}
+h3.post-title, .comments h4 {
+font: normal normal 22px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+margin: .75em 0 0;
+}
+.post-body {
+font-size: 110%;
+line-height: 1.4;
+position: relative;
+}
+.post-body img, .post-body .tr-caption-container, .Profile img, .Image img,
+.BlogList .item-thumbnail img {
+padding: 2px;
+background: #ffffff;
+border: 1px solid #eeeeee;
+-moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+-webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+}
+.post-body img, .post-body .tr-caption-container {
+padding: 5px;
+}
+.post-body .tr-caption-container {
+color: #222222;
+}
+.post-body .tr-caption-container img {
+padding: 0;
+background: transparent;
+border: none;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+}
+.post-header {
+margin: 0 0 1.5em;
+line-height: 1.6;
+font-size: 90%;
+}
+.post-footer {
+margin: 20px -2px 0;
+padding: 5px 10px;
+color: #666666;
+background-color: #f9f9f9;
+border-bottom: 1px solid #eeeeee;
+line-height: 1.6;
+font-size: 90%;
+}
+#comments .comment-author {
+padding-top: 1.5em;
+border-top: 1px solid #eeeeee;
+background-position: 0 1.5em;
+}
+#comments .comment-author:first-child {
+padding-top: 0;
+border-top: none;
+}
+.avatar-image-container {
+margin: .2em 0 0;
+}
+#comments .avatar-image-container img {
+border: 1px solid #eeeeee;
+}
+/* Comments
+----------------------------------------------- */
+.comments .comments-content .icon.blog-author {
+background-repeat: no-repeat;
+background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB9sLFwMeCjjhcOMAAAD+SURBVDjLtZSvTgNBEIe/WRRnm3U8RC1neQdsm1zSBIU9VVF1FkUguQQsD9ITmD7ECZIJSE4OZo9stoVjC/zc7ky+zH9hXwVwDpTAWWLrgS3QAe8AZgaAJI5zYAmc8r0G4AHYHQKVwII8PZrZFsBFkeRCABYiMh9BRUhnSkPTNCtVXYXURi1FpBDgArj8QU1eVXUzfnjv7yP7kwu1mYrkWlU33vs1QNu2qU8pwN0UpKoqokjWwCztrMuBhEhmh8bD5UDqur75asbcX0BGUB9/HAMB+r32hznJgXy2v0sGLBcyAJ1EK3LFcbo1s91JeLwAbwGYu7TP/3ZGfnXYPgAVNngtqatUNgAAAABJRU5ErkJggg==);
+}
+.comments .comments-content .loadmore a {
+border-top: 1px solid #999999;
+border-bottom: 1px solid #999999;
+}
+.comments .comment-thread.inline-thread {
+background-color: #f9f9f9;
+}
+.comments .continue {
+border-top: 2px solid #999999;
+}
+/* Accents
+---------------------------------------------- */
+.section-columns td.columns-cell {
+border-left: 1px solid #eeeeee;
+}
+.blog-pager {
+background: transparent none no-repeat scroll top center;
+}
+.blog-pager-older-link, .home-link,
+.blog-pager-newer-link {
+background-color: #ffffff;
+padding: 5px;
+}
+.footer-outer {
+border-top: 0 dashed #bbbbbb;
+}
+/* Mobile
+----------------------------------------------- */
+body.mobile  {
+background-size: auto;
+}
+.mobile .body-fauxcolumn-outer {
+background: transparent none repeat scroll top left;
+}
+.mobile .body-fauxcolumn-outer .cap-top {
+background-size: 100% auto;
+}
+.mobile .content-outer {
+-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+}
+.mobile .tabs-inner .widget ul {
+margin-left: 0;
+margin-right: 0;
+}
+.mobile .post {
+margin: 0;
+}
+.mobile .main-inner .column-center-inner .section {
+margin: 0;
+}
+.mobile .date-header span {
+padding: 0.1em 10px;
+margin: 0 -10px;
+}
+.mobile h3.post-title {
+margin: 0;
+}
+.mobile .blog-pager {
+background: transparent none no-repeat scroll top center;
+}
+.mobile .footer-outer {
+border-top: none;
+}
+.mobile .main-inner, .mobile .footer-inner {
+background-color: #ffffff;
+}
+.mobile-index-contents {
+color: #222222;
+}
+.mobile-link-button {
+background-color: #cc6611;
+}
+.mobile-link-button a:link, .mobile-link-button a:visited {
+color: #ffffff;
+}
+.mobile .tabs-inner .section:first-child {
+border-top: none;
+}
+.mobile .tabs-inner .PageList .widget-content {
+background-color: #eeeeee;
+color: #000000;
+border-top: 1px solid #eeeeee;
+border-bottom: 1px solid #eeeeee;
+}
+.mobile .tabs-inner .PageList .widget-content .pagelist-arrow {
+border-left: 1px solid #eeeeee;
+}
+
+--></style>
+<style id="template-skin-1" type="text/css"><!--
+body {
+min-width: 960px;
+}
+.content-outer, .content-fauxcolumn-outer, .region-inner {
+min-width: 960px;
+max-width: 960px;
+_width: 960px;
+}
+.main-inner .columns {
+padding-left: 0px;
+padding-right: 310px;
+}
+.main-inner .fauxcolumn-center-outer {
+left: 0px;
+right: 310px;
+/* IE6 does not respect left and right together */
+_width: expression(this.parentNode.offsetWidth -
+parseInt("0px") -
+parseInt("310px") + 'px');
+}
+.main-inner .fauxcolumn-left-outer {
+width: 0px;
+}
+.main-inner .fauxcolumn-right-outer {
+width: 310px;
+}
+.main-inner .column-left-outer {
+width: 0px;
+right: 100%;
+margin-left: -0px;
+}
+.main-inner .column-right-outer {
+width: 310px;
+margin-right: -310px;
+}
+#layout {
+min-width: 0;
+}
+#layout .content-outer {
+min-width: 0;
+width: 800px;
+}
+#layout .region-inner {
+min-width: 0;
+width: auto;
+}
+body#layout div.add_widget {
+padding: 8px;
+}
+body#layout div.add_widget a {
+margin-left: 32px;
+}
+--></style>
+<link href="./In One Weekend_files/authorization.css" media="all" onload="if(media!=&#39;all&#39;)media=&#39;all&#39;" rel="stylesheet"><noscript><link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=8132805539473515195&amp;zx=03eca836-c050-4ae2-b626-a067bdafea89' rel='stylesheet'/></noscript>
+<meta name="google-adsense-platform-account" content="ca-host-pub-1556223355139109">
+<meta name="google-adsense-platform-domain" content="blogspot.com">
+
+<script>/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+var __webpack_exports__ = {};
+
+;// CONCATENATED MODULE: ../core/dist/flash-identifiers.js
+const FLASH_MIMETYPE = "application/x-shockwave-flash";
+const FUTURESPLASH_MIMETYPE = "application/futuresplash";
+const FLASH7_AND_8_MIMETYPE = "application/x-shockwave-flash2-preview";
+const FLASH_MOVIE_MIMETYPE = "application/vnd.adobe.flash.movie";
+const FLASH_ACTIVEX_CLASSID = "clsid:D27CDB6E-AE6D-11cf-96B8-444553540000";
+
+;// CONCATENATED MODULE: ../core/dist/plugin-polyfill.js
+
+/**
+ * Replacement object for `MimeTypeArray` that lets us install new fake mime
+ * types.
+ *
+ * Unlike plugins we can at least enumerate mime types in Firefox, so we don't
+ * lose data.
+ *
+ * We also expose a method called `install` which adds a new plugin. This is
+ * used to falsify Flash detection. If the existing `navigator.mimeTypes` has an
+ * `install` method, you should not use `RuffleMimeTypeArray` as some other
+ * plugin emulator is already present.
+ */
+class RuffleMimeTypeArray {
+    constructor(mimeTypes) {
+        this.__mimeTypes = [];
+        this.__namedMimeTypes = {};
+        if (mimeTypes) {
+            for (let i = 0; i < mimeTypes.length; i++) {
+                this.install(mimeTypes[i]);
+            }
+        }
+    }
+    /**
+     * Install a MIME Type into the array.
+     *
+     * @param mimeType The mime type to install
+     */
+    install(mimeType) {
+        const index = this.__mimeTypes.length;
+        this.__mimeTypes.push(mimeType);
+        this.__namedMimeTypes[mimeType.type] = mimeType;
+        this[mimeType.type] = mimeType;
+        this[index] = mimeType;
+    }
+    item(index) {
+        // This behavior is done to emulate a 32-bit uint,
+        // which browsers use.
+        return this.__mimeTypes[index >>> 0];
+    }
+    namedItem(name) {
+        return this.__namedMimeTypes[name];
+    }
+    get length() {
+        return this.__mimeTypes.length;
+    }
+    [Symbol.iterator]() {
+        return this.__mimeTypes[Symbol.iterator]();
+    }
+}
+/**
+ * Equivalent object to `Plugin` that allows us to falsify plugins.
+ */
+class RufflePlugin extends RuffleMimeTypeArray {
+    constructor(name, description, filename) {
+        super();
+        this.name = name;
+        this.description = description;
+        this.filename = filename;
+    }
+}
+/**
+ * Replacement object for `PluginArray` that lets us install new fake plugins.
+ *
+ * This object needs to wrap the native plugin array, since the user might have
+ * actual plugins installed. Firefox doesn't let us enumerate the array, though,
+ * which has some consequences. Namely, we can't actually perfectly wrap the
+ * native plugin array, at least unless there's some secret "unresolved object
+ * property name handler" that I've never known before in JS...
+ *
+ * We can still wrap `namedItem` perfectly at least.
+ *
+ * We also expose a method called `install` which adds a new plugin. This is
+ * used to falsify Flash detection. If the existing `navigator.plugins` has an
+ * `install` method, you should not use `RufflePluginArray` as some other plugin
+ * emulator is already present.
+ */
+class RufflePluginArray {
+    constructor(plugins) {
+        this.__plugins = [];
+        this.__namedPlugins = {};
+        for (let i = 0; i < plugins.length; i++) {
+            this.install(plugins[i]);
+        }
+    }
+    install(plugin) {
+        const index = this.__plugins.length;
+        this.__plugins.push(plugin);
+        this.__namedPlugins[plugin.name] = plugin;
+        this[plugin.name] = plugin;
+        this[index] = plugin;
+    }
+    item(index) {
+        // This behavior is done to emulate a 32-bit uint,
+        // which browsers use. Cloudflare's anti-bot
+        // checks rely on this.
+        return this.__plugins[index >>> 0];
+    }
+    namedItem(name) {
+        return this.__namedPlugins[name];
+    }
+    refresh() {
+        // Nothing to do, we just need to define the method.
+    }
+    [Symbol.iterator]() {
+        return this.__plugins[Symbol.iterator]();
+    }
+    get length() {
+        return this.__plugins.length;
+    }
+}
+/**
+ * A fake plugin designed to trigger Flash detection scripts.
+ */
+const FLASH_PLUGIN = new RufflePlugin("Shockwave Flash", "Shockwave Flash 32.0 r0", "ruffle.js");
+/**
+ * A fake plugin designed to allow early detection of if the Ruffle extension is in use.
+ */
+const RUFFLE_EXTENSION = new RufflePlugin("Ruffle Extension", "Ruffle Extension", "ruffle.js");
+FLASH_PLUGIN.install({
+    type: FUTURESPLASH_MIMETYPE,
+    description: "Shockwave Flash",
+    suffixes: "spl",
+    enabledPlugin: FLASH_PLUGIN,
+});
+FLASH_PLUGIN.install({
+    type: FLASH_MIMETYPE,
+    description: "Shockwave Flash",
+    suffixes: "swf",
+    enabledPlugin: FLASH_PLUGIN,
+});
+FLASH_PLUGIN.install({
+    type: FLASH7_AND_8_MIMETYPE,
+    description: "Shockwave Flash",
+    suffixes: "swf",
+    enabledPlugin: FLASH_PLUGIN,
+});
+FLASH_PLUGIN.install({
+    type: FLASH_MOVIE_MIMETYPE,
+    description: "Shockwave Flash",
+    suffixes: "swf",
+    enabledPlugin: FLASH_PLUGIN,
+});
+/**
+ * Install a fake plugin such that detectors will see it in `navigator.plugins`.
+ *
+ * This function takes care to check if the existing implementation of
+ * `navigator.plugins` already accepts fake plugin entries. If so, it will use
+ * that version of the plugin array. This allows the plugin polyfill to compose
+ * across multiple plugin emulators with the first emulator's polyfill winning.
+ *
+ * @param plugin The plugin to install
+ */
+function installPlugin(plugin) {
+    if (!("install" in navigator.plugins) || !navigator.plugins["install"]) {
+        Object.defineProperty(navigator, "plugins", {
+            value: new RufflePluginArray(navigator.plugins),
+            writable: false,
+        });
+    }
+    const plugins = navigator.plugins;
+    plugins.install(plugin);
+    if (plugin.length > 0 &&
+        (!("install" in navigator.mimeTypes) || !navigator.mimeTypes["install"])) {
+        Object.defineProperty(navigator, "mimeTypes", {
+            value: new RuffleMimeTypeArray(navigator.mimeTypes),
+            writable: false,
+        });
+    }
+    const mimeTypes = navigator.mimeTypes;
+    for (let i = 0; i < plugin.length; i += 1) {
+        mimeTypes.install(plugin[i]);
+    }
+}
+
+;// CONCATENATED MODULE: ./src/plugin-polyfill.ts
+// This file is compiled and then injected into content.ts's compiled form.
+
+installPlugin(FLASH_PLUGIN);
+installPlugin(RUFFLE_EXTENSION);
+
+/******/ })()
+;</script><script src="chrome-extension://donbcfbmhbcapadipfkeojnmajbakjdc/dist/ruffle.js?id=36474032302"></script><script>(function(){class RuffleMimeType{constructor(a,b,c){this.type=a,this.description=b,this.suffixes=c}}class RuffleMimeTypeArray{constructor(a){this.__mimetypes=[],this.__named_mimetypes={};for(let b of a)this.install(b)}install(a){let b=this.__mimetypes.length;this.__mimetypes.push(a),this.__named_mimetypes[a.type]=a,this[a.type]=a,this[b]=a}item(a){return this.__mimetypes[a]}namedItem(a){return this.__named_mimetypes[a]}get length(){return this.__mimetypes.length}}class RufflePlugin extends RuffleMimeTypeArray{constructor(a,b,c,d){super(d),this.name=a,this.description=b,this.filename=c}install(a){a.enabledPlugin||(a.enabledPlugin=this),super.install(a)}}class RufflePluginArray{[Symbol.iterator](){return this.__plugins[Symbol.iterator]()}constructor(a){this.__plugins=[],this.__named_plugins={};for(let b of a)this.install(b)}install(a){let b=this.__plugins.length;this.__plugins.push(a),this.__named_plugins[a.name]=a,this[a.name]=a,this[b]=a}item(a){return this.__plugins[a]}namedItem(a){return this.__named_plugins[a]}refresh(){}get length(){return this.__plugins.length}}const FLASH_PLUGIN=new RufflePlugin("Shockwave Flash","Shockwave Flash 32.0 r0","ruffle.js",[new RuffleMimeType("application/futuresplash","Shockwave Flash","spl"),new RuffleMimeType("application/x-shockwave-flash","Shockwave Flash","swf"),new RuffleMimeType("application/x-shockwave-flash2-preview","Shockwave Flash","swf"),new RuffleMimeType("application/vnd.adobe.flash.movie","Shockwave Flash","swf")]);function install_plugin(a){navigator.plugins.install||Object.defineProperty(navigator,"plugins",{value:new RufflePluginArray(navigator.plugins),writable:!1}),navigator.plugins.install(a),0<a.length&&!navigator.mimeTypes.install&&Object.defineProperty(navigator,"mimeTypes",{value:new RuffleMimeTypeArray(navigator.mimeTypes),writable:!1});for(var b=0;b<a.length;b+=1)navigator.mimeTypes.install(a[b])}install_plugin(FLASH_PLUGIN);})();</script><script src="chrome-extension://oakbcaafbicdddpdlhbchhpblmhefngh/dist/ruffle.js?id=30523474415"></script><script type="text/javascript" src="./In One Weekend_files/f.txt"></script><input type="hidden" id="_w_simile" data-inspect-config="3"><script type="text/javascript" src="chrome-extension://dbjbempljhcmhlfpfacalomonjpalpko/scripts/inspector.js"></script><style>.one-pan-tip { cursor: pointer;}.one-pan-tip::before {background-position: center;background-size: 100% 100%;background-repeat: no-repeat;box-sizing: border-box;width: 1em;height: 1em;margin: 0 1px .15em 1px;vertical-align: middle;display: inline-block;}.one-pan-tip-success::before {content: '';background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAQA0lEQVR4Xu1de5QcVZ3+ftU9M3lPV8dwUNYHIZqQmW5BiGcdkwwzXZEVWXCPBx9HxSMcdxcRH0Tx7EYXz4r4InIUkT3sJhzXXRSyf6wsCpHuGUliUDESu3pYnuGhqLuzVPUk5DEz3fXbc7tnPCHT3fWu6q6u/mf+qHt/j+/75tatW7d+lxD/uhoB6urs4+QRC6DLRRALIBZAlyPQ5elHcwS4G4nsK5avAaRBcGIQQJbBpwNYSkxLxF+AlwJYBtA0iCeZaRLE/wumSSKeBPgFZjxrSHim0ls+9PhGHImiViIhgNUPyP1LiUdAlCPGWxkYIKJeLwljZg2gQwz+JYjzxwwaO7RFn/LSRxi2OlMADMqMpzYz0xYJpDDzBiKSAgWQuQqiA2DOM/FudbS8FwQONAYPnHWUAM5+cMXrk5Xk5WD+EBG92oP8PTTBzzHoe5Ss7iwOTz3joWFfTbW9ALK7sdRIyh8kxuVE9BZf0fDIODM/xKAd5SXanb8bwnGPzPpipm0FkH2w/0yuJK4B8BGqTdY678fMLxLh5uk+/VvtOolsOwFkxlLDMOiTIFxKoLaLz5EMmaeY6JaEZGw/OFIuO7LhU6e2AXjdeOp1PQZ9l0Cbfco1fLOMoywZX1Wp/GWMoBJ+QAh/KXjNj9G3eFHqOhi0jYj62gEUv2Ng4HEGrijltP1++zKzH+oIkCmkNgO0k0BnmQUaxevM+O4sZrc+phx5Maz8whHAOJJZI/UVQNoaVuLt4re+wMRXqkr5P8OIKXABDIwvPV2q9t1DhA1hJNyuPhm448V+7WO/Px/HgowxUAGIGT4x7QJoVZBJdoovBj8NMt6jjk4dCCrmwASQyaevBfjrgS/ZBoWkZ364wkyfVRXtG56ZbGHIfwEwKDsm3wrQVUEkFB0ffFsxp3/U73x8FcB5v0LPTFneRUSX+p1IFO0zsKu3X3v/gfMx61d+vglg7T4s752W7430wo5frJxkl8F7Zvr0i/1aSvZFAOIFDhLyPhCdEwBG0XfBfBBVfWPxQhz1OlnvBVB7xk/vBjDqdbBdbm+sKGkXer2E7K0AxEaNsfRdBFzW5WT5kr6YE6ij2nu83HjiqQCyhdRN8eqeL9yfPCu4qZjTP+OVF88EkM3LHwXRrV4FFttpgQDz1UVF/44XGHkigMxY/3nE0kMA9XgRVGzDDAGerRJvmBgt/8aspdl11wI4ZzyVMgypBOAMM2fxdS8R4Gclic91u8HEtQAyhfRuAt7mZWqxLYsIMN9fVPS3W2zdsJkrAQzm01slwk1uAoj7ukOAGVvdvDdwLIDs2PK14GQJoKS7FOLe7hDg2YpUXf/oyOGnnNhxLIBMXt7fKdu0nQDTSX0YeEDNaY5uw44EkCmkPkyQdnYSSFGP1WD+y5Ki32s3T9sCqM/66RmAUnadxe39Q4DBT/X26+vtvjm0LYBMPr2DCFf4l0ps2TECzNuKin6jnf62BHB2IfXaJNOheFePHYiDa8vASwnJeLWdtQFbAsgU5NsJ9JHgUoo92UXAAH+plNM/Z7WfZQGcvWfJK5Mzfc96/d291UDjdtYQsDsKWBZA/KbPGgHt0IoZX1QV7R+sxGJJAHPr/b8HsNiK0bhNuAjYGQUsCSAzlv4UMQLZphwudNHxbrDxiZJS/pZZRpYEkM2nHwfhDWbG4uvtgwAzHlYV7c1mEZkKoP6uP/ErM0Px9YUI1CqFEMaI+GFmvEZiOp+BdxDRyiDwYq6epSpTh1r5MhdAQb6FQB8LIuDo+OBJMN5VVPS9p+b0Z/uxWD4uX0+gz/qdLwM3qDnt844FID7smC3LkyDq9zvYqNhn5ucrxJv/O1d+rlVO2bx8I4j+zs+8GfidmtNaFtNqOQIMjsnvkJhsv2DwM6l2ti3Il+jE0G9yx18wjVPsoC6kS0RYb9rWRQNmDKmK9lAzEy0FkMmnthNJ17rw3zVdbZE/h0omL19NRN/2FyT+XDGnf8mRALIF+QBAb/I3wM637oR8kfXAeOqchCE94icCDBTUnKbYFoD4vIuT8pHIVOryCWWn5ItwRGGsXkPytagkM0+rCX1Zsy+Kmt4CMmOpS4mlUMqW+MSV52bdkC+CETWSCNKDngd2qkHmzY2eSESz5gIopG8m4JO+B9ehDpj5kEQnNlua8DXJMZtPfxOEj/sNAbNxvaqU/7GRn6YCyOblvSDa6HdwnWhfkM+YGSopR//HafxvGF/+ikVGz/OBvF9h7C4q2l/YFED6JZCoqx//TkbAC/LX7Fm2aslszzhAA0GgK25VqqK/1rIA5tQ5GURwneTDK/IXz/buIWBdkLkfm9YWPXURpk/12fAWMDAub0wYtGAZM8iA281XJ5MvsKwYxpse3VJe8MjZUACZQlpU6L693UgIK55aaVeeHnZzzxfDfhj/+fOYMfH71VH9TksjQLYgfx2gT4cF+Mv8Mp5kYimscrKC/GlpduMTI0f+zykeYZMv4m62S6jxCBD21m9BusRfMBZV758YOqyJBNbll69MUuIiiaXPg/B6p2TY6RcV8usC4NtVRf8bSyNAppC+O6wyL8z8U6rqFzcriFR7nXpM/r7fpeeiRH6ddP5BMae/z5IAsnn5PhA1fG608x9kt604YWMWlbWm1bPHkcwYNZH+lV0fVtpHj/zaCPAjVdEvtiaAgrwPoLdaAcvLNgbx35dG9S9bsnk3EpmV6V1eiyCK5Nf+/8F71Jw+bEkAmYJ8kEBvtESEl41odl1x9Mjjlk16LgKeOCFVLuj0CV9D/JgPFhX9XGsCyMtPE9Fqy0R41bCiLbNdDNEzEfAE9xqb1E1TutN02mG23yx2UYlczelrrAmgID9JoAWNnQJjtV91cWXl/Kzfap9aO9ciiDb59Tkgniwq2oKd3Q0fA7N5+ZFQyrwy3l5UtPttkT/f2LEIuoD8mgD4kaKiL9jc00wAe0C0yRERbjq5LXpkWwRdQn5dAHuLir7gRLYmS8Hyjwh0kRsuHffl6mVFZeo/HPe3KgLmg9xnjEb1nn8qfgy+T83pCzhtJoC7CPRuxyS46Ci2MBEZFxVzU2OOzZiJgPngsWU0/NSfa4ed+mjnCV+jnGp1hnPaAk6b3ALS/wLClU7BcdtPiMBIQJkY0fc5tnU3EtmV8r8B9N6X2ehC8utzQNyh5rQFlV0aC6CQ/gKA6x2D70VHxrFqgi90JYL6cTV3/kkEXUp+fQrAX1MVfcHXSI33A+Tl9yaIvu8Fj65sMI5BqowWRw//wrGdeREw1nXbsH8yZgzjCjVXvuNUHBsKYP0DqXOTkvRrx6B72FF8605UUdyKYO3PsMzNsSudds9fMAls8oVQQwGI83yX9KVPeMijK1M1EaA6XMxNhSLKTidfgF+VtOUTI3jJ0gggGmXy8nNE9BpXzHnZmXkKZIwGLYIokA/wZDGnn9aIjlbfBbRfFfCARRAN8psvAglBNP8uoJAWTwHiaaC9fsxTzNikbtFVPwOLDPn1R8Cb1ZzW8CPfVp+GDRNLP/UTZKe2GazDwLBfIogS+TWMybi0OFq+x9YtAGLXTVV+iYj6nBLlZ7+aCKTKkDpy5DEv/USNfAazIekrGk0AW94C5iaC40R0gZcAe2uLJ1mqbPZKBFEjv4Z1k7eA8zy0LBCRbdd5wMtUxJMVqTrk9MCEeVORJN/k/m86AgwW0kMS8DNv/2u9t8bAH6tSZZNTEUSV/DrSfEkxp/9XM9TNq4Tl5eeJqGWhIe8ptW9RiGBWMt7y2Ej5WTu9I05+uadfP63VGQKmAhgsyDdIoG12QA2rraiKNSsZm6yKINrk13YCf1vN6de04sNUAOvHV6xJGsknwyLVrl+rIog6+bXBn6rnq6NTB1wJQHTutGJRQgRVw7ik0dewIp/BQv9ZEid+HOXytww8pua0s83+gUxHgPrjYPpaImw3M9ZW15mrAP69CtyX6DF+Ue3hqcQJaSOD3gamKwlY1FbxehyMwfh0SdFMObMkAFEuvmpIvyVgmcdxxuZ8QMDzcvG1UaCQ/iIBlo8i8SGv2KRlBNjyEfOWRgDhNx4FLKMfakNmnplOVM6w+nmbZQHUJoMBFDgOFb0IOGfwP6s5/a+tpmJLAPHRMVZhDacdMxsV4tVmlcpPjs6WAOYeCbcBdEM4KcZeWyHAjJ2qotnazm9bAGK/4OJe+Ym22i4W60Is+5Qlic+0c2ikgM22AGqjwFjqErD0wxj39kGg2bZvswgdCWDusfAnBGwxcxBf9x8BcTaRquhDTjw5FkD9HUHiUYB6nDiO+3iFAFdAlUFblVVOcu1YAMLGYD69VSLc5FUqsR37CDBjq6pojs90dCWAubWBUCqK2Ycqgj3c1lNwOgk8Gcq5tYESgDMiCHE7p/SCJBmDdmf9pybkegQQBgfyKzYkKLEfoGQ7Ixad2LhS5erQhHL4Ybc5eSKA2nygIP+tBLrNbUBxf3MEDPBVpZz+T+YtzVt4JoD6pFD+mkT0GXO3cQunCDT7zt+pPU8FAHEY4lj6rrDqDDsFoVP6NSvz4iZ+bwUgIhlHMmukdwMYdRNY3HcBAmNFSbuw2fFvTvHyXgBiqXg3liJRO3RqQWlSp4F2dT/mR1DVN9muomoBNF8EIPyu3YflvdPyvQRaUJvOQlxxkzkERJHnmT79YjfVTVqB6ZsAhFNx+vhMWd7ld23/qKqFmX/Ym9Iva/Vhh9vcfRVALbh6kaZbAbrKbbDd1Z9vK47qV4PE5/3+/fwXwFzs9a3l/NV4sciETOYqg65zs75vRy6BCUAElRnrPw8siSqkZ9kJsnva8qQBemcpp+0PKudABSCSqp9Knr6FgA8HlWQn+GHwfkOaedfEyNE/Bhlv4AKYTy6TT70ToB1ElA4y4Xb0xWx8Q9XK1+HdEF8zBfoLTQAiy9oRtdXkdhBdHmjWbeJMnOIBsKjguSeskEIVwHzSohAFgf+1W+YG9Yro9JXq6dqNEwOYCYt84bctBCACGZhAr/SH9DYCtkb51HKxsCM2cJZyU0+HSfy877YRwHxAA/tXpKXjyU+B8XEirGgHkNzGID7YAHAPM3+ztKXcVqX32k4A82CvfkDuXyrxNQTaClDKLQlh9GfgCAE7jSS2l4a134YRg5nPthXAfOC1x8aE/AEQLieQo63PZiB4fV1s02bQDqmq/cCPFzhextv2Ajg5WbEVPWEkP0SMK0B4lZdAuLXFzM8z4XtS0thRHJ56xq29oPp3lAD+BEpt40lqk6j2IYEUZt5ARFJQoNX8iAokRAfAnGfi3epoea/f6/Z+5NeZAjgFidp8gXiEQVsI9GaAzySilV4CVn90w4TB+DmI87N95bxfr2i9jNvMViQE0CjJ2n6E4/LrKMFngrEaoDOYaRWIV4FpFRGfxozTiZAA4yiDjoH4KICjEEfVgF4QhIOrJU4YJfWCI0+AIGbzkfpFVgCRYsnHZGIB+AhuJ5iOBdAJLPkYYywAH8HtBNOxADqBJR9j/H88XIrb/RiE0gAAAABJRU5ErkJggg==)}.one-pan-tip-error {text-decoration: line-through;}.one-pan-tip-error::before {content: '';background-image: url(data:image/png;base64,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)}.one-pan-tip-other::before {content: '';background-image: url(data:image/png;base64,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)}.one-pan-tip-lock::before{content: '';background-image: url(data:image/png;base64,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)}</style><meta name="ljjc::status" content="on"><style>.gc-bubbleDefault{background-color:transparent!important;text-align:left;padding:0!important;margin:0!important;border:0!important;table-layout:auto!important}.gc-reset{background-color:transparent!important;border:0!important;padding:0!important;margin:0!important;text-align:left}.pls-bubbleTop{border-bottom:1px solid #ccc!important}.pls-contentLeft,.pls-topTail,.pls-vertShimLeft{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/border_3.gif)!important}.pls-topTail{background-repeat:repeat-x!important;background-position:bottom!important}.pls-vertShim{background-color:#fff!important;text-align:right}.tbl-grey .pls-vertShim{background-color:#f5f5f5!important}.pls-vertShimLeft{background-repeat:repeat-y!important;background-position:100%!important;height:4px}.pls-vertShimRight{height:4px}.pls-confirm-container .pls-vertShim{background-color:#fff3c2!important}.pls-contentWrap{background-color:#fff!important;position:relative!important;vertical-align:top}.pls-contentLeft{background-repeat:repeat-y;background-position:100%;vertical-align:top}.pls-dropRight{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropR_3.png)!important;background-repeat:repeat-y!important;vertical-align:top}.pls-dropBL,.pls-dropTR .pls-dropBR,.pls-tailleft,.pls-vert,.pls-vert img{vertical-align:top}.pls-dropBottom{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropB_3.png)!important;background-repeat:repeat-x!important;width:100%;vertical-align:top}.pls-topLeft{background:inherit!important;text-align:right;vertical-align:bottom}.pls-topRight{background:inherit!important;text-align:left;vertical-align:bottom}.pls-bottomLeft{background:inherit!important;text-align:right}.pls-bottomRight{background:inherit!important;text-align:left;vertical-align:top}.pls-tailbottom,.pls-tailleft,.pls-tailright,.pls-tailtop{display:none;position:relative}.pls-dropBL,.pls-dropBR,.pls-dropTR,.pls-tailbottom,.pls-tailleft,.pls-tailright,.pls-tailtop{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleSprite_3.png)!important;background-repeat:no-repeat}.tbl-grey .pls-dropBL,.tbl-grey .pls-dropBR,.tbl-grey .pls-dropTR,.tbl-grey .pls-tailbottom,.tbl-grey .pls-tailleft,.tbl-grey .pls-tailright,.tbl-grey .pls-tailtop{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleSprite-grey.png)!important}.pls-tailbottom{background-position:-23px 0}.pls-confirm-container .pls-tailbottom{background-position:-23px -10px}.pls-tailtop{background-position:-19px -20px}.pls-tailright{background-position:0 0}.pls-tailleft{background-position:-10px 0}.pls-tailtop{vertical-align:top}.gc-bubbleDefault td{line-height:0;font-size:0}.pls-tailbottom,.pls-topLeft img,.pls-topRight img{vertical-align:bottom}.bubbleDropTR,.pls-bottomLeft,.pls-bottomLeft img,.pls-dropBottom img,.pls-dropBottomL img,.pls-dropBottomR img{vertical-align:top}.pls-dropTR{background-position:0 -22px}.pls-dropBR{background-position:0 -27px}.pls-dropBL{background-position:0 -16px}.pls-spacerbottom,.pls-spacerleft,.pls-spacerright,.pls-spacertop{position:static!important}.pls-spinner{bottom:0;position:absolute;left:0;margin:auto;right:0;top:0}</style></head>
+<body class="variant-bold"><div data-v-32478853="" class="odm_extension image_downloader_wrapper"><!----></div>
+<div class="navbar section" id="navbar" name="Navbar"><div class="widget Navbar" data-version="1" id="Navbar1"><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="" tabindex="0" vspace="0" width="100%" id="navbar-iframe" name="navbar-iframe" src="./In One Weekend_files/navbar.html" data-ruffle-polyfilled=""></iframe></div>
+<script type="text/javascript" src="./In One Weekend_files/platform.js" gapi_processed="true"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar.g?targetBlogID\x3d8132805539473515195\x26blogName\x3dIn+One+Weekend\x26publishMode\x3dPUBLISH_MODE_BLOGSPOT\x26navbarType\x3dLIGHT\x26layoutType\x3dLAYOUTS\x26searchRoot\x3dhttps://in1weekend.blogspot.com/search\x26blogLocale\x3den\x26v\x3d2\x26homepageUrl\x3dhttps://in1weekend.blogspot.com/\x26vt\x3d-7895567857450167002',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script><script type="text/javascript">
+(function() {
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = '//pagead2.googlesyndication.com/pagead/js/google_top_exp.js';
+var head = document.getElementsByTagName('head')[0];
+if (head) {
+head.appendChild(script);
+}})();
+</script>
+</div></div>
+<div itemscope="itemscope" itemtype="http://schema.org/Blog" style="display: none;">
+<meta content="In One Weekend" itemprop="name">
+</div>
+<div class="body-fauxcolumns">
+<div class="fauxcolumn-outer body-fauxcolumn-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="content-fauxcolumns">
+<div class="fauxcolumn-outer content-fauxcolumn-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<div class="content-outer">
+<div class="content-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left content-fauxborder-left">
+<div class="fauxborder-right content-fauxborder-right"></div>
+<div class="content-inner">
+<header>
+<div class="header-outer">
+<div class="header-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left header-fauxborder-left">
+<div class="fauxborder-right header-fauxborder-right"></div>
+<div class="region-inner header-inner">
+<div class="header section" id="header" name="Header"><div class="widget Header" data-version="1" id="Header1">
+<div id="header-inner">
+<div class="titlewrapper">
+<h1 class="title">
+In One Weekend
+</h1>
+</div>
+<div class="descriptionwrapper">
+<p class="description"><span>Weekends are a great chunk of time to get a significant project done, and limiting it to a weekend helps to stay on task.    This blog is inspired by a how-to book on ray tracing, but that is just the initial driving example.</span></p>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+<div class="header-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</header>
+<div class="tabs-outer">
+<div class="tabs-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left tabs-fauxborder-left">
+<div class="fauxborder-right tabs-fauxborder-right"></div>
+<div class="region-inner tabs-inner">
+<div class="tabs no-items section" id="crosscol" name="Cross-Column"></div>
+<div class="tabs no-items section" id="crosscol-overflow" name="Cross-Column 2"></div>
+</div>
+</div>
+<div class="tabs-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="main-outer">
+<div class="main-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left main-fauxborder-left">
+<div class="fauxborder-right main-fauxborder-right"></div>
+<div class="region-inner main-inner">
+<div class="columns fauxcolumns">
+<div class="fauxcolumn-outer fauxcolumn-center-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="fauxcolumn-outer fauxcolumn-left-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="fauxcolumn-outer fauxcolumn-right-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<!-- corrects IE6 width calculation -->
+<div class="columns-inner">
+<div class="column-center-outer">
+<div class="column-center-inner">
+<div class="main section" id="main" name="Main"><div class="widget Blog" data-version="1" id="Blog1">
+<div class="blog-posts hfeed">
+
+          <div class="date-outer">
+        
+<h2 class="date-header"><span>Sunday, March 27, 2016</span></h2>
+
+          <div class="date-posts">
+        
+<div class="post-outer">
+<div class="post hentry uncustomized-post-template" itemprop="blogPost" itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+<meta content="8132805539473515195" itemprop="blogId">
+<meta content="7129275646239862970" itemprop="postId">
+<a name="7129275646239862970" one-link-mark="yes"></a>
+<h3 class="post-title entry-title" itemprop="name">
+<a href="https://in1weekend.blogspot.com/2016/03/learn-quartz-composer-in-one-weekend.html" one-link-mark="yes">Learn Quartz Composer in One Weekend</a>
+</h3>
+<div class="post-header">
+<div class="post-header-line-1"></div>
+</div>
+<div class="post-body entry-content" id="post-body-7129275646239862970" itemprop="description articleBody">
+Quartz composer (QC) is an interactive dataflow language from Apple (you need MacOS to run it).&nbsp;&nbsp; I prototype many things in QC because it is very easy to do many things like test image processing functions by feeding the web cam into it. &nbsp; Facebook prototypes their apps on a version of QC they have extended for their purposes. &nbsp; Lots of people, including me, love it. &nbsp; However, visual dataflow a pretty different way of programming and there are also conventions in QC that that are easy, but somebody needs to show them to you.&nbsp;&nbsp;&nbsp; I spent about a week learning QC to the point where I could do something useful because I was a bit overwhelmed by all of the documentation out there.&nbsp;&nbsp;&nbsp; However, key was I found an almost <a href="https://www.youtube.com/playlist?list=PLNE1nfKgKSv6I09WU4FskH5G8ZaB54IN5" one-link-mark="yes">perfect set of youtube videos by Rob Duarte</a>.&nbsp;&nbsp;&nbsp;&nbsp; Go through these videos on Day 1, and be sure to follow each one and actually duplicate his compositions as you go.&nbsp;&nbsp; On Day 2, do your own project.&nbsp;&nbsp; I, for example, did face detection on the webcam and then added devil horns.&nbsp;&nbsp; That was a really easy project in QC because there is a face detection module build in.
+<div style="clear: both;"></div>
+</div>
+<div class="post-footer">
+<div class="post-footer-line post-footer-line-1">
+<span class="post-author vcard">
+Posted by
+<span class="fn" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+<meta content="https://www.blogger.com/profile/17871569418798062417" itemprop="url">
+<a class="g-profile" href="https://www.blogger.com/profile/17871569418798062417" rel="author" title="author profile" one-link-mark="yes">
+<span itemprop="name">Peter Shirley</span>
+</a>
+</span>
+</span>
+<span class="post-timestamp">
+at
+<meta content="http://in1weekend.blogspot.com/2016/03/learn-quartz-composer-in-one-weekend.html" itemprop="url">
+<a class="timestamp-link" href="https://in1weekend.blogspot.com/2016/03/learn-quartz-composer-in-one-weekend.html" rel="bookmark" title="permanent link" one-link-mark="yes"><abbr class="published" itemprop="datePublished" title="2016-03-27T14:49:00-07:00">2:49 PM</abbr></a>
+</span>
+<span class="post-comment-link">
+<a class="comment-link" href="https://in1weekend.blogspot.com/2016/03/learn-quartz-composer-in-one-weekend.html#comment-form" onclick="" one-link-mark="yes">
+45 comments:
+  </a>
+</span>
+<span class="post-icons">
+<span class="item-control blog-admin pid-536872115">
+<a href="https://www.blogger.com/post-edit.g?blogID=8132805539473515195&amp;postID=7129275646239862970&amp;from=pencil" title="Edit Post" one-link-mark="yes">
+<img alt="" class="icon-action" height="18" src="./In One Weekend_files/icon18_edit_allbkg.gif" width="18">
+</a>
+</span>
+</span>
+<div class="post-share-buttons goog-inline-block">
+<a class="goog-inline-block share-button sb-email" href="https://www.blogger.com/share-post.g?blogID=8132805539473515195&amp;postID=7129275646239862970&amp;target=email" target="_blank" title="Email This" one-link-mark="yes"><span class="share-button-link-text">Email This</span></a><a class="goog-inline-block share-button sb-blog" href="https://www.blogger.com/share-post.g?blogID=8132805539473515195&amp;postID=7129275646239862970&amp;target=blog" onclick="window.open(this.href, &quot;_blank&quot;, &quot;height=270,width=475&quot;); return false;" target="_blank" title="BlogThis!" one-link-mark="yes"><span class="share-button-link-text">BlogThis!</span></a><a class="goog-inline-block share-button sb-twitter" href="https://www.blogger.com/share-post.g?blogID=8132805539473515195&amp;postID=7129275646239862970&amp;target=twitter" target="_blank" title="Share to Twitter" one-link-mark="yes"><span class="share-button-link-text">Share to Twitter</span></a><a class="goog-inline-block share-button sb-facebook" href="https://www.blogger.com/share-post.g?blogID=8132805539473515195&amp;postID=7129275646239862970&amp;target=facebook" onclick="window.open(this.href, &quot;_blank&quot;, &quot;height=430,width=640&quot;); return false;" target="_blank" title="Share to Facebook" one-link-mark="yes"><span class="share-button-link-text">Share to Facebook</span></a><a class="goog-inline-block share-button sb-pinterest" href="https://www.blogger.com/share-post.g?blogID=8132805539473515195&amp;postID=7129275646239862970&amp;target=pinterest" target="_blank" title="Share to Pinterest" one-link-mark="yes"><span class="share-button-link-text">Share to Pinterest</span></a>
+</div>
+</div>
+<div class="post-footer-line post-footer-line-2">
+<span class="post-labels">
+</span>
+</div>
+<div class="post-footer-line post-footer-line-3">
+<span class="post-location">
+</span>
+</div>
+</div>
+</div>
+</div>
+
+          </div></div>
+        
+
+          <div class="date-outer">
+        
+<h2 class="date-header"><span>Thursday, March 24, 2016</span></h2>
+
+          <div class="date-posts">
+        
+<div class="post-outer">
+<div class="post hentry uncustomized-post-template" itemprop="blogPost" itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+<meta content="https://4.bp.blogspot.com/--DmmbxVoT2k/VvRM-hi59II/AAAAAAAACGU/8Xv1A1d64yYLGf0AnYJT2xqj9jqcmsVAQ/s320/cover3.tif" itemprop="image_url">
+<meta content="8132805539473515195" itemprop="blogId">
+<meta content="5076898451468463511" itemprop="postId">
+<a name="5076898451468463511" one-link-mark="yes"></a>
+<h3 class="post-title entry-title" itemprop="name">
+<a href="https://in1weekend.blogspot.com/2016/03/ray-tracing-rest-of-your-life.html" one-link-mark="yes">Ray Tracing: The Rest of Your Life</a>
+</h3>
+<div class="post-header">
+<div class="post-header-line-1"></div>
+</div>
+<div class="post-body entry-content" id="post-body-5076898451468463511" itemprop="description articleBody">
+<h2>
+</h2>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://4.bp.blogspot.com/--DmmbxVoT2k/VvRM-hi59II/AAAAAAAACGU/8Xv1A1d64yYLGf0AnYJT2xqj9jqcmsVAQ/s1600/cover3.tif" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" one-link-mark="yes"><img border="0" height="320" src="./In One Weekend_files/cover3.jpg" width="200"></a></div>
+<br>
+<a href="http://www.amazon.com/gp/product/B01DN58P8C/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B01DN58P8C&amp;linkCode=as2&amp;tag=inonwe09-20&amp;linkId=J7FPGV2LHMR2GJYG" one-link-mark="yes">Ray Tracing: The Rest Of Your Life (Ray Tracing Minibooks Book 3)</a><img alt="" border="0" src="./In One Weekend_files/AHs97-lWq3w7hQY9Dm1YlPFqlLz4jCbrROo_rfh8-towHoAKxbvBX9ec9mU6php9CbfpdTr-AZ4m83UFwwZDDZhZ39LaRwlBd_2P3dHV9FdHzz5CbFhD6vOG2nL55s-NsfxUH58o0O-mJ-RxqRSleDU=s0-d" height="1" style="border: none !important; margin: 0px !important;" width="1">
+
+
+<b>&nbsp;</b><br>
+<br>
+<br>
+<b>Chapter 0 Overview</b><br>
+<br>
+This page is for further reading and a page to comment on. &nbsp; This book is for people who have already written a ray tracer as an entry portal into the world of graphics research.&nbsp; So this book has a narrower audience than the previous two mini-books. &nbsp; It covers a path tracer's probabilistic sampling in enough detail to get people up to speed to follow the literature and rendering trends.<br>
+<br>
+<b>Chapter 1: A Simple Monte Carlo Program</b><br>
+<br>
+Don Mitchell has a <a href="http://mentallandscape.com/Papers_siggraph96.pdf" one-link-mark="yes">nice paper</a> on how jittering changes convergence rates. <b><br></b><br>
+<br>
+<br>
+<b>Chapter 2: Monte Carlo Integration</b><br>
+<br>
+<b>Chapter 3: Light Scattering</b><br>
+<br>
+<b>Chapter 4: Importance Sampling Methods</b><br>
+<br>
+<b>Chapter 5: Generating Random Directions</b><br>
+<br>
+<b>Chapter 6: Ortho-normal Bases</b><br>
+<br>
+&nbsp;&nbsp;&nbsp; A <a href="http://orbit.dtu.dk/files/57573287/onb_frisvad_jgt2012.pdf" one-link-mark="yes">very nice little trick</a> on quickly generating ONBs<br>
+<br>
+<b>Chapter 7: Sampling Lights Directly</b><br>
+<br>
+<b>Chapter 8: Mixture Densities</b><br>
+<br>
+<b>Chapter 9: Some Architectural Decisions </b><br>
+<br>
+<b>Chapter 10: Cleaning Up Pdf Management</b><br>
+<br>
+<b>Chapter 11: The Rest of Your Life</b><br>
+<br>
+Rendering is a mature enough field that there are several good book on it now.&nbsp;&nbsp; First I would get yourself a copy of this book:<br>
+<a href="http://www.amazon.com/gp/product/0128006455/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0128006455&amp;linkCode=as2&amp;tag=inonwe09-20&amp;linkId=NEH5RBUNVVGLNZII" one-link-mark="yes">Physically Based Rendering, Third Edition: From Theory To Implementation</a><img alt="" border="0" src="./In One Weekend_files/AHs97-ldVm48ilBmyfv-P47p7qU9fBTvv740z4EbTuIyrmN8JEpr0bQ0ZIARUOYuTZfuTskEZ4qa3T_3RFY6fcA1_tQzwTqHE-7iyOQcJuP_GfXI4Y5kb-cS8bqofFYq7uFmQTl5v6jAWFMWZUDuPkY=s0-d" height="1" style="border: none !important; margin: 0px !important;" width="1"><br>
+I used it as a text in my course instead of my own book. &nbsp; It is that good!<br>
+<br>
+This is another extremely good book on physically based rendering:<br>
+<a href="http://www.amazon.com/gp/product/B00UVACT6C/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B00UVACT6C&amp;linkCode=as2&amp;tag=inonwe09-20&amp;linkId=TSJWADEXFWLIYFU6" one-link-mark="yes">Advanced Global Illumination, Second Edition</a><img alt="" border="0" src="./In One Weekend_files/AHs97-me5fTvhyI0g_F-MdCZfRs9b8WDMA8YcacbjrTNxNR3HI_ysLfHjM5Gz7QkgGQOQb2xtnd2w5nrIZHt5sd-6tsPiq2ssDlN8AvQHmNlQTwb0X5kBTLDZ1-J1-134bycmU6FOsh3sYzFKmzuHfA=s0-d" height="1" style="border: none !important; margin: 0px !important;" width="1">
+
+<br>
+<br>
+This book is older, but it mostly covers topics that don't age and I would definitely get a copy.&nbsp;&nbsp; It's treatment of the math topics useful in graphics are my favorite (for example the basis function discussion is amazing):&nbsp; (<a href="http://www.realtimerendering.com/blog/principles-of-digital-image-synthesis-now-free-for-download/" one-link-mark="yes">update-- it is free online!</a>)<br>
+<a href="http://www.amazon.com/gp/product/1558602763/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1558602763&amp;linkCode=as2&amp;tag=inonwe09-20&amp;linkId=2EWBPNXOELX4APBD" one-link-mark="yes">Principles of Digital Image Synthesis (The Morgan Kaufmann Series in Computer Graphics) 2 Volume Set</a><img alt="" border="0" src="./In One Weekend_files/AHs97-ktLzwCW3l6E8sw673qrTdR17hlvEG7-RmOdVIy7_xFHq-1XiqtAEYnDOwCi1iXIZ5Cj1Q8jfZf5RkUF4VH87qR7EIxWwl_fhxqLXMEVFz5hrcjhDsml5T3kmjgVDCQ5l6qVQ7G1fWlKeJlGOQd=s0-d" height="1" style="border: none !important; margin: 0px !important;" width="1">
+
+<br>
+<br>
+You will want to start putting out high dynamic range images.&nbsp;&nbsp; You are already computing them!&nbsp; This book is a very good discussion of high dynamic range issues:<br>
+<a href="http://www.amazon.com/gp/product/012374914X/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=012374914X&amp;linkCode=as2&amp;tag=inonwe09-20&amp;linkId=QN6IC6SXP7HOFPD4" one-link-mark="yes">High Dynamic Range Imaging, Second Edition: Acquisition, Display, and Image-Based Lighting</a><img alt="" border="0" src="./In One Weekend_files/AHs97-kM81noj7QCSFTk92ssGZdRaZgjkPFRpdWo3-m5c-0mM-n82urseuNTFnsBXUl63ju8Ephrbva3751HbDLsTn1XRO5JhgyKQ-ppahm3Lc7JMmmcpYmjbc-wmivv2IwKQjVpV1uMzG0UUtQNeIQ=s0-d" height="1" style="border: none !important; margin: 0px !important;" width="1">
+
+<br>
+<br>
+This is another older book.&nbsp;&nbsp; It's still got some gold in it, and if you're gonna stay in the area long-haul then I would buy it:<br>
+<a href="http://www.amazon.com/gp/product/0122861604/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0122861604&amp;linkCode=as2&amp;tag=inonwe09-20&amp;linkId=MORTUMK64SPMTYCM" one-link-mark="yes">An Introduction to Ray Tracing (The Morgan Kaufmann Series in Computer Graphics)</a><img alt="" border="0" src="./In One Weekend_files/AHs97-m0c6Kx1CnutOYy1__1ur1W83jEr41gMy9LLJJyTEA4pqum3g6itm6tHoBtHb0lju79K-O2zpGBs3fjdxLCAFAwZkH7isy8pu1ZK0FXQkx_YUfaXxxW9IpiY3zeVUVE8Nd_7Mxspw2AnJrtJqs=s0-d" height="1" style="border: none !important; margin: 0px !important;" width="1"><br>
+<br>
+<br>
+Henrik Jensen has a very nice book on photon mapping that is also just a good book on physically-based rendering.
+<a href="http://www.amazon.com/gp/product/B011DC2J3O/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B011DC2J3O&amp;linkCode=as2&amp;tag=inonwe09-20&amp;linkId=6GG2VLIOINDRRA47" one-link-mark="yes">Realistic Image Synthesis Using Photon Mapping 2nd Revised edition by Jensen, Henrik Wann (2001) Paperback</a><img alt="" border="0" src="./In One Weekend_files/AHs97-nK1sLrrvXhz4lMBEJaCCgh8a6q9ddrKpp8PL6ITRPDkgc71Lg-SSX6PuTmJC4esXptBC6D2TgcI0fpeViCUfat8C88sGaLYxIbuTRKJY9XF_BHahRDkG9gxWNvQ9sflmwqUDlIUaabwAkhAPl3=s0-d" height="1" style="border: none !important; margin: 0px !important;" width="1">
+
+<br>
+<br>
+<div style="clear: both;"></div>
+</div>
+<div class="post-footer">
+<div class="post-footer-line post-footer-line-1">
+<span class="post-author vcard">
+Posted by
+<span class="fn" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+<meta content="https://www.blogger.com/profile/17871569418798062417" itemprop="url">
+<a class="g-profile" href="https://www.blogger.com/profile/17871569418798062417" rel="author" title="author profile" one-link-mark="yes">
+<span itemprop="name">Peter Shirley</span>
+</a>
+</span>
+</span>
+<span class="post-timestamp">
+at
+<meta content="http://in1weekend.blogspot.com/2016/03/ray-tracing-rest-of-your-life.html" itemprop="url">
+<a class="timestamp-link" href="https://in1weekend.blogspot.com/2016/03/ray-tracing-rest-of-your-life.html" rel="bookmark" title="permanent link" one-link-mark="yes"><abbr class="published" itemprop="datePublished" title="2016-03-24T13:53:00-07:00">1:53 PM</abbr></a>
+</span>
+<span class="post-comment-link">
+<a class="comment-link" href="https://in1weekend.blogspot.com/2016/03/ray-tracing-rest-of-your-life.html#comment-form" onclick="" one-link-mark="yes">
+141 comments:
+  </a>
+</span>
+<span class="post-icons">
+<span class="item-control blog-admin pid-536872115">
+<a href="https://www.blogger.com/post-edit.g?blogID=8132805539473515195&amp;postID=5076898451468463511&amp;from=pencil" title="Edit Post" one-link-mark="yes">
+<img alt="" class="icon-action" height="18" src="./In One Weekend_files/icon18_edit_allbkg.gif" width="18">
+</a>
+</span>
+</span>
+<div class="post-share-buttons goog-inline-block">
+<a class="goog-inline-block share-button sb-email" href="https://www.blogger.com/share-post.g?blogID=8132805539473515195&amp;postID=5076898451468463511&amp;target=email" target="_blank" title="Email This" one-link-mark="yes"><span class="share-button-link-text">Email This</span></a><a class="goog-inline-block share-button sb-blog" href="https://www.blogger.com/share-post.g?blogID=8132805539473515195&amp;postID=5076898451468463511&amp;target=blog" onclick="window.open(this.href, &quot;_blank&quot;, &quot;height=270,width=475&quot;); return false;" target="_blank" title="BlogThis!" one-link-mark="yes"><span class="share-button-link-text">BlogThis!</span></a><a class="goog-inline-block share-button sb-twitter" href="https://www.blogger.com/share-post.g?blogID=8132805539473515195&amp;postID=5076898451468463511&amp;target=twitter" target="_blank" title="Share to Twitter" one-link-mark="yes"><span class="share-button-link-text">Share to Twitter</span></a><a class="goog-inline-block share-button sb-facebook" href="https://www.blogger.com/share-post.g?blogID=8132805539473515195&amp;postID=5076898451468463511&amp;target=facebook" onclick="window.open(this.href, &quot;_blank&quot;, &quot;height=430,width=640&quot;); return false;" target="_blank" title="Share to Facebook" one-link-mark="yes"><span class="share-button-link-text">Share to Facebook</span></a><a class="goog-inline-block share-button sb-pinterest" href="https://www.blogger.com/share-post.g?blogID=8132805539473515195&amp;postID=5076898451468463511&amp;target=pinterest" target="_blank" title="Share to Pinterest" one-link-mark="yes"><span class="share-button-link-text">Share to Pinterest</span></a>
+</div>
+</div>
+<div class="post-footer-line post-footer-line-2">
+<span class="post-labels">
+</span>
+</div>
+<div class="post-footer-line post-footer-line-3">
+<span class="post-location">
+</span>
+</div>
+</div>
+</div>
+</div>
+
+          </div></div>
+        
+
+          <div class="date-outer">
+        
+<h2 class="date-header"><span>Sunday, January 31, 2016</span></h2>
+
+          <div class="date-posts">
+        
+<div class="post-outer">
+<div class="post hentry uncustomized-post-template" itemprop="blogPost" itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+<meta content="http://ir-na.amazon-adsystem.com/e/ir?t=inonwe09-20&amp;l=as2&amp;o=1&amp;a=B01CO7PQ8C" itemprop="image_url">
+<meta content="8132805539473515195" itemprop="blogId">
+<meta content="1433766331919231738" itemprop="postId">
+<a name="1433766331919231738" one-link-mark="yes"></a>
+<h3 class="post-title entry-title" itemprop="name">
+<a href="https://in1weekend.blogspot.com/2016/01/ray-tracing-second-weekend.html" one-link-mark="yes">Ray Tracing: the Next Week</a>
+</h3>
+<div class="post-header">
+<div class="post-header-line-1"></div>
+</div>
+<div class="post-body entry-content" id="post-body-1433766331919231738" itemprop="description articleBody">
+<br>
+<br>
+There's been a lot of interest and positive feedback on <a href="http://in1weekend.blogspot.com/2016/01/ray-tracing-in-one-weekend.html" one-link-mark="yes">my mini-book on ray tracing</a>.<br>
+<br>
+This page is for the sequel <a href="http://www.amazon.com/gp/product/B01CO7PQ8C/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B01CO7PQ8C&amp;linkCode=as2&amp;tag=inonwe09-20&amp;linkId=NDCYRFZN5YNBQZ77" one-link-mark="yes">Ray Tracing: the Next Week</a><img alt="" border="0" src="./In One Weekend_files/AHs97-k7fhoCihKQfVbuAlqz3SkaEHb2p3E4mOBy4u7NOiseYmyt8KhJJmZMt3J17ptGU1skttVGbvOc_UuJ4EgxPDiOHvZATEwc0AcMEI3Advx7RjvL1QBe8YdXalehbYlSVdCQD9H7eM9Z5cWH4iM_=s0-d" height="1" style="border: none !important; margin: 0px !important;" width="1">, available on Kindle. <br>
+<br>
+This page also gives links and pointers for each chapter.&nbsp;&nbsp; The features covered are those in this picture:<br>
+<br>
+<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://2.bp.blogspot.com/-jIVZYq9Q4ZA/VtzwMXoQ7aI/AAAAAAAACDY/GlLYGq4ZBFk/s1600/book2.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" one-link-mark="yes"><img border="0" height="320" src="./In One Weekend_files/book2.png" width="320"></a></div>
+<br>
+<br>
+<b>Chapter 1: Motion Blur </b><br>
+<br>
+This method was <a href="http://artis.inrialpes.fr/Enseignement/TRSA/CookDistributed84.pdf" one-link-mark="yes">introduced in 1984 by Rob Cook</a>.<br>
+<br>
+<br>
+<b>Chapter 2: A Bounding Volume Hierarchy (BVH)</b><br>
+<b></b><br>
+<br>
+The construction method in the book can be improved by using the surface area heuristic (SAH).&nbsp;&nbsp;&nbsp;&nbsp; When evaluating potential partitions, the one that minimized the surface area of the sum of volumes of the sub-trees is almost always good.&nbsp; <a href="http://psgraphics.blogspot.com/2016/03/a-simple-sah-bvh-build.html" one-link-mark="yes">Here is a SAH-based build</a> that cuts on the longest axis.<br>
+<br>
+<br>
+<b>Chapter 3: Solid Texture Mapping</b><br>
+<br>
+<b>Chapter 4: Perlin Noise&nbsp;</b><br>
+<b><br></b>
+A <a href="http://eastfarthing.com/blog/2015-04-21-noise/" one-link-mark="yes">fantastic tool explaining how it works</a> by Andrew Kensler<br>
+<b><br></b>
+<br>
+<b>Chapter 5: Image Texture Mapping</b><br>
+<b><br></b>
+<b>Chapter 6: Rectangles and Lights</b><br>
+<br>
+The program in the book implicitly samples lights so there are no shadow rays.&nbsp;&nbsp; If you want to get more efficient direct lighting you can either send shadow rays, or importance sample by sending more rays toward the lights.<br>
+<br>
+<br>
+<b>Chapter 7: Instances</b><br>
+<b><br></b>
+A general instance usually stores transformation matrices.&nbsp;&nbsp; Composite transforms can all be in one node.&nbsp;&nbsp; When scales are allowed handling the surface normals must be done with care.<br>
+<br>
+<b><br></b>
+<b>Chapter 8: Volumes</b><br>
+<b></b><br>
+Here's a <a href="http://psgraphics.blogspot.com/2013/11/scattering-in-constant-medium.html" one-link-mark="yes">derivation of the ray-constant-medium intersection</a>.<br>
+<br>
+It is straightforward to add nonuniform densities by adding a more sophisticated intersection method.&nbsp;&nbsp; This is <a href="http://psgraphics.blogspot.com/2009/05/neat-trick-for-ray-collisions-in.html" one-link-mark="yes">covered in this blog post</a>.&nbsp;&nbsp; It's pretty common knowledge in the ray tracing community, but not really in the intersection.<br>
+<br>
+<br>
+<b><br></b>
+<b><br></b>
+<div style="clear: both;"></div>
+</div>
+<div class="post-footer">
+<div class="post-footer-line post-footer-line-1">
+<span class="post-author vcard">
+Posted by
+<span class="fn" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+<meta content="https://www.blogger.com/profile/17871569418798062417" itemprop="url">
+<a class="g-profile" href="https://www.blogger.com/profile/17871569418798062417" rel="author" title="author profile" one-link-mark="yes">
+<span itemprop="name">Peter Shirley</span>
+</a>
+</span>
+</span>
+<span class="post-timestamp">
+at
+<meta content="http://in1weekend.blogspot.com/2016/01/ray-tracing-second-weekend.html" itemprop="url">
+<a class="timestamp-link" href="https://in1weekend.blogspot.com/2016/01/ray-tracing-second-weekend.html" rel="bookmark" title="permanent link" one-link-mark="yes"><abbr class="published" itemprop="datePublished" title="2016-01-31T07:18:00-08:00">7:18 AM</abbr></a>
+</span>
+<span class="post-comment-link">
+<a class="comment-link" href="https://in1weekend.blogspot.com/2016/01/ray-tracing-second-weekend.html#comment-form" onclick="" one-link-mark="yes">
+362 comments:
+  </a>
+</span>
+<span class="post-icons">
+<span class="item-control blog-admin pid-536872115">
+<a href="https://www.blogger.com/post-edit.g?blogID=8132805539473515195&amp;postID=1433766331919231738&amp;from=pencil" title="Edit Post" one-link-mark="yes">
+<img alt="" class="icon-action" height="18" src="./In One Weekend_files/icon18_edit_allbkg.gif" width="18">
+</a>
+</span>
+</span>
+<div class="post-share-buttons goog-inline-block">
+<a class="goog-inline-block share-button sb-email" href="https://www.blogger.com/share-post.g?blogID=8132805539473515195&amp;postID=1433766331919231738&amp;target=email" target="_blank" title="Email This" one-link-mark="yes"><span class="share-button-link-text">Email This</span></a><a class="goog-inline-block share-button sb-blog" href="https://www.blogger.com/share-post.g?blogID=8132805539473515195&amp;postID=1433766331919231738&amp;target=blog" onclick="window.open(this.href, &quot;_blank&quot;, &quot;height=270,width=475&quot;); return false;" target="_blank" title="BlogThis!" one-link-mark="yes"><span class="share-button-link-text">BlogThis!</span></a><a class="goog-inline-block share-button sb-twitter" href="https://www.blogger.com/share-post.g?blogID=8132805539473515195&amp;postID=1433766331919231738&amp;target=twitter" target="_blank" title="Share to Twitter" one-link-mark="yes"><span class="share-button-link-text">Share to Twitter</span></a><a class="goog-inline-block share-button sb-facebook" href="https://www.blogger.com/share-post.g?blogID=8132805539473515195&amp;postID=1433766331919231738&amp;target=facebook" onclick="window.open(this.href, &quot;_blank&quot;, &quot;height=430,width=640&quot;); return false;" target="_blank" title="Share to Facebook" one-link-mark="yes"><span class="share-button-link-text">Share to Facebook</span></a><a class="goog-inline-block share-button sb-pinterest" href="https://www.blogger.com/share-post.g?blogID=8132805539473515195&amp;postID=1433766331919231738&amp;target=pinterest" target="_blank" title="Share to Pinterest" one-link-mark="yes"><span class="share-button-link-text">Share to Pinterest</span></a>
+</div>
+</div>
+<div class="post-footer-line post-footer-line-2">
+<span class="post-labels">
+</span>
+</div>
+<div class="post-footer-line post-footer-line-3">
+<span class="post-location">
+</span>
+</div>
+</div>
+</div>
+</div>
+
+          </div></div>
+        
+
+          <div class="date-outer">
+        
+<h2 class="date-header"><span>Wednesday, January 27, 2016</span></h2>
+
+          <div class="date-posts">
+        
+<div class="post-outer">
+<div class="post hentry uncustomized-post-template" itemprop="blogPost" itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+<meta content="http://ir-na.amazon-adsystem.com/e/ir?t=inonwe09-20&amp;l=as2&amp;o=1&amp;a=B01B5AODD8" itemprop="image_url">
+<meta content="8132805539473515195" itemprop="blogId">
+<meta content="695707763036467351" itemprop="postId">
+<a name="695707763036467351" one-link-mark="yes"></a>
+<h3 class="post-title entry-title" itemprop="name">
+<a href="https://in1weekend.blogspot.com/2016/01/ray-tracing-in-one-weekend.html" one-link-mark="yes">Ray Tracing in One Weekend</a>
+</h3>
+<div class="post-header">
+<div class="post-header-line-1"></div>
+</div>
+<div class="post-body entry-content" id="post-body-695707763036467351" itemprop="description articleBody">
+The books are now available in unprotected pdf for PAY WHAT YOU WISH, with 50% going to not for profit programming education organizations.&nbsp;&nbsp; <a href="https://drive.google.com/open?id=14yayBb9XiL16lmuhbYhhvea8mKUUK77W" one-link-mark="yes">Here are the files.</a><br>
+<br>
+<br>
+Ray tracing was invented by Turner Whitted around 1980.&nbsp;&nbsp; His classic paper is really amazing; it had bounding volume hierarchies, adaptive sampling, and it's future work suggested randomized reflection.&nbsp;&nbsp; Since then it has branched into a ton of variations and is used in most movies for the indirect <a href="https://en.wikipedia.org/wiki/Reflector_%28photography%29#Bounce_lighting" one-link-mark="yes">"bounce" lighting</a>.<br>
+<br>
+I've was assigned a 2D ray tracer in a physics class in 1984 and I was hooked.&nbsp;&nbsp; Since then I have written a bunch of ray tracers in Pascal, Fortran, Scheme, C, C++, Java, and most recently Swift (which is awesome for writing ray tracers).&nbsp;&nbsp; I've also taught classes with ray tracing about a dozen times, most recently at <a href="https://www.westminstercollege.edu/" one-link-mark="yes">Westminster College</a> in 2015.&nbsp;&nbsp; My approach over the years has evolved to do what I think are the most fun parts of ray tracing that are still in the direction of writing a production-quality ray tracer.<br>
+<br>
+<a href="http://www.amazon.com/gp/product/B01B5AODD8/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B01B5AODD8&amp;linkCode=as2&amp;tag=inonwe09-20&amp;linkId=OPNJXXJY2IBCMEGE" rel="nofollow" one-link-mark="yes">Ray Tracing in One Weekend</a><img alt="" border="0" src="./In One Weekend_files/AHs97-nhC3mYnTni_Q1bYFqAQTAaefmRhH660AwWokrF9yGLkZN2PqoalPoizxrZAdJMxf2UjsRgdlN3vg7iIfyqOEHJ7el0hTQyfjY4PlecNKc1xQ6fCgNQBZVQVpNFN2mWJ5q662s__8Qi_fYt7JQ=s0-d" height="1" style="border: none !important; margin: 0px !important;" width="1"> is a kindle book that goes through all of the details to generate a rudimentary ray tracer.&nbsp;&nbsp; It's $2.99 on amazon.&nbsp;&nbsp; It uses C plus classes plus operator overloading.&nbsp;&nbsp; I have heard this referred to as "C plus" which I now call it.&nbsp;&nbsp;&nbsp; Most production renderers are written in C++ so I opted for that as the driving language.&nbsp;&nbsp;&nbsp; I put the most primal set of these assignments so that it's very doable in a weekend, the fundamental unit of coding self-improvement :)&nbsp;&nbsp; Here is the book:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://1.bp.blogspot.com/-En1vzhbIiCQ/VqJrerl1yZI/AAAAAAAAB-I/QSHmbCUTTXw/s1600/cover.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" one-link-mark="yes"><img border="0" height="320" src="./In One Weekend_files/cover.jpg" width="200"></a></div>
+<br>
+<br>
+<br>
+The resulting program generates this image:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://2.bp.blogspot.com/-ldGbZPnirzM/VqJq3IRoi0I/AAAAAAAAB-A/BTrW0y1Q11M/s1600/balls.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" one-link-mark="yes"><img border="0" height="213" src="./In One Weekend_files/balls.png" width="320"></a></div>
+<br>
+<br>
+Here's my MacOS <a href="https://github.com/petershirley/raytracinginoneweekend" one-link-mark="yes">code for the book</a>.&nbsp;&nbsp; Should be semi-portable but drand48() will need to be written on some systems and the fileio may be too.&nbsp;&nbsp;&nbsp; I also have a <a href="http://psgraphics.blogspot.com/2016/01/process-for-speed-writing-book.html" one-link-mark="yes">little post on the tools I used to write the book</a> for those interested in doing a little book of their own.&nbsp;&nbsp; Please let me know if you do!<br>
+<br>
+<br>
+<b>Links for further reading and exploration related to the book:</b><br>
+<br>
+<br>
+<b>Chapter 0: Overview</b><br>
+<br>
+Here is a list of basic graphics texts that cover the vector background the book assumes:<br>
+<br>
+<a href="http://www.amazon.com/gp/product/1482229390/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1482229390&amp;linkCode=as2&amp;tag=inonwe09-20&amp;linkId=FYWORJLWAJOLB3L5" rel="nofollow" one-link-mark="yes">Fundamentals of Computer Graphics, Fourth Edition</a><br>
+<br>
+<img alt="" border="0" src="./In One Weekend_files/AHs97-n_vTq6a2poT6m2KgzKmQwmoVYPHQ7r0Q-Uq9kKVg0gHOInIxP2g2CDSY7bwndlC2oEwFV80JC044qc3RvAlng-RUdjrCl4_7zKI4-ltazc12F6YQj-t3Dra4DOjDvdeL85z1HHkr2RRwYArCPq=s0-d" height="1" style="border: none !important; margin: 0px !important;" width="1"><a href="http://www.amazon.com/gp/product/0321399528/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321399528&amp;linkCode=as2&amp;tag=inonwe09-20&amp;linkId=HQRNNI5TVG2IVRMT" rel="nofollow" one-link-mark="yes">Computer Graphics: Principles and Practice (3rd Edition)</a><img alt="" border="0" src="./In One Weekend_files/AHs97-nCC2L7o_kW3_DilJwR-AOZjNEz0qe5BNJEU9PbmCtWdkfr3I_Efkhl9dnmSxqirnzfYQ4vcdHKWKryBRO2vf1De3Fp5FyD70fHZ1F_FFKVf734Nm9Lb59MH_EvI_9IS0-O3LfKw4Nb05TuAhdp=s0-d" height="1" style="border: none !important; margin: 0px !important;" width="1"><br>
+<br>
+<a href="http://graphicscodex.com/" one-link-mark="yes">The Graphics Codex </a><br>
+<br>
+<a href="http://www.amazon.com/gp/product/1568814240/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1568814240&amp;linkCode=as2&amp;tag=inonwe09-20&amp;linkId=ZYYRNHXBDNBQVH4T" rel="nofollow" one-link-mark="yes">Real-Time Rendering, Third Edition</a><img alt="" border="0" src="./In One Weekend_files/AHs97-nm5uxT_0wWEkeBTkHT6Emtk751tukW5kOVs_YNHbQZcPDCJ4z_s1LOLuPY2h0V8IyEiX4XNtK1MZ3yAUrPpSLPLFbn7qmKtvcMPil4OUD0iajbxUV55qnL1paIzjQ7sMpql3_3a4vnOflq9G4L=s0-d" height="1" style="border: none !important; margin: 0px !important;" width="1">
+
+<br>
+<br>
+<br>
+<br>
+<span style="font-family: inherit;"><span id="docs-internal-guid-d89f8035-7667-596a-3986-1d73e489875f" style="background-color: transparent; color: black; font-size: 14.6667px; font-style: normal; font-variant: normal; font-weight: 700; text-decoration: none; vertical-align: baseline;">Chapter 1<span style="font-family: inherit;">: </span>Output an image</span></span><br>
+<br>
+<span style="font-family: inherit;"><span id="docs-internal-guid-d89f8035-7667-596a-3986-1d73e489875f" style="background-color: transparent; color: black; font-size: 14.6667px; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline;">For output of most LDR and HDR images I love <a href="http://psgraphics.blogspot.com/2015/06/a-small-image-io-library-stbimageh.html" one-link-mark="yes">stb_image.</a></span></span><br>
+<br>
+<span style="font-family: inherit;"><span id="docs-internal-guid-d89f8035-7667-596a-3986-1d73e489875f" style="background-color: transparent; color: black; font-size: 14.6667px; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline;">For more info on HDR images and tone mapping<span style="font-family: inherit;"> the <span style="font-family: inherit;">I like the </span>book&nbsp; </span></span><span id="docs-internal-guid-d89f8035-7667-596a-3986-1d73e489875f" style="background-color: transparent; color: black; font-size: 14.6667px; font-style: normal; font-variant: normal; font-weight: 700; text-decoration: none; vertical-align: baseline;"><a href="http://www.amazon.com/gp/product/012374914X/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=012374914X&amp;linkCode=as2&amp;tag=inonwe09-20&amp;linkId=B74UC2G6HHKT3SSU" rel="nofollow" one-link-mark="yes">High Dynamic Range Imaging, Second Edition: Acquisition, Display, and Image-Based Lighting</a><img alt="" border="0" src="./In One Weekend_files/AHs97-kM81noj7QCSFTk92ssGZdRaZgjkPFRpdWo3-m5c-0mM-n82urseuNTFnsBXUl63ju8Ephrbva3751HbDLsTn1XRO5JhgyKQ-ppahm3Lc7JMmmcpYmjbc-wmivv2IwKQjVpV1uMzG0UUtQNeIQ=s0-d" height="1" style="border: none !important; margin: 0px !important;" width="1">&nbsp;</span></span><br>
+<br>
+<br>
+<span style="font-family: inherit;"><span id="docs-internal-guid-d89f8035-7667-596a-3986-1d73e489875f" style="background-color: transparent; color: black; font-size: 14.6667px; font-style: normal; font-variant: normal; font-weight: 700; text-decoration: none; vertical-align: baseline;">Chapter <span style="font-family: inherit;">2: The vec3 class</span></span></span><br>
+<br>
+<span style="font-family: inherit;"><span id="docs-internal-guid-d89f8035-7667-596a-3986-1d73e489875f" style="background-color: transparent; color: black; font-size: 14.6667px; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline;"><span style="font-family: inherit;"><span style="font-family: inherit;">I ad<span style="font-family: inherit;">v<span style="font-family: inherit;">ocate<span style="font-family: inherit;"> using the <span style="font-family: inherit;">s<span style="font-family: inherit;">ame<span style="font-family: inherit;"> class for points, displace<span style="font-family: inherit;">ments<span style="font-family: inherit;">, colors, etc. &nbsp; Some people like more structure and type checking (so for example mult<span style="font-family: inherit;">i<span style="font-family: inherit;">plying two locations would be rejected by the compiler)</span></span></span></span></span></span></span></span></span></span>. &nbsp; An example article where points an<span style="font-family: inherit;">d vectors are different is <a href="http://gamedevelopment.tutsplus.com/tutorials/lets-build-a-3d-graphics-engine-points-vectors-and-basic-concepts--gamedev-8143" one-link-mark="yes">here</a>.<span style="font-family: inherit;"> &nbsp; Jim <span style="font-family: inherit;">Arvo and Brian Sm<span style="font-family: inherit;">its experimented with not only distinguishing p<span style="font-family: inherit;">oints and vec<span style="font-family: inherit;">tors, but</span></span> using the comp<span style="font-family: inherit;">il<span style="font-family: inherit;">er to do dimensional anal<span style="font-family: inherit;">ysis <span style="font-family: inherit;">(so veloc<span style="font-family: inherit;">ity, length, and time would be different types for example<span style="font-family: inherit;">). &nbsp; They found this to be too cumbersome in 1990s C++ but I'd <span style="font-family: inherit;">love to hear about anybody's experience.&nbsp;&nbsp; Researchers at Dartmouth have taken a really serious effort at this and <span style="font-family: inherit;">their code and paper are <a href="https://github.com/ouj/safegi" one-link-mark="yes">available at github</a>. </span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><br>
+<br>
+<br>
+<div dir="ltr" id="docs-internal-guid-d89f8035-7676-e5b9-55ce-8365ed4a7f54" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<span style="font-family: inherit;"><b><span style="font-family: inherit;"><span id="docs-internal-guid-d89f8035-7667-596a-3986-1d73e489875f" style="background-color: transparent; color: black; font-size: 14.6667px; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline;">Chapter 3:</span></span><span style="background-color: transparent; color: black; font-size: 14.6667px; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline;">&nbsp; Rays, a simple camera, and background</span></b></span></div>
+<br>
+<span style="font-family: inherit;"><span style="font-family: inherit;"><span id="docs-internal-guid-d89f8035-7667-596a-3986-1d73e489875f" style="background-color: transparent; color: black; font-size: 14.6667px; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline;">The first thing you might add to your background function is an environment ma<span style="font-family: inherit;">p. &nbsp; Paul Debevec has a <a href="http://www.pauldebevec.com/ReflectionMapping/" one-link-mark="yes">terrific hi</a><span style="font-family: inherit;"><a href="http://www.pauldebevec.com/ReflectionMapping/" one-link-mark="yes">story </a><span style="font-family: inherit;"><a href="http://www.pauldebevec.com/ReflectionMapping/" one-link-mark="yes">of envi</a><span style="font-family: inherit;"><a href="http://www.pauldebevec.com/ReflectionMapping/" one-link-mark="yes">ronment mapping</a>.&nbsp;&nbsp; </span></span></span>The easiest ma<span style="font-family: inherit;">pping for this <span style="font-family: inherit;">uses a single <span style="font-family: inherit;">image</span> for the entire sphere of directions. &nbsp; <span style="font-family: inherit;">Paul also <span style="font-family: inherit;">pro<span style="font-family: inherit;">vides</span></span> some <a href="http://www.pauldebevec.com/Probes/" one-link-mark="yes">good images to use</a><span style="font-family: inherit;"><a href="http://www.pauldebevec.com/Probes/" one-link-mark="yes"> for your environment ma</a><span style="font-family: inherit;"><a href="http://www.pauldebevec.com/Probes/" one-link-mark="yes">p</a>.</span></span></span></span></span></span></span></span></span><br>
+<br>
+<br>
+<span style="font-family: inherit;"><b><span style="font-family: inherit;"><span id="docs-internal-guid-d89f8035-7667-596a-3986-1d73e489875f" style="background-color: transparent; color: black; font-size: 14.6667px; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline;">Chapter 4:&nbsp; Adding a sphere</span></span></b></span><br>
+<br>
+There are a bunch of other object types you can add.&nbsp;&nbsp; Triangles are usually first and I am a fan of <a href="http://gamedev.stackexchange.com/questions/23743/whats-the-most-efficient-way-to-find-barycentric-coordinates" one-link-mark="yes">barycentric methods</a>.&nbsp;&nbsp;&nbsp; After triangles, many people quit adding primitives because graphics has such a big infrastructure for triangles.&nbsp;&nbsp;&nbsp; Ellipses are an easy thing to add but instancing is usually a more "ray tracey" approach (let the software do the heavy lifting).&nbsp;&nbsp; Composite objects via CSG are <a href="http://xrt.wdfiles.com/local--files/doc%3Acsg/CSG.pdf" one-link-mark="yes">surprisingly straightforward</a>.<br>
+<br>
+<br>
+<div dir="ltr" id="docs-internal-guid-d89f8035-767b-38df-6703-34072b5d58a4" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<b><span style="font-family: inherit;"><span style="background-color: transparent; color: black; font-size: 14.6667px; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline;">Chapter 5:&nbsp; <span style="font-family: inherit;">S</span>urface normals and &nbsp;multiple objects.</span></span></b><br>
+<br>
+<span style="font-family: inherit;"><span style="background-color: transparent; color: black; font-size: 14.6667px; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline;">If you want your code to be more effi<span style="font-family: inherit;">c<span style="font-family: inherit;">ient for la<span style="font-family: inherit;">rge numbers of objects, <a href="http://www.vadimkravcenko.com/bvh-tree-building/" one-link-mark="yes">use a BVH</a>-- they are <span style="font-family: inherit;">as good as any other in effic<span style="font-family: inherit;">iency and are the most rob<span style="font-family: inherit;">ust and easiest t<span style="font-family: inherit;">o <span style="font-family: inherit;">implement</span>.</span></span></span></span></span></span></span> </span></span></div>
+<div dir="ltr" id="docs-internal-guid-d89f8035-767b-38df-6703-34072b5d58a4" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<br>
+<br></div>
+<div dir="ltr" id="docs-internal-guid-d89f8035-767b-7d98-b545-50dda2bdb091" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<span style="font-family: inherit;"><b><span style="background-color: transparent; color: black; font-size: 14.6667px; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline;">Chapter 6:&nbsp; Antialiasing</span></b></span></div>
+<div dir="ltr" id="docs-internal-guid-d89f8035-767b-7d98-b545-50dda2bdb091" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<br>
+Box filtering as done in the book suffices for most situations.&nbsp;&nbsp; However, Guassian-like filters can have advantages and are pretty easy.&nbsp;&nbsp; <a href="http://www.reedbeta.com/blog/2014/11/15/antialiasing-to-splat-or-not/" one-link-mark="yes">You can either uniformly sample the whole screen and weight the samples, or use non-uniform samples</a>.&nbsp;&nbsp; All approaches work.<br>
+<br>
+<br></div>
+<div dir="ltr" id="docs-internal-guid-d89f8035-767b-b87d-e666-c217877aac2e" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<span style="font-family: inherit;"><b><span style="background-color: transparent; color: black; font-size: 14.6667px; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline;">Chapter 7: &nbsp; Diffuse Materials</span></b></span></div>
+<div dir="ltr" id="docs-internal-guid-d89f8035-767b-b87d-e666-c217877aac2e" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<br>
+"Ideal" diffuse materials, also called "Lambertian" are used 99% of the time in graphics.&nbsp;&nbsp;&nbsp;&nbsp; The <a href="https://en.wikipedia.org/wiki/Lambert&#39;s_cosine_law" one-link-mark="yes">wikipedia article on this approximation</a> is good.&nbsp;&nbsp; Real diffuse surfaces do not behave exactly as Lambertian (for example they get specular at grazing angle) but especially with interreflection in the mix the appearance differences are minor.&nbsp;&nbsp; So this is probably not where you should push your renderer until many many other features are addressed.<br>
+<br></div>
+<div dir="ltr" id="docs-internal-guid-d89f8035-767b-e386-b626-c1a376f13d24" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<span style="font-family: inherit;"><b><span style="background-color: transparent; color: black; font-size: 14.6667px; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline;">Chapter 8:&nbsp; Metal</span></b></span></div>
+<div dir="ltr" id="docs-internal-guid-d89f8035-767b-e386-b626-c1a376f13d24" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<br>
+The first improvement you might make is to have the color of the metal go to white at grazing angle.&nbsp;&nbsp; The Schlick approximation (used in Chapter 9 for glass where grazing behavior matters more) works for that.&nbsp;&nbsp;&nbsp; Full-bore Fresnel equations will describe color variation with angle, but in my experience getting <a href="https://interplayoflight.files.wordpress.com/2013/12/fresnelcolours.png" one-link-mark="yes">normal incident color</a> is good enough.<br>
+<br>
+<br></div>
+<div dir="ltr" id="docs-internal-guid-d89f8035-767c-37b2-2718-002cf8310aff" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<span style="font-family: inherit;"><b><span style="background-color: transparent; color: black; font-size: 14.6667px; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline;">Chapter 9:&nbsp; Dielectrics</span></b></span></div>
+<div dir="ltr" id="docs-internal-guid-d89f8035-767c-37b2-2718-002cf8310aff" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<br>
+The first thing you might add is filtering of light within the dielectric (like the subtle <a href="http://www.prestoimages.net/imagecapture/images/rd10335/10335_1980187.jpeg" one-link-mark="yes">"greenness" of much glass</a>).&nbsp;&nbsp; This is a classic exponential decay and is covered well in the <a href="http://www.flipcode.com/archives/Raytracing_Topics_Techniques-Part_3_Refractions_and_Beers_Law.shtml" one-link-mark="yes">Beer's Law section of this nice page.</a><br>
+<br>
+<br></div>
+<div dir="ltr" id="docs-internal-guid-d89f8035-767c-b7d8-6fef-5200cdafa4b0" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<span style="font-family: inherit;"><b><span style="background-color: transparent; color: black; font-size: 14.6667px; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline;">Chapter 10:&nbsp; Positionable camera</span></b></span></div>
+<div dir="ltr" id="docs-internal-guid-d89f8035-767c-b7d8-6fef-5200cdafa4b0" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+Camera parameter setting is just plain ugly.&nbsp; The system used in the book is relatively common and is in my opinion the prettiest.&nbsp;&nbsp; I avoid the matrix formulation wherever possible because I never understand my code when I am done.&nbsp;&nbsp; But it is <a href="https://en.wikipedia.org/wiki/Camera_matrix" one-link-mark="yes">very elegant and works</a>.<br>
+<br></div>
+<div dir="ltr" id="docs-internal-guid-d89f8035-767c-b7d8-6fef-5200cdafa4b0" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<span style="font-family: inherit;"><b><span style="background-color: transparent; color: black; font-size: 14.6667px; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline;">Chapter 11:&nbsp; Defocus blur</span></b></span></div>
+<div dir="ltr" id="docs-internal-guid-d89f8035-767c-b7d8-6fef-5200cdafa4b0" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<br>
+If you ever need to match a real camera, there is a <a href="http://http.cs.berkeley.edu/~barsky/VisRendPapers/survey1.pdf" one-link-mark="yes">nice survey</a> of models used in graphics.&nbsp;&nbsp; And here is a <a href="http://groups.csail.mit.edu/graphics/classes/CompPhoto06/html/lecturenotes/21_Lenses_6.pdf" one-link-mark="yes">very good presentation on real lenses</a> written for a technical audience.<br>
+<br>
+<br></div>
+<div dir="ltr" id="docs-internal-guid-d89f8035-767c-b7d8-6fef-5200cdafa4b0" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<span style="font-family: inherit;"><b><span style="background-color: transparent; color: black; font-size: 14.6667px; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline;">Chapter 12:&nbsp; Where next? </span></b></span></div>
+<div dir="ltr" id="docs-internal-guid-d89f8035-767c-37b2-2718-002cf8310aff" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<br></div>
+<div dir="ltr" id="docs-internal-guid-d89f8035-767b-e386-b626-c1a376f13d24" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+You should have the core of a very serious ray tracer now.&nbsp;&nbsp;&nbsp; I would now take it in one of three directions.&nbsp;&nbsp; They are not mutually exclusive but explicitly deciding your goals will simplify architectural decisions.<br>
+<ol>
+<li>Make it physically accurate.&nbsp;&nbsp; This will imply using spectra instead of RGB (I like just using a big array of wavelengths) and get something where you know the reflectances.&nbsp;&nbsp; Popular is to get a <a href="http://www.amazon.com/gp/product/B000JLO31C/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B000JLO31C&amp;linkCode=as2&amp;tag=inonwe09-20&amp;linkId=CXVB5F4SE4HGNRHV" rel="nofollow" one-link-mark="yes">X-Rite MSCCC ColorChecker Classic</a><img alt="" border="0" src="./In One Weekend_files/AHs97-nw_O8tR01nKn03YbPMw2t25Xr03M3z9HrouHHAQ1XjDLZRflsUV8D5LdhxxszwoV8wdyOiaXz0W-D2qUCAs0XsdohrmcbIJrILUSYAdObvsVlcSW1MNZOVwZh1TNtPNZNe_qfuqZHlC45pXQAK=s0-d" height="1" style="border: none !important; margin: 0px !important;" width="1"> whose data is <a href="http://www.babelcolor.com/colorchecker-2.htm#CCP2_data" one-link-mark="yes">available online</a>.
+</li>
+<li>Make it good for generating animations.&nbsp;&nbsp;&nbsp; Lots of movies use a ray traced system, and <a href="http://www.disneyanimation.com/technology/innovations/hyperion" one-link-mark="yes">Disney</a>, <a href="http://graphics.pixar.com/library/" one-link-mark="yes">Pixar</a>, and the <a href="https://www.solidangle.com/arnold/research/" one-link-mark="yes">Solid Angle</a> teams have both disclosed a remarkable amount about their code.&nbsp;&nbsp; Work on features and then efficiency.&nbsp;&nbsp; I think you will be amazed how soon you can produce amazing images.</li>
+<li>Make it fast.&nbsp;&nbsp; Here you can roll your own, or start using a commercial API.&nbsp;&nbsp; To see exactly where that community is now, go to the <a href="http://eventegg.com/hpg-2016/" one-link-mark="yes">2016 HPG conference</a>.&nbsp;&nbsp; Or backtrack in their previous papers.&nbsp;&nbsp; They are a very open community and the papers go into much detail relative to many sub-fields in computer graphics.</li>
+</ol>
+Please send me your questions, comments, and pictures.&nbsp;&nbsp; Have fun with ray tracing!<br>
+<ol>
+</ol>
+<br>
+<br></div>
+<div dir="ltr" id="docs-internal-guid-d89f8035-767b-b87d-e666-c217877aac2e" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<br></div>
+<div dir="ltr" id="docs-internal-guid-d89f8035-767b-7d98-b545-50dda2bdb091" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<br></div>
+<div dir="ltr" id="docs-internal-guid-d89f8035-767b-38df-6703-34072b5d58a4" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;">
+<br></div>
+<span style="font-family: inherit;"><span style="font-family: inherit;"><b><span id="docs-internal-guid-d89f8035-7667-596a-3986-1d73e489875f" style="background-color: transparent; color: black; font-size: 14.6667px; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline;">&nbsp;</span></b></span><span id="docs-internal-guid-d89f8035-7667-596a-3986-1d73e489875f" style="background-color: transparent; color: black; font-size: 14.6667px; font-style: normal; font-variant: normal; font-weight: 700; text-decoration: none; vertical-align: baseline;"> </span></span>
+<div style="clear: both;"></div>
+</div>
+<div class="post-footer">
+<div class="post-footer-line post-footer-line-1">
+<span class="post-author vcard">
+Posted by
+<span class="fn" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+<meta content="https://www.blogger.com/profile/17871569418798062417" itemprop="url">
+<a class="g-profile" href="https://www.blogger.com/profile/17871569418798062417" rel="author" title="author profile" one-link-mark="yes">
+<span itemprop="name">Peter Shirley</span>
+</a>
+</span>
+</span>
+<span class="post-timestamp">
+at
+<meta content="http://in1weekend.blogspot.com/2016/01/ray-tracing-in-one-weekend.html" itemprop="url">
+<a class="timestamp-link" href="https://in1weekend.blogspot.com/2016/01/ray-tracing-in-one-weekend.html" rel="bookmark" title="permanent link" one-link-mark="yes"><abbr class="published" itemprop="datePublished" title="2016-01-27T14:34:00-08:00">2:34 PM</abbr></a>
+</span>
+<span class="post-comment-link">
+<a class="comment-link" href="https://in1weekend.blogspot.com/2016/01/ray-tracing-in-one-weekend.html#comment-form" onclick="" one-link-mark="yes">
+359 comments:
+  </a>
+</span>
+<span class="post-icons">
+<span class="item-control blog-admin pid-536872115">
+<a href="https://www.blogger.com/post-edit.g?blogID=8132805539473515195&amp;postID=695707763036467351&amp;from=pencil" title="Edit Post" one-link-mark="yes">
+<img alt="" class="icon-action" height="18" src="./In One Weekend_files/icon18_edit_allbkg.gif" width="18">
+</a>
+</span>
+</span>
+<div class="post-share-buttons goog-inline-block">
+<a class="goog-inline-block share-button sb-email" href="https://www.blogger.com/share-post.g?blogID=8132805539473515195&amp;postID=695707763036467351&amp;target=email" target="_blank" title="Email This" one-link-mark="yes"><span class="share-button-link-text">Email This</span></a><a class="goog-inline-block share-button sb-blog" href="https://www.blogger.com/share-post.g?blogID=8132805539473515195&amp;postID=695707763036467351&amp;target=blog" onclick="window.open(this.href, &quot;_blank&quot;, &quot;height=270,width=475&quot;); return false;" target="_blank" title="BlogThis!" one-link-mark="yes"><span class="share-button-link-text">BlogThis!</span></a><a class="goog-inline-block share-button sb-twitter" href="https://www.blogger.com/share-post.g?blogID=8132805539473515195&amp;postID=695707763036467351&amp;target=twitter" target="_blank" title="Share to Twitter" one-link-mark="yes"><span class="share-button-link-text">Share to Twitter</span></a><a class="goog-inline-block share-button sb-facebook" href="https://www.blogger.com/share-post.g?blogID=8132805539473515195&amp;postID=695707763036467351&amp;target=facebook" onclick="window.open(this.href, &quot;_blank&quot;, &quot;height=430,width=640&quot;); return false;" target="_blank" title="Share to Facebook" one-link-mark="yes"><span class="share-button-link-text">Share to Facebook</span></a><a class="goog-inline-block share-button sb-pinterest" href="https://www.blogger.com/share-post.g?blogID=8132805539473515195&amp;postID=695707763036467351&amp;target=pinterest" target="_blank" title="Share to Pinterest" one-link-mark="yes"><span class="share-button-link-text">Share to Pinterest</span></a>
+</div>
+</div>
+<div class="post-footer-line post-footer-line-2">
+<span class="post-labels">
+</span>
+</div>
+<div class="post-footer-line post-footer-line-3">
+<span class="post-location">
+</span>
+</div>
+</div>
+</div>
+</div>
+
+        </div></div>
+      
+</div>
+<div class="blog-pager" id="blog-pager">
+<a class="home-link" href="https://in1weekend.blogspot.com/" one-link-mark="yes">Home</a>
+</div>
+<div class="clear"></div>
+<div class="blog-feeds">
+<div class="feed-links">
+Subscribe to:
+<a class="feed-link" href="https://in1weekend.blogspot.com/feeds/posts/default" target="_blank" type="application/atom+xml" one-link-mark="yes">Posts (Atom)</a>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+<div class="column-left-outer">
+<div class="column-left-inner">
+<aside>
+</aside>
+</div>
+</div>
+<div class="column-right-outer">
+<div class="column-right-inner">
+<aside>
+<div class="sidebar section" id="sidebar-right-1"><div class="widget Profile" data-version="1" id="Profile1">
+<h2>About Me</h2>
+<div class="widget-content">
+<dl class="profile-datablock">
+<dt class="profile-data">
+<a class="profile-name-link g-profile" href="https://www.blogger.com/profile/17871569418798062417" rel="author" style="background-image: url(//www.blogger.com/img/logo-16.png);" one-link-mark="yes">
+Peter Shirley
+</a>
+</dt>
+</dl>
+<a class="profile-link" href="https://www.blogger.com/profile/17871569418798062417" rel="author" one-link-mark="yes">View my complete profile</a>
+<div class="clear"></div>
+</div>
+</div><div class="widget BlogArchive" data-version="1" id="BlogArchive1">
+<h2>Blog Archive</h2>
+<div class="widget-content">
+<div id="ArchiveList">
+<div id="BlogArchive1_ArchiveList">
+<ul class="hierarchy">
+<li class="archivedate expanded">
+<a class="toggle" href="javascript:void(0)" one-link-mark="yes">
+<span class="zippy toggle-open">
+
+        ▼&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="https://in1weekend.blogspot.com/2016/" one-link-mark="yes">
+2016
+</a>
+<span class="post-count" dir="ltr">(4)</span>
+<ul class="hierarchy">
+<li class="archivedate expanded">
+<a class="toggle" href="javascript:void(0)" one-link-mark="yes">
+<span class="zippy toggle-open">
+
+        ▼&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="https://in1weekend.blogspot.com/2016/03/" one-link-mark="yes">
+March
+</a>
+<span class="post-count" dir="ltr">(2)</span>
+<ul class="posts">
+<li><a href="https://in1weekend.blogspot.com/2016/03/learn-quartz-composer-in-one-weekend.html" one-link-mark="yes">Learn Quartz Composer in One Weekend</a></li>
+<li><a href="https://in1weekend.blogspot.com/2016/03/ray-tracing-rest-of-your-life.html" one-link-mark="yes">Ray Tracing: The Rest of Your Life</a></li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)" one-link-mark="yes">
+<span class="zippy">
+
+        ►&nbsp;
+      
+</span>
+</a>
+<a class="post-count-link" href="https://in1weekend.blogspot.com/2016/01/" one-link-mark="yes">
+January
+</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+</div></div>
+</aside>
+</div>
+</div>
+</div>
+<div style="clear: both"></div>
+<!-- columns -->
+</div>
+<!-- main -->
+</div>
+</div>
+<div class="main-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<footer>
+<div class="footer-outer">
+<div class="footer-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left footer-fauxborder-left">
+<div class="fauxborder-right footer-fauxborder-right"></div>
+<div class="region-inner footer-inner">
+<div class="foot no-items section" id="footer-1"></div>
+<table border="0" cellpadding="0" cellspacing="0" class="section-columns columns-2">
+<tbody>
+<tr>
+<td class="first columns-cell">
+<div class="foot no-items section" id="footer-2-1"></div>
+</td>
+<td class="columns-cell">
+<div class="foot no-items section" id="footer-2-2"></div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- outside of the include in order to lock Attribution widget -->
+<div class="foot section" id="footer-3" name="Footer"><div class="widget Attribution" data-version="1" id="Attribution1">
+<div class="widget-content" style="text-align: center;">
+Simple theme. Powered by <a href="https://www.blogger.com/" target="_blank" one-link-mark="yes">Blogger</a>.
+</div>
+<div class="clear"></div>
+</div></div>
+</div>
+</div>
+<div class="footer-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</footer>
+<!-- content -->
+</div>
+</div>
+<div class="content-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+    window.setTimeout(function() {
+        document.body.className = document.body.className.replace('loading', '');
+      }, 10);
+  </script>
+
+<script type="text/javascript" src="./In One Weekend_files/3271249078-widgets.js"></script>
+<script type="text/javascript">
+window['__wavt'] = 'AOuZoY4KMICn-DfFd7GGIPXwUcxBPdQHlg:1681031057085';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d8132805539473515195','//in1weekend.blogspot.com/','8132805539473515195');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '8132805539473515195', 'title': 'In One Weekend', 'url': 'https://in1weekend.blogspot.com/', 'canonicalUrl': 'http://in1weekend.blogspot.com/', 'homepageUrl': 'https://in1weekend.blogspot.com/', 'searchUrl': 'https://in1weekend.blogspot.com/search', 'canonicalHomepageUrl': 'http://in1weekend.blogspot.com/', 'blogspotFaviconUrl': 'https://in1weekend.blogspot.com/favicon.ico', 'bloggerUrl': 'https://www.blogger.com', 'hasCustomDomain': false, 'httpsEnabled': true, 'enabledCommentProfileImages': true, 'gPlusViewType': 'FILTERED_POSTMOD', 'adultContent': false, 'analyticsAccountNumber': '', 'encoding': 'UTF-8', 'locale': 'en', 'localeUnderscoreDelimited': 'en', 'languageDirection': 'ltr', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'isDynamicViewsAvailable': true, 'feedLinks': '\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22In One Weekend - Atom\x22 href\x3d\x22https://in1weekend.blogspot.com/feeds/posts/default\x22 /\x3e\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/rss+xml\x22 title\x3d\x22In One Weekend - RSS\x22 href\x3d\x22https://in1weekend.blogspot.com/feeds/posts/default?alt\x3drss\x22 /\x3e\n\x3clink rel\x3d\x22service.post\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22In One Weekend - Atom\x22 href\x3d\x22https://www.blogger.com/feeds/8132805539473515195/posts/default\x22 /\x3e\n', 'meTag': '\x3clink rel\x3d\x22me\x22 href\x3d\x22https://www.blogger.com/profile/17871569418798062417\x22 /\x3e\n', 'adsenseHostId': 'ca-host-pub-1556223355139109', 'adsenseHasAds': false, 'adsenseAutoAds': false, 'boqCommentIframeForm': true, 'loginRedirectParam': '', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/1aa77e3bc488e053', 'plusOneApiSrc': 'https://apis.google.com/js/platform.js', 'disableGComments': true, 'sharing': {'platforms': [{'name': 'Get link', 'key': 'link', 'shareMessage': 'Get link', 'target': ''}, {'name': 'Facebook', 'key': 'facebook', 'shareMessage': 'Share to Facebook', 'target': 'facebook'}, {'name': 'BlogThis!', 'key': 'blogThis', 'shareMessage': 'BlogThis!', 'target': 'blog'}, {'name': 'Twitter', 'key': 'twitter', 'shareMessage': 'Share to Twitter', 'target': 'twitter'}, {'name': 'Pinterest', 'key': 'pinterest', 'shareMessage': 'Share to Pinterest', 'target': 'pinterest'}, {'name': 'Email', 'key': 'email', 'shareMessage': 'Email', 'target': 'email'}], 'disableGooglePlus': true, 'googlePlusShareButtonWidth': 0, 'googlePlusBootstrap': '\x3cscript type\x3d\x22text/javascript\x22\x3ewindow.___gcfg \x3d {\x27lang\x27: \x27en\x27};\x3c/script\x3e'}, 'hasCustomJumpLinkMessage': false, 'jumpLinkMessage': 'Read more', 'pageType': 'index', 'pageName': '', 'pageTitle': 'In One Weekend'}}, {'name': 'features', 'data': {}}, {'name': 'messages', 'data': {'edit': 'Edit', 'linkCopiedToClipboard': 'Link copied to clipboard!', 'ok': 'Ok', 'postLink': 'Post Link'}}, {'name': 'template', 'data': {'name': 'Simple', 'localizedName': 'Simple', 'isResponsive': false, 'isAlternateRendering': false, 'isCustom': false, 'variant': 'bold', 'variantId': 'bold'}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\x3dclassic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\x3dflipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\x3dmagazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\x3dmosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\x3dsidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\x3dsnapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\x3dtimeslide'}, 'isMobile': false, 'title': 'In One Weekend', 'description': 'Weekends are a great chunk of time to get a significant project done, and limiting it to a weekend helps to stay on task.    This blog is inspired by a how-to book on ray tracing, but that is just the initial driving example.', 'url': 'https://in1weekend.blogspot.com/', 'type': 'feed', 'isSingleItem': false, 'isMultipleItems': true, 'isError': false, 'isPage': false, 'isPost': false, 'isHomepage': true, 'isArchive': false, 'isLabelSearch': false}}]);
+_WidgetManager._RegisterWidget('_NavbarView', new _WidgetInfo('Navbar1', 'navbar', document.getElementById('Navbar1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'header', document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'lightboxEnabled': true, 'lightboxModuleUrl': 'https://www.blogger.com/static/v1/jsbin/4168473362-lbx.js', 'lightboxCssUrl': 'https://www.blogger.com/static/v1/v-css/3268905543-lightbox_bundle.css'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_ProfileView', new _WidgetInfo('Profile1', 'sidebar-right-1', document.getElementById('Profile1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogArchiveView', new _WidgetInfo('BlogArchive1', 'sidebar-right-1', document.getElementById('BlogArchive1'), {'languageDirection': 'ltr', 'loadingMessage': 'Loading\x26hellip;'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AttributionView', new _WidgetInfo('Attribution1', 'footer-3', document.getElementById('Attribution1'), {}, 'displayModeFull'));
+</script>
+
+<div id="fatkun-drop-panel">
+        <a id="fatkun-drop-panel-close-btn" one-link-mark="yes">×</a>
+            <div id="fatkun-drop-panel-inner">
+                <div class="fatkun-content">
+                    <svg class="fatkun-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5892"><path d="M494.933333 782.933333c2.133333 2.133333 4.266667 4.266667 8.533334 6.4h8.533333c6.4 0 10.666667-2.133333 14.933333-6.4l2.133334-2.133333 275.2-275.2c8.533333-8.533333 8.533333-21.333333 0-29.866667-8.533333-8.533333-21.333333-8.533333-29.866667 0L533.333333 716.8V128c0-12.8-8.533333-21.333333-21.333333-21.333333s-21.333333 8.533333-21.333333 21.333333v588.8L249.6 475.733333c-8.533333-8.533333-21.333333-8.533333-29.866667 0-8.533333 8.533333-8.533333 21.333333 0 29.866667l275.2 277.333333zM853.333333 874.666667H172.8c-12.8 0-21.333333 8.533333-21.333333 21.333333s8.533333 21.333333 21.333333 21.333333H853.333333c12.8 0 21.333333-8.533333 21.333334-21.333333s-10.666667-21.333333-21.333334-21.333333z" p-id="5893"></path></svg>
+                    <div class="fatkun-title">拖拽到此处</div>
+                    <div class="fatkun-desc">图片将完成下载</div>
+                </div>
+            </div>
+    </div><link type="text/css" rel="stylesheet" href="./In One Weekend_files/3268905543-lightbox_bundle.css"><script type="text/javascript" src="./In One Weekend_files/4168473362-lbx.js"></script></body><script>document.documentElement.style.display = '' </script></html>

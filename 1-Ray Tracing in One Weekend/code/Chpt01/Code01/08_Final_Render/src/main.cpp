@@ -110,19 +110,24 @@ hittable_list random_scene()
 		for (int b = -11; b < 11; b++)// 441 balls in total
 		{
 			auto choose_mat = random_double();
-			point3 center(a + 0.9 * random_double(), 0.2, b + 0.9 * random_double());
+			//point3 center(a + 0.9 * random_double(), 0.2, b + 0.9 * random_double());
+			point3 center(a + 0.8 * random_double(), 0.2, b + 0.8 * random_double());// 减少交叉重叠,出现嵌入的情况
+			//point3 center(a + 0.6 * random_double(), 0.2, b + 0.6 * random_double());// 完全防止交叉重叠,出现嵌入的情况
 
-			if ((center - point3(4, 0.2, 0)).length() > 0.9)// 与第三颗（最后一颗）大金属球的位置（距离）做比较
+			if ((center - point3(0, 0.2, 0)).length() > 0.9 && (center - point3(-4, 0.2, 0)).length() > 0.9 && (center - point3(4, 0.2, 0)).length() > 0.9)
+			// 与三颗大球的位置（距离）做比较，防止交叉重叠,出现嵌入的情况
 			{
 				shared_ptr<material> sphere_material;
 
-				if (choose_mat < 0.8)// 此分布范围（区间）最广，也就是让大部分球的材质为diffuse
+				//if (choose_mat < 0.8)// 此分布范围（区间）最广，也就是让大部分球的材质为diffuse
+				if (choose_mat < 0.6)// 此分布范围（区间）最广，也就是让大部分球的材质为diffuse
 				{
 					// diffuse
 					auto albedo = color::random();
 					sphere_material = make_shared<lambertian>(albedo);
 					
-				} else if (choose_mat < 0.95)// 进一步减小分布概率，让较少的球的材质为metal;
+				//} else if (choose_mat < 0.95)// 进一步减小分布概率，让较少的球的材质为metal;
+				} else if (choose_mat < 0.85)// 进一步减小分布概率，让较少的球的材质为metal;
 				{
 					// metal
 					auto albedo = color::random(0.5, 1);// 让金属球颜色亮一些
@@ -166,11 +171,12 @@ int main()
 	const auto aspect_ratio = 16.0 / 9.0;
 	//const auto aspect_ratio = 3.0 / 2.0;
 	//const int image_width = 400;
+//	const int image_width = 3840;
 	const int image_width = 1200;
 	const int image_height = static_cast<int>(image_width /aspect_ratio);
-	//const int samples_per_pixel = 500;
-	const int samples_per_pixel = 100;
-	//const int samples_per_pixel = 10;
+//	const int samples_per_pixel = 500;
+//	const int samples_per_pixel = 200;
+	const int samples_per_pixel = 20;
 	const int max_depth = 50;
 
 	auto R = cos(pi/4);

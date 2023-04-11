@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\08_Final_Render\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\08_Final_Render\src\camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\08_Final_Render\src\color.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\08_Final_Render\src\hittable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\08_Final_Render\src\hittable_list.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\08_Final_Render\src\material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\08_Final_Render\src\ray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\08_Final_Render\src\rtweekend.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\08_Final_Render\src\sphere.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\08_Final_Render\src\vec3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{B7C24BD7-CFB6-3D0D-AD37-040FB18FCA71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{DE14FE2E-93B0-3C9A-AEA6-D5DEACB26EB1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
