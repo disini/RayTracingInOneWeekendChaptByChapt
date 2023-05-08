@@ -1,0 +1,69 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Code02",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "02_Motion_Blur::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-02_Motion_Blur-Debug-4e7f0c7c976fc89e0949.json",
+					"name" : "02_Motion_Blur",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "03_BVH::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-03_BVH-Debug-f8e7197b240b3b663bfa.json",
+					"name" : "03_BVH",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/media/liusheng/Projects/progwork/books/Peter Shirley/2-The Next Week/Code/qt_ubuntu/build-Code-Desktop_Qt_6_6_0_GCC_64bit-Debug",
+		"source" : "/media/liusheng/Projects/progwork/books/Peter Shirley/2-The Next Week/Code"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}

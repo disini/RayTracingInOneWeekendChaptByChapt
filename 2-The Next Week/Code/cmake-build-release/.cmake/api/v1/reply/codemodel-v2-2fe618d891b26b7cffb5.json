@@ -1,0 +1,69 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Code02",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "02_Motion_Blur::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-02_Motion_Blur-Release-e015e40deeb050f17e77.json",
+					"name" : "02_Motion_Blur",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "03_BVH::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-03_BVH-Release-c76e1c724aed476fa1e2.json",
+					"name" : "03_BVH",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "K:/progwork/books/Peter Shirley/2-The Next Week/Code/cmake-build-release",
+		"source" : "K:/progwork/books/Peter Shirley/2-The Next Week/Code"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
