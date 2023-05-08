@@ -1,4 +1,0 @@
-K:/progwork/books/Peter Shirley/2-The Next Week/Code/cmake-build-debug/CMakeFiles/02_Motion_Blur.dir
-K:/progwork/books/Peter Shirley/2-The Next Week/Code/cmake-build-debug/CMakeFiles/03_BVH.dir
-K:/progwork/books/Peter Shirley/2-The Next Week/Code/cmake-build-debug/CMakeFiles/edit_cache.dir
-K:/progwork/books/Peter Shirley/2-The Next Week/Code/cmake-build-debug/CMakeFiles/rebuild_cache.dir
