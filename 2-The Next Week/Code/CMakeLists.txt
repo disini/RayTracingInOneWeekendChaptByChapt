@@ -8,6 +8,16 @@ project( Code02
 # Set to c++11
 set(CMAKE_CXX_STANDARD 11)
 
+# Ωª≤Ê±‡“Î
+#set(CMAKE_CROSSCOMPILING 1)
+#set(CROSS_COMPILE 1)
+
+#if (CROSS_COMPILE)
+#    set(CMAKE_SYSTEM_NAME "Linux")
+#endif ()
+
+message(STATUS "CMAKE_SYSTEM_NAME : ${CMAKE_SYSTEM_NAME}")
+
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
     set(PROJECT_BINARY_DIR "${CMAKE_CURRENT_SOURCE_DIR}/build_ubuntu_clion")
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_CURRENT_SOURCE_DIR}/build_ubuntu_clion/Debug")
