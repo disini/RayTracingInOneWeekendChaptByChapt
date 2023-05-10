@@ -13,10 +13,14 @@
 #include "moving_sphere.h"
 #include "camera.h"
 #include "material.h"
+#include "bvh.h"
 
 
 #include <iostream>
 
+#include "chrono"// 头文件chrono 自c++ 11起
+
+using namespace std::chrono;// chrono的所有函数都存储在命名空间chrono中
 
 double hit_sphere(const point3& center, double radius, const ray& r)// after denominator '2' extracted
 {
@@ -159,12 +163,16 @@ hittable_list random_scene()
 	auto material3 = make_shared<metal>(color(0.7, 0.6, 0.5), 0.0);// 纯镜面银色金属球， 无fuzz
 	world.add(make_shared<sphere>(point3(4, 1, 0), 1.0, material3));
 	
-	return world;
+//	return world;
+    return hittable_list(make_shared<bvh_node>(world, 0.0, 1.0));
 }
+
 
 int main()
 {
-	// http://c.biancheng.net/view/1352.html
+	auto startTime = system_clock::now();
+
+    // http://c.biancheng.net/view/1352.html
 	unsigned seed;// Random generator seed
 	double result;
 	seed = time(0);// 从“time_t”转换到“unsigned int”，可能丢失数据
@@ -255,7 +263,18 @@ int main()
 		//}
 	}
 
+    auto finishTime = system_clock::now();
+
+    auto duration = duration_cast<microseconds>(finishTime - startTime);
+
+    auto costTime = double(duration.count()) / 1000000;
+
+//    std::cout << "cost time : " << costTime << "s." << std::endl;
+    std::cerr << "cost time : " << costTime << "s." << std::endl;
+
 	std::cerr << "\nDone.\n";
+
+
 
 	return 0;
 }
