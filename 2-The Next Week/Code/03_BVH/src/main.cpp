@@ -96,8 +96,10 @@ color ray_color(const ray& r, const hittable& world, int depth)
 
 	vec3 unit_direction = unit_vector(r.direction());
 	auto t = 0.5 * (unit_direction.y() + 1.0);// (-1, 1) --> (0, 1)
-	return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);// 球形外部随着y值变化而为线性渐变色
-	
+	return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);// 球形外部随着y值变化而为线性渐变色(蓝色 blue)
+//	return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(1.0, 0.5, 0.0);// 球形外部随着y值变化而为线性渐变色(红棕色 red-brown)
+	return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 1.0, 0.0);// 球形外部随着y值变化而为线性渐变色(绿色 green)
+
 
 
 
@@ -131,8 +133,8 @@ hittable_list random_scene()
 					auto albedo = color::random();
 					sphere_material = make_shared<lambertian>(albedo);
                     auto center2 = center + vec3(0, random_double(0, 0.5), 0);
-//                    world.add(make_shared<sphere>(center, 0.2, sphere_material));
-                    world.add(make_shared<moving_sphere>(center, center2, 0.0, 1.0, 0.2, sphere_material));
+                    world.add(make_shared<sphere>(center, 0.2, sphere_material));// still
+//                    world.add(make_shared<moving_sphere>(center, center2, 0.0, 1.0, 0.2, sphere_material));// moving
 				//} else if (choose_mat < 0.95)// 进一步减小分布概率，让较少的球的材质为metal;
 				} else if (choose_mat < 0.85)// 进一步减小分布概率，让较少的球的材质为metal;
 				{
@@ -164,7 +166,8 @@ hittable_list random_scene()
 	world.add(make_shared<sphere>(point3(4, 1, 0), 1.0, material3));
 	
 //	return world;
-    return hittable_list(make_shared<bvh_node>(world, 0.0, 1.0));
+//    return hittable_list(make_shared<bvh_node>(world, 0.0, 1.0));// moving 运动模糊
+    return hittable_list(make_shared<bvh_node>(world, 0.0, 0.0));// still 静止的
 }
 
 
