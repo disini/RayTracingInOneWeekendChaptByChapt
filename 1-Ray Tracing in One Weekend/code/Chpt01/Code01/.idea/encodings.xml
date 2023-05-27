@@ -2,5 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/03_Add_Sphere/src/main.cpp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/08_Final_Render/src/camera.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/08_Final_Render/src/main.cpp" charset="GBK" />
   </component>
 </project>

@@ -42,14 +42,16 @@ class camera {
 			//origin = point3(0, 0, 0);
 			origin = lookfrom;
 			//horizontal = vec3(viewport_width, 0, 0);
-			//horizontal = viewport_width * u;
+			horizontal1 = viewport_width * u;
 			horizontal = focus_dist * viewport_width * u;
 			//vertical = vec3(0, viewport_height, 0);
-			//vertical = viewport_height * v;
+			vertical1 = viewport_height * v;
 			vertical = focus_dist * viewport_height * v;
 			//lower_left_corner = origin - horizontal / 2 - vertical / 2 - vec3(0, 0, focal_length);// 焦平面的左下角
-			lower_left_corner = origin - horizontal / 2 - vertical / 2 - w;// 焦平面的左下角
-			lower_left_corner = origin - horizontal / 2 - vertical / 2 - focus_dist * w;// 焦平面的左下角
+//			lower_left_corner = origin - horizontal / 2 - vertical / 2 - w;// 焦平面的左下角
+			
+//			lower_left_corner = origin - horizontal / 2 - vertical / 2 - focus_dist * w;// 焦平面的左下角
+			lower_left_corner = origin - focus_dist * (horizontal1 / 2 + vertical1 / 2 + w);// 焦平面的左下角
 
 			lens_radius = aperture / 2;
             time0 = _time0;

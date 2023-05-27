@@ -13,6 +13,11 @@
 
 #include <iostream>
 
+
+
+
+
+
 //bool hit_sphere(const point3& center, double radius, const ray& r) 
 /*double hit_sphere(const point3& center, double radius, const ray& r) // before denominator '2' extracted
 {
@@ -78,8 +83,14 @@ color ray_color(const ray& r, const hittable& world)
 	hit_record rec;
 	if (world.hit(r, 0, infinity, rec))
 	{
-		return 0.5 * (rec.normal + color(1, 1, 1));
+        isSomethingHit = true;
+
+        return 0.5 * (rec.normal + color(1, 1, 1));
 	}
+    else
+    {
+        isSomethingHit = false;
+    }
 				
 	vec3 unit_direction = unit_vector(r.direction());
 	auto t = 0.5 * (unit_direction.y() + 1.0);// (-1, 1) --> (0, 1)
@@ -93,7 +104,7 @@ int main()
 	const auto aspect_ratio = 16.0 / 9.0;
 	const int image_width = 400;
 	const int image_height = static_cast<int>(image_width /aspect_ratio);
-	const int samples_per_pixel = 100;
+	const int samples_per_pixel = 1;
 
 	// World(Objects)
 	hittable_list world;
@@ -152,6 +163,8 @@ int main()
 					//color pixel_color = ray_color(r, world);
 					pixel_color += ray_color(r, world);
 				}
+
+
 
 				//write_color(std::cout, pixel_color);
 				write_color(std::cout, pixel_color, samples_per_pixel);
