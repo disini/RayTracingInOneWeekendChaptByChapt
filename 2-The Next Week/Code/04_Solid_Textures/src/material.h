@@ -4,7 +4,7 @@
 #define MATERIAL_H
 
 //#include "rtweekend.h"
-
+#include "texture.h"
 
 //struct hit_record;
 
@@ -21,9 +21,12 @@ class lambertian : public material
 {
 	public:
 
-		color albedo;
+//		color albedo;
+		shared_ptr<texture> albedo;
 
-		lambertian(const color& a) : albedo(a){};
+//		lambertian(const color& a) : albedo(a){};
+		lambertian(const color& a) : albedo(make_shared<solid_color>(a)) {}
+		lambertian(shared_ptr<texture> a) : albedo(a) {}
 
 		virtual bool scatter(const ray& r_in, const hit_record& rec, color& attenuation, ray& scattered)
 			const override {
@@ -35,7 +38,8 @@ class lambertian : public material
 			
 //			scattered = ray(rec.p, scatter_direction);
 			scattered = ray(rec.p, scatter_direction, r_in.time());
-			attenuation = albedo;// 反照率
+//			attenuation = albedo;// 反照率
+			attenuation = albedo->value(rec.u, rec.v, rec.p);// 根据反照率计算反射的衰减
 			return true;
 		}
 

@@ -74,19 +74,19 @@ set(    SOURCE_BOOK_2_PROJ_03
         )
 
 set(    SOURCE_BOOK_2_PROJ_04
-        03_BVH/src/camera.h
-        03_BVH/src/color.h
-        03_BVH/src/hittable.h
-        03_BVH/src/hittable_list.h
-        03_BVH/src/material.h
-        03_BVH/src/ray.h
-        03_BVH/src/rtweekend.h
-        03_BVH/src/sphere.h
-        03_BVH/src/vec3.h
-        03_BVH/src/aabb.h
-        03_BVH/src/bvh.h
-        03_BVH/src/main.cpp
-        )
+        04_Solid_Textures/src/camera.h
+        04_Solid_Textures/src/color.h
+        04_Solid_Textures/src/hittable.h
+        04_Solid_Textures/src/hittable_list.h
+        04_Solid_Textures/src/material.h
+        04_Solid_Textures/src/ray.h
+        04_Solid_Textures/src/rtweekend.h
+        04_Solid_Textures/src/sphere.h
+        04_Solid_Textures/src/vec3.h
+        04_Solid_Textures/src/aabb.h
+        04_Solid_Textures/src/bvh.h
+        04_Solid_Textures/src/main.cpp
+        04_Solid_Textures/src/texture.h)
 
 
 #[[
