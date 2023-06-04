@@ -18,9 +18,9 @@
 
 #include <iostream>
 
-#include "chrono"// Í·ÎÄ¼şchrono ×Ôc++ 11Æğ
+#include "chrono"// å¤´æ–‡ä»¶chrono è‡ªc++ 11èµ·
 
-using namespace std::chrono;// chronoµÄËùÓĞº¯Êı¶¼´æ´¢ÔÚÃüÃû¿Õ¼ächronoÖĞ
+using namespace std::chrono;// chronoçš„æ‰€æœ‰å‡½æ•°éƒ½å­˜å‚¨åœ¨å‘½åç©ºé—´chronoä¸­
 
 double hit_sphere(const point3& center, double radius, const ray& r)// after denominator '2' extracted
 {
@@ -57,7 +57,7 @@ color ray_color(const ray& r, const hittable& world)
 				
 	vec3 unit_direction = unit_vector(r.direction());
 	auto t = 0.5 * (unit_direction.y() + 1.0);// (-1, 1) --> (0, 1)
-	return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);// ÇòĞÎÍâ²¿Ëæ×ÅyÖµ±ä»¯¶øÎªÏßĞÔ½¥±äÉ«
+	return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);// çƒå½¢å¤–éƒ¨éšç€yå€¼å˜åŒ–è€Œä¸ºçº¿æ€§æ¸å˜è‰²
 }
 
 color ray_color(const ray& r, const hittable& world, int depth)
@@ -96,9 +96,9 @@ color ray_color(const ray& r, const hittable& world, int depth)
 
 	vec3 unit_direction = unit_vector(r.direction());
 	auto t = 0.5 * (unit_direction.y() + 1.0);// (-1, 1) --> (0, 1)
-	return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);// ÇòĞÎÍâ²¿Ëæ×ÅyÖµ±ä»¯¶øÎªÏßĞÔ½¥±äÉ«(À¶É« blue)
-//	return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(1.0, 0.5, 0.0);// ÇòĞÎÍâ²¿Ëæ×ÅyÖµ±ä»¯¶øÎªÏßĞÔ½¥±äÉ«(ºì×ØÉ« red-brown)
-	return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 1.0, 0.0);// ÇòĞÎÍâ²¿Ëæ×ÅyÖµ±ä»¯¶øÎªÏßĞÔ½¥±äÉ«(ÂÌÉ« green)
+	return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);// çƒå½¢å¤–éƒ¨éšç€yå€¼å˜åŒ–è€Œä¸ºçº¿æ€§æ¸å˜è‰²(è“è‰² blue)
+//	return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(1.0, 0.5, 0.0);// çƒå½¢å¤–éƒ¨éšç€yå€¼å˜åŒ–è€Œä¸ºçº¿æ€§æ¸å˜è‰²(çº¢æ£•è‰² red-brown)
+	return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 1.0, 0.0);// çƒå½¢å¤–éƒ¨éšç€yå€¼å˜åŒ–è€Œä¸ºçº¿æ€§æ¸å˜è‰²(ç»¿è‰² green)
 
 
 
@@ -112,6 +112,7 @@ hittable_list random_scene()
 //	auto ground_material = make_shared<lambertian>(color(0.5, 0.5, 0.5));// Biggest ball as the earth(ground)
 //	world.add(make_shared<sphere>(point3(0, -1000, 0), 1000, ground_material));
 
+// checkered ground
     auto checker = make_shared<checker_texture>(color(0.2, 0.3, 0.1), color(0.9, 0.9, 0.9));
     world.add(make_shared<sphere>(point3(0, -1000, 0), 1000, make_shared<lambertian>(checker)));
 
@@ -121,16 +122,16 @@ hittable_list random_scene()
 		{
 			auto choose_mat = random_double();
 			//point3 center(a + 0.9 * random_double(), 0.2, b + 0.9 * random_double());
-			point3 center(a + 0.8 * random_double(), 0.2, b + 0.8 * random_double());// ¼õÉÙ½»²æÖØµş,³öÏÖÇ¶ÈëµÄÇé¿ö
-			//point3 center(a + 0.6 * random_double(), 0.2, b + 0.6 * random_double());// ÍêÈ«·ÀÖ¹½»²æÖØµş,³öÏÖÇ¶ÈëµÄÇé¿ö
+			point3 center(a + 0.8 * random_double(), 0.2, b + 0.8 * random_double());// å‡å°‘äº¤å‰é‡å ,å‡ºç°åµŒå…¥çš„æƒ…å†µ
+			//point3 center(a + 0.6 * random_double(), 0.2, b + 0.6 * random_double());// å®Œå…¨é˜²æ­¢äº¤å‰é‡å ,å‡ºç°åµŒå…¥çš„æƒ…å†µ
 
 			if ((center - point3(0, 0.2, 0)).length() > 0.9 && (center - point3(-4, 0.2, 0)).length() > 0.9 && (center - point3(4, 0.2, 0)).length() > 0.9)
-			// ÓëÈı¿Å´óÇòµÄÎ»ÖÃ£¨¾àÀë£©×ö±È½Ï£¬·ÀÖ¹½»²æÖØµş,³öÏÖÇ¶ÈëµÄÇé¿ö
+			// ä¸ä¸‰é¢—å¤§çƒçš„ä½ç½®ï¼ˆè·ç¦»ï¼‰åšæ¯”è¾ƒï¼Œé˜²æ­¢äº¤å‰é‡å ,å‡ºç°åµŒå…¥çš„æƒ…å†µ
 			{
 				shared_ptr<material> sphere_material;
 
-				//if (choose_mat < 0.8)// ´Ë·Ö²¼·¶Î§£¨Çø¼ä£©×î¹ã£¬Ò²¾ÍÊÇÈÃ´ó²¿·ÖÇòµÄ²ÄÖÊÎªdiffuse
-				if (choose_mat < 0.6)// ´Ë·Ö²¼·¶Î§£¨Çø¼ä£©×î¹ã£¬Ò²¾ÍÊÇÈÃ´ó²¿·ÖÇòµÄ²ÄÖÊÎªdiffuse
+				//if (choose_mat < 0.8)// æ­¤åˆ†å¸ƒèŒƒå›´ï¼ˆåŒºé—´ï¼‰æœ€å¹¿ï¼Œä¹Ÿå°±æ˜¯è®©å¤§éƒ¨åˆ†çƒçš„æè´¨ä¸ºdiffuse
+				if (choose_mat < 0.6)// æ­¤åˆ†å¸ƒèŒƒå›´ï¼ˆåŒºé—´ï¼‰æœ€å¹¿ï¼Œä¹Ÿå°±æ˜¯è®©å¤§éƒ¨åˆ†çƒçš„æè´¨ä¸ºdiffuse
 				{
 					// diffuse
 					auto albedo = color::random();
@@ -138,17 +139,17 @@ hittable_list random_scene()
                     auto center2 = center + vec3(0, random_double(0, 0.5), 0);
                     world.add(make_shared<sphere>(center, 0.2, sphere_material));// still
 //                    world.add(make_shared<moving_sphere>(center, center2, 0.0, 1.0, 0.2, sphere_material));// moving
-				//} else if (choose_mat < 0.95)// ½øÒ»²½¼õĞ¡·Ö²¼¸ÅÂÊ£¬ÈÃ½ÏÉÙµÄÇòµÄ²ÄÖÊÎªmetal;
-				} else if (choose_mat < 0.85)// ½øÒ»²½¼õĞ¡·Ö²¼¸ÅÂÊ£¬ÈÃ½ÏÉÙµÄÇòµÄ²ÄÖÊÎªmetal;
+				//} else if (choose_mat < 0.95)// è¿›ä¸€æ­¥å‡å°åˆ†å¸ƒæ¦‚ç‡ï¼Œè®©è¾ƒå°‘çš„çƒçš„æè´¨ä¸ºmetal;
+				} else if (choose_mat < 0.85)// è¿›ä¸€æ­¥å‡å°åˆ†å¸ƒæ¦‚ç‡ï¼Œè®©è¾ƒå°‘çš„çƒçš„æè´¨ä¸ºmetal;
 				{
 					// metal
-					auto albedo = color::random(0.5, 1);// ÈÃ½ğÊôÇòÑÕÉ«ÁÁÒ»Ğ©
-					auto fuzz = random_double(0, 0.5);// ÈŞÃ«£»Ä£ºı
+					auto albedo = color::random(0.5, 1);// è®©é‡‘å±çƒé¢œè‰²äº®ä¸€äº›
+					auto fuzz = random_double(0, 0.5);// ç»’æ¯›ï¼›æ¨¡ç³Š
 					sphere_material = make_shared<metal>(albedo, fuzz);
                     world.add(make_shared<sphere>(center, 0.2, sphere_material));
 				} else {
 					// glass
-					sphere_material = make_shared<dielectric>(1.5);// ²£Á§ÇòÕ¼±È×îÉÙ
+					sphere_material = make_shared<dielectric>(1.5);// ç»ç’ƒçƒå æ¯”æœ€å°‘
                     world.add(make_shared<sphere>(center, 0.2, sphere_material));
 				}
 
@@ -160,17 +161,29 @@ hittable_list random_scene()
 	}
 
 	auto material1 = make_shared<dielectric>(1.5);// glass
-	world.add(make_shared<sphere>(point3(0, 1, 0), 1.0, material1));// ÖĞ¼äµÄ´ó²£Á§Çò
+	world.add(make_shared<sphere>(point3(0, 1, 0), 1.0, material1));// ä¸­é—´çš„å¤§ç»ç’ƒçƒ
 
-	auto material2 = make_shared<lambertian>(color(0.4, 0.2, 0.1));// ×ØÉ«
+	auto material2 = make_shared<lambertian>(color(0.4, 0.2, 0.1));// æ£•è‰²
 	world.add(make_shared<sphere>(point3(-4, 1, 0), 1.0, material2));
 
-	auto material3 = make_shared<metal>(color(0.7, 0.6, 0.5), 0.0);// ´¿¾µÃæÒøÉ«½ğÊôÇò£¬ ÎŞfuzz
+	auto material3 = make_shared<metal>(color(0.7, 0.6, 0.5), 0.0);// çº¯é•œé¢é“¶è‰²é‡‘å±çƒï¼Œ æ— fuzz
 	world.add(make_shared<sphere>(point3(4, 1, 0), 1.0, material3));
 	
 //	return world;
-//    return hittable_list(make_shared<bvh_node>(world, 0.0, 1.0));// moving ÔË¶¯Ä£ºı
-    return hittable_list(make_shared<bvh_node>(world, 0.0, 0.0));// still ¾²Ö¹µÄ
+//    return hittable_list(make_shared<bvh_node>(world, 0.0, 1.0));// moving è¿åŠ¨æ¨¡ç³Š
+    return hittable_list(make_shared<bvh_node>(world, 0.0, 0.0));// still é™æ­¢çš„
+}
+
+// Scene with two checkered spheres
+hittable_list two_spheres() {
+    hittable_list objects;
+
+    auto checker = make_shared<checker_texture>(color(0.2, 0.3, 0.1), color(0.9, 0.9, 0.9));
+
+    objects.add(make_shared<sphere>(point3(0, -10, 0), 10, make_shared<lambertian>(checker)));
+    objects.add(make_shared<sphere>(point3(0, 10, 0), 10, make_shared<lambertian>(checker)));
+
+    return objects;
 }
 
 
@@ -181,7 +194,7 @@ int main()
     // http://c.biancheng.net/view/1352.html
 	unsigned seed;// Random generator seed
 	double result;
-	seed = time(0);// ´Ó¡°time_t¡±×ª»»µ½¡°unsigned int¡±£¬¿ÉÄÜ¶ªÊ§Êı¾İ
+	seed = time(0);// ä»â€œtime_tâ€è½¬æ¢åˆ°â€œunsigned intâ€ï¼Œå¯èƒ½ä¸¢å¤±æ•°æ®
 	srand(seed);
 
 	
@@ -200,9 +213,11 @@ int main()
 
 	auto R = cos(pi/4);
 	// World(Objects)
-	//hittable_list world;
+	hittable_list world;
 
-	auto world = random_scene();
+//	auto world = random_scene();
+
+
 
 	
 
@@ -213,13 +228,38 @@ int main()
 	//point3 lookat(0, 0, -1);
 	point3 lookat(0, 0, 0);
 	vec3 vup(0, 1, 0);
+    auto vfov = 40.0;
 	//auto dist_to_focus = (lookfrom - lookat).length();// 5.1961524227066320
-	auto dist_to_focus = 10.0;// ÊÖ¶¯¶Ô½¹½¹Æ½ÃæÎ»ÖÃ
+	auto dist_to_focus = 10.0;// æ‰‹åŠ¨å¯¹ç„¦ç„¦å¹³é¢ä½ç½®
 	//auto aperture = 2.0;
-	auto aperture = 0.1;
+	auto aperture = 0.0;
+
+
+    switch (0) {
+        case 1:
+            world = random_scene();
+            lookfrom = point3(13, 2, 3);
+            lookat = point3(0, 0, 0);
+            vfov = 20.0;
+            aperture = 0.1;
+            break;
+
+        default:
+        case 2:
+            world = two_spheres();
+            lookfrom = point3(13, 2, 3);
+            lookat = point3(0, 0, 0);
+            vfov = 20.0;
+            aperture = 0.0;
+            break;
+
+    }
+
+
 
 //	camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus);
-	camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus, 0.0, 1.0);
+//	camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus, 0.0, 1.0);
+	camera cam(lookfrom, lookat, vup, vfov, aspect_ratio, aperture, dist_to_focus, 0.0, 0.0);
 
 	// Render
 
@@ -231,7 +271,7 @@ int main()
 			
 		for (int i = 0; i < image_width ;++i)
 		{
-			//if (i > 180)// ½ö²¿·ÖÁĞ£¨columns£©»æÖÆ
+			//if (i > 180)// ä»…éƒ¨åˆ†åˆ—ï¼ˆcolumnsï¼‰ç»˜åˆ¶
 			//{
 			//	write_color(std::cout, color(0, 0, 0));
 			//}
@@ -240,7 +280,7 @@ int main()
 				color pixel_color(0, 0, 0);
 				for (int s=0; s < samples_per_pixel;++s)
 				{
-					auto u = (i + random_double()) / (image_width - 1);// Ëæ»ú¶àÖØ²ÉÑù				
+					auto u = (i + random_double()) / (image_width - 1);// éšæœºå¤šé‡é‡‡æ ·				
 					auto v = (j + random_double()) / (image_height - 1);						
 
 					ray r = cam.get_ray(u, v);
@@ -263,7 +303,7 @@ int main()
 					
 		}
 
-		//if ( j <= image_height - 6)// ½ö²¿·ÖĞĞ£¨rows£©»æÖÆ
+		//if ( j <= image_height - 6)// ä»…éƒ¨åˆ†è¡Œï¼ˆrowsï¼‰ç»˜åˆ¶
 		//{
 		//	return 0;
 		//}
