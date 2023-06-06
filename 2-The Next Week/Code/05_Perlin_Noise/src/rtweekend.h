@@ -2,6 +2,7 @@
 
 #ifndef RTWEEKEND_H
 #define RTWEEKEND_H
+//#define ARR_LEN(array, length){ length = sizeof(array)/sizeof(array[0]); }
 
 #include <cmath>
 #include <limits>

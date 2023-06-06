@@ -136,7 +136,86 @@ class tiled_random_texture : public texture {
 };
 
 
+class tiled_random_texture1 : public texture {
+public:
 
+    tiled_random_texture1() {}
+
+    size_t segmentNum = sizeof(indexed_color)/sizeof(indexed_color[0]);//
+//    int len;
+//    ARR_LEN(arr, len);
+
+    virtual color value(double u, double v, const point3& p) const override {
+
+//
+            int index_X = int(p.x()) % 6;
+            int index_Y = int(p.y()) % 6;
+            int index_Z = int(p.z()) % 6;
+
+
+//        auto sinX = sin(p.x());
+//        auto sinY = sin(p.y());
+//        auto sinZ = sin(p.z());
+
+//            int index_X = floorf(3*(1 + sin(p.x())));
+//            int index_Y = floorf(3*(1 + sin(p.y())));
+//            int index_Z = floorf(3*(1 + sin(p.z())));
+
+//        int index_X = floorf(3*(0.99 + sinX));
+//        int index_Y = floorf(3*(0.99 + sinY));
+//        int index_Z = floorf(3*(0.99 + sinZ));
+
+//        if (index_X < 0 || index_X > 5)
+        if (index_X < 0)
+        {
+//                system->pause();
+            index_X += 6;
+        }
+
+//        if (index_Y < 0 || index_Y > 5)
+        if (index_Y < 0)
+        {
+            index_Y += 6;
+        }
+
+//        if (index_Z < 0 || index_Z > 5)
+        if (index_Z < 0)
+        {
+            index_Z += 6;
+        }
+//
+//
+////            if (index_X < 0 || index_X > 5)
+//        if (index_X > 5)
+//        {
+////                system->pause();
+//            std::cerr << "index_X == " << index_X << endl;
+//        }
+//
+//        if (index_Y > 5)
+//        {
+//            std::cerr << "index_Y == " << index_Y << endl;
+//        }
+//
+//        if (index_Z > 5)
+//        {
+//            std::cerr << "index_Z == " << index_Z << endl;
+//        }
+
+//            return color(indexed_color[index_X], indexed_color[index_Y], indexed_color[index_Z]);
+
+        float grey = indexed_color[index_X] * indexed_color[index_Y] * indexed_color[index_Z];
+
+
+        return color(grey, grey, grey);
+    }
+
+
+private:
+    float indexed_color[6] = {0.6, 0.82, 0.49, 0.78, 0.43, 0.96};
+//    const int segment = 6;
+
+};
 
 
 
