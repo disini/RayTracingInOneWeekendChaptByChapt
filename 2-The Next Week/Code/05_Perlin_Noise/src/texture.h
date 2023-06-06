@@ -7,6 +7,8 @@
 
 #include "rtweekend.h"
 
+using namespace std;
+
 class texture {
     public:
         virtual color value(double u, double v, const point3& p) const =0;
@@ -51,7 +53,7 @@ class checker_texture : public texture{
             if (sines < 0)
                 return odd->value(u, v, p);
             else
-                return even->value(u,v, p);
+                return even->value(u, v, p);
         }
 
 
@@ -74,11 +76,52 @@ class tiled_random_texture : public texture {
 //            int index_Y = floorf(3*(1 + sin(10*p.y())));
 //            int index_Z = floorf(3*(1 + sin(10*p.z())));
 
-            int index_X = floorf(3*(1 + sin(p.x())));
-            int index_Y = floorf(3*(1 + sin(p.y())));
-            int index_Z = floorf(3*(1 + sin(p.z())));
+            auto sinX = sin(p.x());
+            auto sinY = sin(p.y());
+            auto sinZ = sin(p.z());
+
+//            int index_X = floorf(3*(1 + sin(p.x())));
+//            int index_Y = floorf(3*(1 + sin(p.y())));
+//            int index_Z = floorf(3*(1 + sin(p.z())));
+
+            int index_X = floorf(3*(0.99 + sinX));
+            int index_Y = floorf(3*(0.99 + sinY));
+            int index_Z = floorf(3*(0.99 + sinZ));
+
+//            if (index_X < 0 || index_X > 5)
+            if (index_X < 0)
+            {
+//                system->pause();
+                index_X = 0;
+            }
+
+            if (index_Y < 0)
+            {
+                index_Y = 0;
+            }
+
+            if (index_Z < 0)
+            {
+                index_Z = 0;
+            }
 
 
+//            if (index_X < 0 || index_X > 5)
+            if (index_X > 5)
+            {
+//                system->pause();
+                std::cerr << "index_X == " << index_X << endl;
+            }
+
+            if (index_Y > 5)
+            {
+                std::cerr << "index_Y == " << index_Y << endl;
+            }
+
+            if (index_Z > 5)
+            {
+                std::cerr << "index_Z == " << index_Z << endl;
+            }
 
 //            return color(indexed_color[index_X], indexed_color[index_Y], indexed_color[index_Z]);
 
@@ -91,6 +134,8 @@ class tiled_random_texture : public texture {
         float indexed_color[6] = {0.6, 0.82, 0.49, 0.78, 0.43, 0.96};
 
 };
+
+
 
 
 
