@@ -88,6 +88,21 @@ set(    SOURCE_BOOK_2_PROJ_04
         04_Solid_Textures/src/main.cpp
         04_Solid_Textures/src/texture.h)
 
+set(    SOURCE_BOOK_2_PROJ_05
+        05_Perlin_Noise/src/camera.h
+        05_Perlin_Noise/src/color.h
+        05_Perlin_Noise/src/hittable.h
+        05_Perlin_Noise/src/hittable_list.h
+        05_Perlin_Noise/src/material.h
+        05_Perlin_Noise/src/ray.h
+        05_Perlin_Noise/src/rtweekend.h
+        05_Perlin_Noise/src/sphere.h
+        05_Perlin_Noise/src/vec3.h
+        05_Perlin_Noise/src/aabb.h
+        05_Perlin_Noise/src/bvh.h
+        05_Perlin_Noise/src/main.cpp
+        05_Perlin_Noise/src/texture.h)
+
 
 #[[
 set(    SOURCE_BOOK_2_PROJ_08
@@ -109,6 +124,7 @@ set(    SOURCE_BOOK_2_PROJ_08
 add_executable(02_Motion_Blur ${SOURCE_BOOK_2_PROJ_02})
 add_executable(03_BVH ${SOURCE_BOOK_2_PROJ_03})
 add_executable(04_Solid_Textures ${SOURCE_BOOK_2_PROJ_04})
+add_executable(05_Perlin_Noise ${SOURCE_BOOK_2_PROJ_05})
 #[[add_executable(04_Diffuse_Materials ${SOURCE_BOOK_2_PROJ_04})
 add_executable(05_Metal ${SOURCE_BOOK_2_PROJ_05})
 add_executable(06_Dielectrics-Glass ${SOURCE_BOOK_2_PROJ_06})

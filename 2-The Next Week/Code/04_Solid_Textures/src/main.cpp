@@ -187,6 +187,8 @@ hittable_list two_spheres() {
 }
 
 
+
+
 int main()
 {
 	auto startTime = system_clock::now();
