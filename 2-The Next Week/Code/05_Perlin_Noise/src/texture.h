@@ -68,14 +68,15 @@ class tiled_random_texture : public texture {
         tiled_random_texture() {}
 
         virtual color value(double u, double v, const point3& p) const override {
-            auto sines = sin(10*p.x()) * sin(10*p.y()) * sin(10*p.z());
-            int index_X = floorf(3*(1 + sin(10*p.x())));
-            int index_Y = floorf(3*(1 + sin(10*p.y())));
-            int index_Z = floorf(3*(1 + sin(10*p.z())));
+//            auto sines = sin(10*p.x()) * sin(10*p.y()) * sin(10*p.z());
+//
+//            int index_X = floorf(3*(1 + sin(10*p.x())));
+//            int index_Y = floorf(3*(1 + sin(10*p.y())));
+//            int index_Z = floorf(3*(1 + sin(10*p.z())));
 
-//            int index_X = floorf(3*(1 + sin(p.x())));
-//            int index_Y = floorf(3*(1 + sin(p.y())));
-//            int index_Z = floorf(3*(1 + sin(p.z())));
+            int index_X = floorf(3*(1 + sin(p.x())));
+            int index_Y = floorf(3*(1 + sin(p.y())));
+            int index_Z = floorf(3*(1 + sin(p.z())));
 
 
 
