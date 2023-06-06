@@ -149,8 +149,37 @@ public:
 
 //
             int index_X = int(p.x()) % 6;
+            if ((p.x() > -1) && (p.x()) < 0)
+                index_X = 5;
+
             int index_Y = int(p.y()) % 6;
+            if ((p.y() > -1) && (p.y()) < 0)
+                index_Y = 5;
+
             int index_Z = int(p.z()) % 6;
+            if ((p.z() > -1) && (p.z()) < 0)
+                index_Z = 5;
+
+//        int num1 = int(-1.23); // -1
+//        int num2 = int(-1.23) % 6;  // -1
+//
+//        int num3 = int(-0.98);  // 0
+//        int num4 = int(-0.98) % 6; // 0
+//
+//        int num5 = int(-0.23); // 0
+//        int num6 = int(-0.23) % 6; // 0
+
+
+
+//        int index_X = p.x() < 0 ? int(p.x() + 6) % 6 : int(p.x()) % 6;
+//        int index_Y = p.y() < 0 ? int(p.y() + 6) % 6 : int(p.y()) % 6;
+//        int index_Z = p.z() < 0 ? int(p.z() + 6) % 6 : int(p.z()) % 6;
+
+
+
+//        int index_X = int(10 * p.x()) % 6;
+//        int index_Y = int(10 * p.y()) % 6;
+//        int index_Z = int(10 * p.z()) % 6;
 
 
 //        auto sinX = sin(p.x());
@@ -169,19 +198,19 @@ public:
         if (index_X < 0)
         {
 //                system->pause();
-            index_X += 6;
+            index_X += 5;
         }
 
 //        if (index_Y < 0 || index_Y > 5)
         if (index_Y < 0)
         {
-            index_Y += 6;
+            index_Y += 5;
         }
 
 //        if (index_Z < 0 || index_Z > 5)
         if (index_Z < 0)
         {
-            index_Z += 6;
+            index_Z += 5;
         }
 //
 //
