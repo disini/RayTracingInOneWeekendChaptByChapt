@@ -270,9 +270,11 @@ private:
 
         virtual color value(double u, double v, const point3& p) const override {
 
-            double pX = 10 * p.x();
-            double pY = 10 * p.y();
-            double pZ = 10 * p.z();
+            const int scale = 4;
+
+            double pX = scale * p.x();
+            double pY = scale * p.y();
+            double pZ = scale * p.z();
 
             int index_X = int(pX) % 6;
             if ((pX > -1) && (pX) < 0)
