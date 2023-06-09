@@ -141,11 +141,11 @@ public:
 
     tiled_random_texture1() {}
 
-    size_t segmentNum = sizeof(indexed_color)/sizeof(indexed_color[0]);//
+    size_t segmentNum = sizeof(indexed_color) / sizeof(indexed_color[0]);//
 //    int len;
 //    ARR_LEN(arr, len);
 
-    virtual color value(double u, double v, const point3& p) const override {
+    virtual color value(double u, double v, const point3 &p) const override {
 
 //
 //            int index_X = int(p.x()) % 6;
@@ -213,21 +213,18 @@ public:
 //        int index_Z = floorf(3*(0.99 + sinZ));
 
 //        if (index_X < 0 || index_X > 5)
-        if (index_X < 0)
-        {
+        if (index_X < 0) {
 //                system->pause();
             index_X += 5;
         }
 
 //        if (index_Y < 0 || index_Y > 5)
-        if (index_Y < 0)
-        {
+        if (index_Y < 0) {
             index_Y += 5;
         }
 
 //        if (index_Z < 0 || index_Z > 5)
-        if (index_Z < 0)
-        {
+        if (index_Z < 0) {
             index_Z += 5;
         }
 //
@@ -252,16 +249,89 @@ public:
 //            return color(indexed_color[index_X], indexed_color[index_Y], indexed_color[index_Z]);
 
 //        float grey = indexed_color[index_X] * indexed_color[index_Y] * indexed_color[index_Z];
-        float grey = indexed_color[index_X] * indexed_color[6-index_Y] * indexed_color[index_Z];
+        float grey = indexed_color[index_X] * indexed_color[6 - index_Y] * indexed_color[index_Z];
 
 
         return color(grey, grey, grey);
     }
 
-
 private:
     float indexed_color[6] = {0.6, 0.12, 0.49, 0.78, 0.43, 0.96};
-//    const int segment = 6;
+};
+
+    class tiled_random_texture2 : public texture {
+    public:
+
+        tiled_random_texture2() {
+            generateRandomColors();
+        }
+
+
+
+        virtual color value(double u, double v, const point3& p) const override {
+
+            double pX = 10 * p.x();
+            double pY = 10 * p.y();
+            double pZ = 10 * p.z();
+
+            int index_X = int(pX) % 6;
+            if ((pX > -1) && (pX) < 0)
+                index_X = 5;
+
+            int index_Y = int(pY) % 6;
+            if ((pY > -1) && (pY) < 0)
+                index_Y = 5;
+
+            int index_Z = int(pZ) % 6;
+            if ((pZ > -1) && (pZ) < 0)
+                index_Z = 5;
+
+            if (index_X < 0)
+            {
+//                system->pause();
+                index_X += 5;
+            }
+
+            if (index_Y < 0)
+            {
+                index_Y += 5;
+            }
+
+            if (index_Z < 0)
+            {
+                index_Z += 5;
+            }
+
+
+            float grey = indexed_3d_color[index_X][index_Y][index_Z];
+
+
+            return color(grey, grey, grey);
+        }
+
+
+    private:
+        float indexed_color[6] = {0.6, 0.12, 0.49, 0.78, 0.43, 0.96};
+    //    const int segment = 6;
+        float indexed_3d_color[6][6][6] = {};
+
+    private:
+        bool generateRandomColors() {
+            for(int i = 0; i < 6; i++)
+            {
+                for(int j = 0; j < 6; j++)
+                {
+                    for(int k = 0; k < 6; k++)
+                    {
+                        indexed_3d_color[i][j][k] = random_double(0.01, 0.99);
+                    }
+                }
+            }
+
+            return true;
+        }
+
+
 
 };
 

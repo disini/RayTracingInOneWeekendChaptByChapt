@@ -189,7 +189,7 @@ hittable_list two_spheres() {
 hittable_list two_tiled_spheres() {
     hittable_list objects;
 
-    auto tiledText = make_shared<tiled_random_texture1>();
+    auto tiledText = make_shared<tiled_random_texture2>();
     objects.add(make_shared<sphere>(point3(0, -1000, 0), 1000, make_shared<lambertian>(tiledText)));
     objects.add(make_shared<sphere>(point3(0, 2, 0), 2, make_shared<lambertian>(tiledText)));
 
