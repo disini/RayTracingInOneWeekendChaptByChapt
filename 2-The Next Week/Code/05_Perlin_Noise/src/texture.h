@@ -148,17 +148,35 @@ public:
     virtual color value(double u, double v, const point3& p) const override {
 
 //
-            int index_X = int(p.x()) % 6;
-            if ((p.x() > -1) && (p.x()) < 0)
-                index_X = 5;
+//            int index_X = int(p.x()) % 6;
+//            if ((p.x() > -1) && (p.x()) < 0)
+//                index_X = 5;
+//
+//            int index_Y = int(p.y()) % 6;
+//            if ((p.y() > -1) && (p.y()) < 0)
+//                index_Y = 5;
+//
+//            int index_Z = int(p.z()) % 6;
+//            if ((p.z() > -1) && (p.z()) < 0)
+//                index_Z = 5;
 
-            int index_Y = int(p.y()) % 6;
-            if ((p.y() > -1) && (p.y()) < 0)
-                index_Y = 5;
+        double pX = 10 * p.x();
+        double pY = 10 * p.y();
+        double pZ = 10 * p.z();
 
-            int index_Z = int(p.z()) % 6;
-            if ((p.z() > -1) && (p.z()) < 0)
-                index_Z = 5;
+        int index_X = int(pX) % 6;
+        if ((pX > -1) && (pX) < 0)
+            index_X = 5;
+
+        int index_Y = int(pY) % 6;
+        if ((pY > -1) && (pY) < 0)
+            index_Y = 5;
+
+        int index_Z = int(pZ) % 6;
+        if ((pZ > -1) && (pZ) < 0)
+            index_Z = 5;
+
+
 
 //        int num1 = int(-1.23); // -1
 //        int num2 = int(-1.23) % 6;  // -1
@@ -234,6 +252,7 @@ public:
 //            return color(indexed_color[index_X], indexed_color[index_Y], indexed_color[index_Z]);
 
         float grey = indexed_color[index_X] * indexed_color[index_Y] * indexed_color[index_Z];
+//        float grey = indexed_color[index_X] * indexed_color[6-index_Y] * indexed_color[index_Z];
 
 
         return color(grey, grey, grey);
@@ -241,7 +260,7 @@ public:
 
 
 private:
-    float indexed_color[6] = {0.6, 0.82, 0.49, 0.78, 0.43, 0.96};
+    float indexed_color[6] = {0.6, 0.12, 0.49, 0.78, 0.43, 0.96};
 //    const int segment = 6;
 
 };
