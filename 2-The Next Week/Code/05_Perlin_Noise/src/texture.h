@@ -251,8 +251,8 @@ public:
 
 //            return color(indexed_color[index_X], indexed_color[index_Y], indexed_color[index_Z]);
 
-        float grey = indexed_color[index_X] * indexed_color[index_Y] * indexed_color[index_Z];
-//        float grey = indexed_color[index_X] * indexed_color[6-index_Y] * indexed_color[index_Z];
+//        float grey = indexed_color[index_X] * indexed_color[index_Y] * indexed_color[index_Z];
+        float grey = indexed_color[index_X] * indexed_color[6-index_Y] * indexed_color[index_Z];
 
 
         return color(grey, grey, grey);
