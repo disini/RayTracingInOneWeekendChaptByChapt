@@ -106,6 +106,21 @@ public:
         return perlin_interp(c, u, v, w);
     }
 
+    //Listing 41: [perlin.h] Turbulence function
+    double turb(const point3& p, int depth = 7) const
+    {
+        auto accum = 0.0;
+        auto temp_p = p;
+        auto weight = 1.0;
+
+        for (int i = 0; i < depth; ++i) {
+            accum += weight * noise(temp_p);// 叠加7次该点的（不同频率）随机噪声
+            weight *= 0.5;// 权重减小一半
+            temp_p *= 2;// 频率扩大一倍
+        }
+
+        return fabs(accum);// Absolute value
+    }
 
 
 
@@ -179,6 +194,7 @@ private:
         return accum;
 
     }
+
 
 
 

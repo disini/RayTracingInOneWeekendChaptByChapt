@@ -348,8 +348,10 @@ private:
             {
 //                return color(1, 1, 1) * noise.noise(p);
 //                return color(1, 1, 1) * noise.noise(scale * p);
-                return color(1, 1, 1) * 0.5 * (1 + noise.noise(scale * p));// (-1, 1) --> (0, 1)
+//                return color(1, 1, 1) * 0.5 * (1 + noise.noise(scale * p));// (-1, 1) --> (0, 1)
+                return color(1, 1, 1) * noise.turb(scale * p);
             }
+
 
 
     public:
