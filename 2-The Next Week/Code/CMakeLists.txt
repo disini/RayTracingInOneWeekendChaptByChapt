@@ -101,7 +101,7 @@ set(    SOURCE_BOOK_2_PROJ_05
         05_Perlin_Noise/src/aabb.h
         05_Perlin_Noise/src/bvh.h
         05_Perlin_Noise/src/main.cpp
-        05_Perlin_Noise/src/texture.h)
+        05_Perlin_Noise/src/texture.h 05_Perlin_Noise/src/perlin.h)
 
 
 #[[
