@@ -349,7 +349,10 @@ private:
 //                return color(1, 1, 1) * noise.noise(p);
 //                return color(1, 1, 1) * noise.noise(scale * p);
 //                return color(1, 1, 1) * 0.5 * (1 + noise.noise(scale * p));// (-1, 1) --> (0, 1)
-                return color(1, 1, 1) * noise.turb(scale * p);
+//                return color(1, 1, 1) * noise.turb(scale * p);// Commenting out straight noise and turbulence
+
+                // take turbulence as an additional item.
+                return color(1, 1, 1) * 0.5 * (1 + sin(scale * p.z() + 10 * noise.turb(p)));
             }
 
 
