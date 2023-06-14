@@ -32,12 +32,15 @@ public:
 
     //check the ranfloat array get a grey scale value according to the coordinates of point p
     double noise(const point3& p) const {
-        auto i = static_cast<int>(4 * p.x()) & 255;
-        auto j = static_cast<int>(4 * p.y()) & 255;
-        auto k = static_cast<int>(4 * p.z()) & 255;// prevent for overflow
+        auto i = static_cast<int>(16 * p.x()) & 255;
+        auto j = static_cast<int>(16 * p.y()) & 255;
+        auto k = static_cast<int>(16 * p.z()) & 255;// prevent for overflow
 
         return ranfloat[perm_x[i] ^ perm_y[j] ^ perm_z[k]];
     }
+
+
+
 
 
 
