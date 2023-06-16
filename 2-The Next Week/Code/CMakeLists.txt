@@ -71,7 +71,7 @@ set(    SOURCE_BOOK_2_PROJ_03
         03_BVH/src/aabb.h
         03_BVH/src/bvh.h
         03_BVH/src/main.cpp
-        )
+    )
 
 set(    SOURCE_BOOK_2_PROJ_04
         04_Solid_Textures/src/camera.h
@@ -86,7 +86,8 @@ set(    SOURCE_BOOK_2_PROJ_04
         04_Solid_Textures/src/aabb.h
         04_Solid_Textures/src/bvh.h
         04_Solid_Textures/src/main.cpp
-        04_Solid_Textures/src/texture.h)
+        04_Solid_Textures/src/texture.h
+    )
 
 set(    SOURCE_BOOK_2_PROJ_05
         05_Perlin_Noise/src/camera.h
@@ -101,7 +102,28 @@ set(    SOURCE_BOOK_2_PROJ_05
         05_Perlin_Noise/src/aabb.h
         05_Perlin_Noise/src/bvh.h
         05_Perlin_Noise/src/main.cpp
-        05_Perlin_Noise/src/texture.h 05_Perlin_Noise/src/perlin.h)
+        05_Perlin_Noise/src/texture.h
+        05_Perlin_Noise/src/perlin.h
+    )
+
+set(
+        SOURCE_BOOK_2_PROJ_06
+        06_Image_Texture/src/external/stb_image.h
+        06_Image_Texture/src/camera.h
+        06_Image_Texture/src/color.h
+        06_Image_Texture/src/hittable.h
+        06_Image_Texture/src/hittable_list.h
+        06_Image_Texture/src/material.h
+        06_Image_Texture/src/ray.h
+        06_Image_Texture/src/rtweekend.h
+        06_Image_Texture/src/sphere.h
+        06_Image_Texture/src/vec3.h
+        06_Image_Texture/src/aabb.h
+        06_Image_Texture/src/bvh.h
+        06_Image_Texture/src/main.cpp
+        06_Image_Texture/src/texture.h
+        06_Image_Texture/src/perlin.h
+        06_Image_Texture/src/rtw_stb_image.h)
 
 
 #[[
@@ -125,6 +147,7 @@ add_executable(02_Motion_Blur ${SOURCE_BOOK_2_PROJ_02})
 add_executable(03_BVH ${SOURCE_BOOK_2_PROJ_03})
 add_executable(04_Solid_Textures ${SOURCE_BOOK_2_PROJ_04})
 add_executable(05_Perlin_Noise ${SOURCE_BOOK_2_PROJ_05})
+add_executable(06_Image_Texture ${SOURCE_BOOK_2_PROJ_06})
 #[[add_executable(04_Diffuse_Materials ${SOURCE_BOOK_2_PROJ_04})
 add_executable(05_Metal ${SOURCE_BOOK_2_PROJ_05})
 add_executable(06_Dielectrics-Glass ${SOURCE_BOOK_2_PROJ_06})

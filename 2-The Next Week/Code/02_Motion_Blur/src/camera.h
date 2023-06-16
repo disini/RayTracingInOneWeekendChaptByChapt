@@ -10,8 +10,11 @@ class camera {
 	private:
 		point3 origin;
 		point3 lower_left_corner;
+		point3 lower_left_corner1;
 		vec3 horizontal;
+		vec3 horizontal1;
 		vec3 vertical;
+		vec3 vertical1;
 		vec3 u, v, w;
 		double lens_radius;// ¾µÆ¬°ë£¨¿×£©¾¶£¨°ë¹âÈ¦¿×¾¶£©
         double time0, time1;// shutter open/close times

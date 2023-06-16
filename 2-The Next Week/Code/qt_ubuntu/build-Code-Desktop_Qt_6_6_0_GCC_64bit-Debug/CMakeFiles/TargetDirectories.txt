@@ -1,4 +1,0 @@
-/media/liusheng/Projects/progwork/books/Peter Shirley/2-The Next Week/Code/qt_ubuntu/build-Code-Desktop_Qt_6_6_0_GCC_64bit-Debug/CMakeFiles/02_Motion_Blur.dir
-/media/liusheng/Projects/progwork/books/Peter Shirley/2-The Next Week/Code/qt_ubuntu/build-Code-Desktop_Qt_6_6_0_GCC_64bit-Debug/CMakeFiles/03_BVH.dir
-/media/liusheng/Projects/progwork/books/Peter Shirley/2-The Next Week/Code/qt_ubuntu/build-Code-Desktop_Qt_6_6_0_GCC_64bit-Debug/CMakeFiles/edit_cache.dir
-/media/liusheng/Projects/progwork/books/Peter Shirley/2-The Next Week/Code/qt_ubuntu/build-Code-Desktop_Qt_6_6_0_GCC_64bit-Debug/CMakeFiles/rebuild_cache.dir
