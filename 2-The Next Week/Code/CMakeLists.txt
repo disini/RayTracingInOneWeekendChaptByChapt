@@ -123,7 +123,29 @@ set(
         06_Image_Texture/src/main.cpp
         06_Image_Texture/src/texture.h
         06_Image_Texture/src/perlin.h
-        06_Image_Texture/src/rtw_stb_image.h)
+        06_Image_Texture/src/rtw_stb_image.h
+    )
+
+set(
+        SOURCE_BOOK_2_PROJ_07
+        07_Rectangles_and_Lights/src/external/stb_image.h
+        07_Rectangles_and_Lights/src/camera.h
+        07_Rectangles_and_Lights/src/color.h
+        07_Rectangles_and_Lights/src/hittable.h
+        07_Rectangles_and_Lights/src/hittable_list.h
+        07_Rectangles_and_Lights/src/material.h
+        07_Rectangles_and_Lights/src/ray.h
+        07_Rectangles_and_Lights/src/rtweekend.h
+        07_Rectangles_and_Lights/src/sphere.h
+        07_Rectangles_and_Lights/src/vec3.h
+        07_Rectangles_and_Lights/src/aabb.h
+        07_Rectangles_and_Lights/src/bvh.h
+        07_Rectangles_and_Lights/src/main.cpp
+        07_Rectangles_and_Lights/src/texture.h
+        07_Rectangles_and_Lights/src/perlin.h
+        07_Rectangles_and_Lights/src/rtw_stb_image.h
+        07_Rectangles_and_Lights/src/aarect.h)
+
 
 
 #[[
@@ -148,6 +170,7 @@ add_executable(03_BVH ${SOURCE_BOOK_2_PROJ_03})
 add_executable(04_Solid_Textures ${SOURCE_BOOK_2_PROJ_04})
 add_executable(05_Perlin_Noise ${SOURCE_BOOK_2_PROJ_05})
 add_executable(06_Image_Texture ${SOURCE_BOOK_2_PROJ_06})
+add_executable(07_Rectangles_and_Lights ${SOURCE_BOOK_2_PROJ_07})
 #[[add_executable(04_Diffuse_Materials ${SOURCE_BOOK_2_PROJ_04})
 add_executable(05_Metal ${SOURCE_BOOK_2_PROJ_05})
 add_executable(06_Dielectrics-Glass ${SOURCE_BOOK_2_PROJ_06})
