@@ -243,8 +243,12 @@ hittable_list simple_light()
     objects.add(make_shared<sphere>(point3(0, -1000, 0), 1000, make_shared<lambertian>(pertex)));
     objects.add(make_shared<sphere>(point3(0, 2, 0), 2, make_shared<lambertian>(pertex)));
 
-    auto difflight = make_shared<diffuse_light>(color(4,4,4));
+    shared_ptr<material> difflight = make_shared<diffuse_light>(color(4, 4, 4));
     objects.add(make_shared<xy_rect>(3, 5, 1, 3, -2, difflight));
+//    auto diffLight_Sphere = make_shared<diffuse_light>(color(4, 4, 4));
+    objects.add(make_shared<sphere>(point3(0, 7, 0), 2, difflight));
+
+
 
 
     return objects;
@@ -266,7 +270,7 @@ int main()
 	// Image
 	auto aspect_ratio = 16.0 / 9.0;
 	//const auto aspect_ratio = 3.0 / 2.0;
-	//const int image_width = 400;
+//	int image_width = 400;
 //    int image_width = 3840;
 //	const int image_width = 1200;
 	int image_width = 1920;
