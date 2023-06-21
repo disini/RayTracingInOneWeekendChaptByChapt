@@ -251,9 +251,9 @@ hittable_list simple_light()
      */
 
     shared_ptr<material> difflight_Pink = make_shared<diffuse_light>(color(4, 0, 4));
-    shared_ptr<material> difflight_Orange = make_shared<diffuse_light>(color(4, 4, 0));
+    shared_ptr<material> difflight_Yellow = make_shared<diffuse_light>(color(4, 4, 0));
     objects.add(make_shared<xy_rect>(3, 5, 1, 3, -2, difflight_Pink));
-    objects.add(make_shared<sphere>(point3(0, 7, 0), 2, difflight_Orange));
+    objects.add(make_shared<sphere>(point3(0, 7, 0), 2, difflight_Yellow));
 
 
     return objects;
