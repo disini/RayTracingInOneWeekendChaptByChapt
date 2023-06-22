@@ -260,6 +260,29 @@ hittable_list simple_light()
 }
 
 
+hittable_list cornell_box() {
+    hittable_list objects;
+
+    auto red = make_shared<lambertian>(color(0.65, 0.05, 0.05));
+    auto white = make_shared<lambertian>(color(0.73, 0.73, 0.73));
+    auto green = make_shared<lambertian>(color(0.12, 0.45, 0.15));
+    auto light = make_shared<diffuse_light>(color(15, 15, 15));
+
+    // make a box
+    objects.add(make_shared<yz_rect>(0 ,555, 0, 555, 555, green));// right face
+    objects.add(make_shared<yz_rect>(0, 555, 0, 555, 0, red));// left face
+    objects.add(make_shared<xz_rect>(213, 343, 227, 332, 554, light));// a little bit lower than the top face
+    objects.add(make_shared<xz_rect>(0, 555, 0, 555, 0, white));// bottom face
+    objects.add(make_shared<xz_rect>(0, 555, 0, 555, 555, white));// top face
+    objects.add(make_shared<xy_rect>(0, 555, 0, 555, 555, white));// front face
+
+    return objects;
+}
+
+
+
+
+
 int main()
 {
 	auto startTime = system_clock::now();
@@ -279,7 +302,7 @@ int main()
 //    int image_width = 3840;
 //	const int image_width = 1200;
 	int image_width = 1920;
-	int image_height = static_cast<int>(image_width /aspect_ratio);
+//	int image_height = static_cast<int>(image_width /aspect_ratio);
 //	const int samples_per_pixel = 500;
 //	const int samples_per_pixel = 200;
 	int samples_per_pixel = 50;
@@ -294,7 +317,7 @@ int main()
 
 
 	
-
+// Camera
 
 	//point3 lookfrom(-2, 2, 1);
 	//point3 lookfrom(3, 3, 2);
@@ -307,6 +330,7 @@ int main()
 	auto dist_to_focus = 10.0;// 手动对焦焦平面位置
 	//auto aperture = 2.0;
 	auto aperture = 0.0;
+//    int image_height = static_cast<int>(image_width /aspect_ratio);
     color background(0, 0, 0);
 
 
@@ -352,7 +376,7 @@ int main()
             vfov = 20.0;
             break;
 
-        default:
+//        default:
         case 6:
             world = simple_light();
             samples_per_pixel = 400;
@@ -360,12 +384,23 @@ int main()
             lookfrom = point3(26, 3, 6);
             lookat = point3(0, 2, 0);
             vfov = 20.0;
-
+            break;
+        default:
+        case 7:
+            world = cornell_box();
+            // Changing aspect ratio and viewing parameters.
+            aspect_ratio = 1.0;
+            image_width = 2000;
+            samples_per_pixel = 500;
+            background = color(0, 0, 0);
+            lookfrom = point3(278, 278, -1000);// on the -z axis
+            lookat = point3(278, 278, 0);
+            vfov = 40.0;
             break;
     }
 
 
-
+    int image_height = static_cast<int>(image_width /aspect_ratio);
 //	camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus);
 //	camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus, 0.0, 1.0);
 	camera cam(lookfrom, lookat, vup, vfov, aspect_ratio, aperture, dist_to_focus, 0.0, 0.0);
@@ -373,6 +408,7 @@ int main()
 	// Render
 
 	std::cout << "P3\n" << image_width << " " << image_height << "\n255\n";
+	std::cerr << "image_width　==　" << image_width << "，　image_height　==　" << image_height << "\n";
 	for (int j = image_height -1; j >= 0; --j)
 	{
 		std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush << '\n';		
