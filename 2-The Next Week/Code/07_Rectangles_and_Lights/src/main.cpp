@@ -391,7 +391,8 @@ int main()
             // Changing aspect ratio and viewing parameters.
             aspect_ratio = 1.0;
             image_width = 2000;
-            samples_per_pixel = 500;
+            samples_per_pixel = 5000;
+//            max_depth = 200;
             background = color(0, 0, 0);
             lookfrom = point3(278, 278, -1000);// on the -z axis
             lookat = point3(278, 278, 0);
