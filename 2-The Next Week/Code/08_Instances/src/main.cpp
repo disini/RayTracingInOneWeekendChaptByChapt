@@ -15,8 +15,7 @@
 #include "camera.h"
 #include "material.h"
 #include "bvh.h"
-
-
+#include "box.h"
 
 #include <iostream>
 
@@ -283,6 +282,31 @@ hittable_list cornell_box() {
 
 
 
+hittable_list cornell_box_with_two_boxes() {
+    hittable_list objects;
+
+    auto red = make_shared<lambertian>(color(0.65, 0.05, 0.05));
+    auto white = make_shared<lambertian>(color(0.73, 0.73, 0.73));
+    auto green = make_shared<lambertian>(color(0.12, 0.45, 0.15));
+    auto light = make_shared<diffuse_light>(color(15, 15, 15));
+
+    // make a box
+    objects.add(make_shared<yz_rect>(0 ,555, 0, 555, 555, green));// right face
+    objects.add(make_shared<yz_rect>(0, 555, 0, 555, 0, red));// left face
+    objects.add(make_shared<xz_rect>(213, 343, 227, 332, 554, light));// a little bit lower than the top face
+    objects.add(make_shared<xz_rect>(0, 555, 0, 555, 0, white));// bottom face
+    objects.add(make_shared<xz_rect>(0, 555, 0, 555, 555, white));// top face
+    objects.add(make_shared<xy_rect>(0, 555, 0, 555, 555, white));// front face
+
+    objects.add(make_shared<box>(point3(130, 0, 65), point3(295, 165, 230), white));// the shorter one
+    objects.add(make_shared<box>(point3(265, 0, 295), point3(430, 330, 460), white));// the taller one
+
+    return objects;
+}
+
+
+
+
 
 int main()
 {
@@ -386,13 +410,26 @@ int main()
             lookat = point3(0, 2, 0);
             vfov = 20.0;
             break;
-        default:
+//        default:
         case 7:
             world = cornell_box();
             // Changing aspect ratio and viewing parameters.
             aspect_ratio = 1.0;
             image_width = 2000;
             samples_per_pixel = 5000;
+//            max_depth = 200;
+            background = color(0, 0, 0);
+            lookfrom = point3(278, 278, -1000);// on the -z axis
+            lookat = point3(278, 278, 0);
+            vfov = 40.0;
+            break;
+        default:
+        case 8:
+            world = cornell_box_with_two_boxes();
+            // Changing aspect ratio and viewing parameters.
+            aspect_ratio = 1.0;
+            image_width = 2000;
+            samples_per_pixel = 50;
 //            max_depth = 200;
             background = color(0, 0, 0);
             lookfrom = point3(278, 278, -1000);// on the -z axis
