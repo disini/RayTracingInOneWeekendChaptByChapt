@@ -16,6 +16,7 @@
 #include "material.h"
 #include "bvh.h"
 #include "box.h"
+#include "constant_medium.h"
 
 #include <iostream>
 
@@ -343,6 +344,51 @@ hittable_list cornell_box_with_two_Y_rotated_boxes() {
 
 
 
+hittable_list cornell_smoke() {
+    hittable_list objects;
+
+    auto red = make_shared<lambertian>(color(0.65, 0.05, 0.05));
+    auto white = make_shared<lambertian>(color(0.73, 0.73, 0.73));
+    auto green = make_shared<lambertian>(color(0.12, 0.45, 0.15));
+    auto light = make_shared<diffuse_light>(color(15, 15, 15));
+
+    // make a box
+    objects.add(make_shared<yz_rect>(0 ,555, 0, 555, 555, green));// right face
+    objects.add(make_shared<yz_rect>(0, 555, 0, 555, 0, red));// left face
+    objects.add(make_shared<xz_rect>(213, 343, 227, 332, 554, light));// a little bit lower than the top face
+    objects.add(make_shared<xz_rect>(0, 555, 0, 555, 0, white));// bottom face
+    objects.add(make_shared<xz_rect>(0, 555, 0, 555, 555, white));// top face
+    objects.add(make_shared<xy_rect>(0, 555, 0, 555, 555, white));// front face
+
+
+
+// Two Y-rotated boxes
+// the taller one
+    shared_ptr<hittable> box1 = make_shared<box>(point3(0, 0, 0), point3(165,330, 165), white);
+    box1 = make_shared<rotate_y>(box1, 15);// 沿y轴旋转15度（degrees）,先旋转再平移！
+    box1 = make_shared<translate>(box1, vec3(265, 0, 295));
+//    objects.add(box1);
+
+    // the shorter one
+    shared_ptr<hittable> box2 = make_shared<box>(point3(0, 0, 0), point3(165,165, 165), white);
+    box2 = make_shared<rotate_y>(box2, -18);// 沿y轴旋转15度（degrees）,先旋转再平移！
+    box2 = make_shared<translate>(box2, vec3(130, 0, 65));
+//    objects.add(box2);
+
+    objects.add(make_shared<constant_medium>(box1, 0.01, color(0, 0, 0)));// black, smoke
+    objects.add(make_shared<constant_medium>(box2, 0.01, color(1, 1, 1)));
+
+
+    return objects;
+}
+
+
+
+
+
+
+
+
 
 
 int main()
@@ -473,7 +519,7 @@ int main()
             lookat = point3(278, 278, 0);
             vfov = 40.0;
             break;
-        default:
+//        default:
         case 9:
             world = cornell_box_with_two_Y_rotated_boxes();
             // Changing aspect ratio and viewing parameters.
@@ -483,6 +529,19 @@ int main()
 //            max_depth = 200;
             background = color(0, 0, 0);
             lookfrom = point3(278, 278, -1000);// on the -z axis
+            lookat = point3(278, 278, 0);
+            vfov = 40.0;
+            break;
+        default:
+        case 10:
+            world = cornell_smoke();
+            // Changing aspect ratio and viewing parameters.
+            aspect_ratio = 1.0;
+            image_width = 600;
+            samples_per_pixel = 2000;
+//            max_depth = 200;
+            background = color(0, 0, 0);
+            lookfrom = point3(278, 278, -900);// on the -z axis
             lookat = point3(278, 278, 0);
             vfov = 40.0;
             break;
