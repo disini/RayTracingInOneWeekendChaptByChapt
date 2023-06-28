@@ -355,7 +355,8 @@ hittable_list cornell_smoke() {
     // make a box
     objects.add(make_shared<yz_rect>(0 ,555, 0, 555, 555, green));// right face
     objects.add(make_shared<yz_rect>(0, 555, 0, 555, 0, red));// left face
-    objects.add(make_shared<xz_rect>(213, 343, 227, 332, 554, light));// a little bit lower than the top face
+//    objects.add(make_shared<xz_rect>(213, 343, 227, 332, 554, light));// a little bit lower than the top face
+    objects.add(make_shared<xz_rect>(113, 443, 127, 432, 554, light));// make the light bigger!
     objects.add(make_shared<xz_rect>(0, 555, 0, 555, 0, white));// bottom face
     objects.add(make_shared<xz_rect>(0, 555, 0, 555, 555, white));// top face
     objects.add(make_shared<xy_rect>(0, 555, 0, 555, 555, white));// front face
@@ -376,7 +377,7 @@ hittable_list cornell_smoke() {
 //    objects.add(box2);
 
     objects.add(make_shared<constant_medium>(box1, 0.01, color(0, 0, 0)));// black, smoke
-    objects.add(make_shared<constant_medium>(box2, 0.01, color(1, 1, 1)));
+    objects.add(make_shared<constant_medium>(box2, 0.01, color(1, 1, 1)));// white, frog
 
 
     return objects;
@@ -537,7 +538,7 @@ int main()
             world = cornell_smoke();
             // Changing aspect ratio and viewing parameters.
             aspect_ratio = 1.0;
-            image_width = 600;
+            image_width = 2000;
             samples_per_pixel = 2000;
 //            max_depth = 200;
             background = color(0, 0, 0);
