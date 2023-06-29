@@ -397,6 +397,7 @@ hittable_list final_scene() {
             auto x0 = -1000.0 + i * w;
             auto z0 = -1000.0 + j * w;
             auto y0 = 0.0;
+//            auto y0 = -50.0;
             auto x1 = x0 + w;
             auto y1 = random_double(1, 101);
             auto z1 = z0 + w;
@@ -425,8 +426,10 @@ hittable_list final_scene() {
     objects.add(make_shared<sphere>(point3(0, 150, 145), 50, make_shared<metal>(color(0.8, 0.8, 0.9), 1.0)));
 
     // the blue snooker ball
+    // part 1 , the outer varnish/natual clear lacquer(清漆) layer
     auto boundry = make_shared<sphere>(point3(360, 150, 145), 70, make_shared<dielectric>(1.5));
     objects.add(boundry);
+
 
     // the earth ball
     auto emat = make_shared<lambertian>(make_shared<image_texture>("../../../../images/textures/earth/005.jpg"));
@@ -618,7 +621,8 @@ int main()
             samples_per_pixel = 200;
 //            max_depth = 200;
             background = color(0, 0, 0);
-            lookfrom = point3(278, 278, -900);// on the -z axis
+//            lookfrom = point3(278, 278, -900);// camera on the -z axis
+            lookfrom = point3(478, 278, -600);// camera on the -z axis
             lookat = point3(278, 278, 0);
             vfov = 40.0;
             break;
