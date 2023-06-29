@@ -350,7 +350,8 @@ hittable_list cornell_smoke() {
     auto red = make_shared<lambertian>(color(0.65, 0.05, 0.05));
     auto white = make_shared<lambertian>(color(0.73, 0.73, 0.73));
     auto green = make_shared<lambertian>(color(0.12, 0.45, 0.15));
-    auto light = make_shared<diffuse_light>(color(15, 15, 15));
+//    auto light = make_shared<diffuse_light>(color(15, 15, 15));
+    auto light = make_shared<diffuse_light>(color(7, 7, 7));
 
     // make a box
     objects.add(make_shared<yz_rect>(0 ,555, 0, 555, 555, green));// right face
@@ -376,9 +377,11 @@ hittable_list cornell_smoke() {
     box2 = make_shared<translate>(box2, vec3(130, 0, 65));
 //    objects.add(box2);
 
-    objects.add(make_shared<constant_medium>(box1, 0.01, color(0, 0, 0)));// black, smoke
-    objects.add(make_shared<constant_medium>(box2, 0.01, color(1, 1, 1)));// white, frog
+//    objects.add(make_shared<constant_medium>(box1, 0.01, color(0, 0, 0)));// black, smoke
+//    objects.add(make_shared<constant_medium>(box2, 0.01, color(1, 1, 1)));// white, frog
 
+    objects.add(make_shared<constant_medium>(box1, 0.01, color(1, 0.6, 0)));// orange, smoke #FF9900
+    objects.add(make_shared<constant_medium>(box2, 0.01, color(1, 0, 1)));// pink, frog #FF00FF
 
     return objects;
 }
