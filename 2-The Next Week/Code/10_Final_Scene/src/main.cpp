@@ -427,8 +427,8 @@ hittable_list final_scene() {
     // 5. the smaller grey metal ball on the right
     //objects.add(make_shared<sphere>(	point3(0, 150, 145), 50, make_shared<metal>(color(0.8, 0.8, 0.9), 1.0)));
 
-    // 5. the smaller pink metal ball on the right
-    objects.add(make_shared<sphere>(	point3(0, 150, 145), 50, make_shared<metal>(color(0.9, 0.0, 0.9), 0.9)));
+    // 5. the smaller purple metal ball on the right
+    objects.add(make_shared<sphere>(	point3(0, 150, 145), 50, make_shared<metal>(color(1.0, 0.6, 0.9), 0.8)));
 
 
     // 6. the blue snooker ball
@@ -437,8 +437,8 @@ hittable_list final_scene() {
     objects.add(boundary);
     // part 2, the inner blue, frog material ball
 //    objects.add(make_shared<constant_medium>(boundary, 0.2, color(0.2, 0.4, 0.9)));
-// part 2, the inner orange, frog material ball
-    objects.add(make_shared<constant_medium>(boundary, 0.01, color(0.9, 0.4, 0)));
+// part 2, the inner red, frog material ball
+    objects.add(make_shared<constant_medium>(boundary, 0.1, color(1.0, 0, 0.2)));
 
 
     // 7. the earth ball
@@ -447,7 +447,7 @@ hittable_list final_scene() {
 
     // 8. the big grind arenaceous(磨砂的) grey metal ball in the center
 //    auto pertext = make_shared<noise_texture>(2);
-    auto pertext = make_shared<noise_texture>(0.1, color(0.6, 0, 0.9));
+    auto pertext = make_shared<noise_texture>(0.1, color(0.6, 1.0, 0.3));
     objects.add(make_shared<sphere>(point3(220, 280, 350), 80, make_shared<lambertian>(pertext)));
 
 
@@ -628,8 +628,8 @@ int main()
             world = final_scene();
             // Changing aspect ratio and viewing parameters.
             aspect_ratio = 1.0;
-            image_width = 1200;
-            samples_per_pixel = 300;
+            image_width = 800;
+            samples_per_pixel = 500;
 //            max_depth = 200;
             background = color(0, 0, 0);
 //            lookfrom = point3(278, 278, -900);// camera on the -z axis
@@ -652,8 +652,8 @@ int main()
 	std::cerr << "image_width　==　" << image_width << "，　image_height　==　" << image_height << "\n";
 	for (int j = image_height -1; j >= 0; --j)
 	{
-//		std::cerr << "\n\r---------------------------\nScanlines remaining : " << j << ' ------------------------------------------\n' << std::flush << '\n';
-		std::cerr << "\n\r---------------------------\nScanlines remaining : " << j << ' ------------------------------------------\n' << std::flush;
+		std::cerr << "\n \r --------------------------- Scanlines remaining : " << j << " ------------------------------------ \n" << std::flush;
+
 
 			
 		for (int i = 0; i < image_width ;++i)
