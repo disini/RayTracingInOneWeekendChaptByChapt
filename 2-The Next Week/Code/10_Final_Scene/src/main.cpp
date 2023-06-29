@@ -390,14 +390,15 @@ hittable_list final_scene() {
     hittable_list boxes1;// the ragged floor
     auto ground = make_shared<lambertian>(color(0.48, 0.83, 0.53));// green
 
+    // 1. the ragged floor formed by 400 little boxes
     const int boxes_per_side = 20;
     for (int i = 0; i < boxes_per_side; ++i) {
         for (int j = 0; j < boxes_per_side; ++j) {
             auto w = 100.0;
             auto x0 = -1000.0 + i * w;
             auto z0 = -1000.0 + j * w;
-            auto y0 = 0.0;
-//            auto y0 = -50.0;
+//            auto y0 = 0.0;
+            auto y0 = -50.0;
             auto x1 = x0 + w;
             auto y1 = random_double(1, 101);
             auto z1 = z0 + w;
@@ -410,33 +411,35 @@ hittable_list final_scene() {
 
     objects.add(make_shared<bvh_node>(boxes1, 0, 1));
 
+    // 2. the light on the roof
     auto light = make_shared<diffuse_light>(color(7, 7, 7));
     objects.add(make_shared<xz_rect>(123, 423, 147, 412, 554, light));
 
-    // the brown moving ball on the top left
+    // 3. the brown moving ball on the top left
     auto center1 = point3(400, 400, 200);
     auto center2 = center1 + vec3(30, 0, 0);
     auto moving_sphere_material = make_shared<lambertian>(color(0.7, 0.3, 0.1));
     objects.add(make_shared<moving_sphere>(center1, center2, 0, 1, 50, moving_sphere_material));
 
-    // the tranparent glass ball in the middle
+    // 4. the tranparent glass ball in the middle bottom
     objects.add(make_shared<sphere>(point3(206, 150, 45), 50, make_shared<dielectric>(1.5)));
 
-    // the smaller grey metal ball on the right
+    // 5. the smaller grey metal ball on the right
     objects.add(make_shared<sphere>(point3(0, 150, 145), 50, make_shared<metal>(color(0.8, 0.8, 0.9), 1.0)));
 
-    // the blue snooker ball
+    // 6. the blue snooker ball
     // part 1 , the outer varnish/natual clear lacquer(清漆) layer
     auto boundry = make_shared<sphere>(point3(360, 150, 145), 70, make_shared<dielectric>(1.5));
     objects.add(boundry);
+    // part 2, the inner blue, frog material ball
+    objects.add(make_shared<constant_medium>(boundry, 0.2, color(0.2, 0.4, 0.9)));
 
-
-    // the earth ball
+    // 7. the earth ball
     auto emat = make_shared<lambertian>(make_shared<image_texture>("../../../../images/textures/earth/005.jpg"));
     objects.add(make_shared<sphere>(point3(400, 200, 400), 100, emat));
 
-    // the big grind arenaceous(磨砂的) grey metal ball
-    auto pertext = make_shared<noise_texture>(0.2);
+    // 8. the big grind arenaceous(磨砂的) grey metal ball in the center
+    auto pertext = make_shared<noise_texture>(2);
     objects.add(make_shared<sphere>(point3(220, 280, 350), 80, make_shared<lambertian>(pertext)));
 
 
@@ -617,8 +620,8 @@ int main()
             world = final_scene();
             // Changing aspect ratio and viewing parameters.
             aspect_ratio = 1.0;
-            image_width = 800;
-            samples_per_pixel = 200;
+            image_width = 1200;
+            samples_per_pixel = 300;
 //            max_depth = 200;
             background = color(0, 0, 0);
 //            lookfrom = point3(278, 278, -900);// camera on the -z axis
@@ -641,7 +644,7 @@ int main()
 	std::cerr << "image_width　==　" << image_width << "，　image_height　==　" << image_height << "\n";
 	for (int j = image_height -1; j >= 0; --j)
 	{
-		std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush << '\n';		
+		std::cerr << "\n\r---------------------------Scanlines remaining : " << j << ' ' << std::flush << '------------------------------------------\n';
 	
 			
 		for (int i = 0; i < image_width ;++i)
