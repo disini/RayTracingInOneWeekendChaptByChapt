@@ -166,7 +166,8 @@ set(
         08_Instances/src/perlin.h
         08_Instances/src/rtw_stb_image.h
         08_Instances/src/aarect.h
-        08_Instances/src/box.h)
+        08_Instances/src/box.h
+)
 
 set(
         SOURCE_BOOK_2_PROJ_09
@@ -188,7 +189,31 @@ set(
         09_Volumes/src/rtw_stb_image.h
         09_Volumes/src/aarect.h
         09_Volumes/src/box.h
-        09_Volumes/src/constant_medium.h)
+        09_Volumes/src/constant_medium.h
+)
+
+set(
+        SOURCE_BOOK_2_PROJ_10
+        10_Final_Scene/src/external/stb_image.h
+        10_Final_Scene/src/camera.h
+        10_Final_Scene/src/color.h
+        10_Final_Scene/src/hittable.h
+        10_Final_Scene/src/hittable_list.h
+        10_Final_Scene/src/material.h
+        10_Final_Scene/src/ray.h
+        10_Final_Scene/src/rtweekend.h
+        10_Final_Scene/src/sphere.h
+        10_Final_Scene/src/vec3.h
+        10_Final_Scene/src/aabb.h
+        10_Final_Scene/src/bvh.h
+        10_Final_Scene/src/main.cpp
+        10_Final_Scene/src/texture.h
+        10_Final_Scene/src/perlin.h
+        10_Final_Scene/src/rtw_stb_image.h
+        10_Final_Scene/src/aarect.h
+        10_Final_Scene/src/box.h
+        10_Final_Scene/src/constant_medium.h
+)
 
 
 
@@ -220,6 +245,7 @@ add_executable(06_Image_Texture ${SOURCE_BOOK_2_PROJ_06})
 add_executable(07_Rectangles_and_Lights ${SOURCE_BOOK_2_PROJ_07})
 add_executable(08_Instances ${SOURCE_BOOK_2_PROJ_08})
 add_executable(09_Volumes ${SOURCE_BOOK_2_PROJ_09})
+add_executable(10_Final_Scene ${SOURCE_BOOK_2_PROJ_10})
 #[[add_executable(04_Diffuse_Materials ${SOURCE_BOOK_2_PROJ_04})
 add_executable(05_Metal ${SOURCE_BOOK_2_PROJ_05})
 add_executable(06_Dielectrics-Glass ${SOURCE_BOOK_2_PROJ_06})
