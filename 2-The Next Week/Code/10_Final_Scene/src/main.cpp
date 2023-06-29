@@ -417,29 +417,37 @@ hittable_list final_scene() {
 
     // 3. the brown moving ball on the top left
     auto center1 = point3(400, 400, 200);
-    auto center2 = center1 + vec3(30, 0, 0);
+    auto center2 = center1 + vec3(60, 0, 0);
     auto moving_sphere_material = make_shared<lambertian>(color(0.7, 0.3, 0.1));
     objects.add(make_shared<moving_sphere>(center1, center2, 0, 1, 50, moving_sphere_material));
 
     // 4. the tranparent glass ball in the middle bottom
-    objects.add(make_shared<sphere>(point3(206, 150, 45), 50, make_shared<dielectric>(1.5)));
+    objects.add(make_shared<sphere>(point3(260, 150, 45), 50, make_shared<dielectric>(1.5)));
 
     // 5. the smaller grey metal ball on the right
-    objects.add(make_shared<sphere>(point3(0, 150, 145), 50, make_shared<metal>(color(0.8, 0.8, 0.9), 1.0)));
+    //objects.add(make_shared<sphere>(	point3(0, 150, 145), 50, make_shared<metal>(color(0.8, 0.8, 0.9), 1.0)));
+
+    // 5. the smaller pink metal ball on the right
+    objects.add(make_shared<sphere>(	point3(0, 150, 145), 50, make_shared<metal>(color(0.9, 0.0, 0.9), 0.9)));
+
 
     // 6. the blue snooker ball
     // part 1 , the outer varnish/natual clear lacquer(清漆) layer
-    auto boundry = make_shared<sphere>(point3(360, 150, 145), 70, make_shared<dielectric>(1.5));
-    objects.add(boundry);
+    auto boundary = make_shared<sphere>(point3(360, 150, 145), 70, make_shared<dielectric>(1.5));
+    objects.add(boundary);
     // part 2, the inner blue, frog material ball
-    objects.add(make_shared<constant_medium>(boundry, 0.2, color(0.2, 0.4, 0.9)));
+//    objects.add(make_shared<constant_medium>(boundary, 0.2, color(0.2, 0.4, 0.9)));
+// part 2, the inner orange, frog material ball
+    objects.add(make_shared<constant_medium>(boundary, 0.01, color(0.9, 0.4, 0)));
+
 
     // 7. the earth ball
     auto emat = make_shared<lambertian>(make_shared<image_texture>("../../../../images/textures/earth/005.jpg"));
     objects.add(make_shared<sphere>(point3(400, 200, 400), 100, emat));
 
     // 8. the big grind arenaceous(磨砂的) grey metal ball in the center
-    auto pertext = make_shared<noise_texture>(2);
+//    auto pertext = make_shared<noise_texture>(2);
+    auto pertext = make_shared<noise_texture>(0.1, color(0.6, 0, 0.9));
     objects.add(make_shared<sphere>(point3(220, 280, 350), 80, make_shared<lambertian>(pertext)));
 
 
@@ -635,8 +643,8 @@ int main()
 
     int image_height = static_cast<int>(image_width / aspect_ratio);
 //	camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus);
-//	camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus, 0.0, 1.0);
-	camera cam(lookfrom, lookat, vup, vfov, aspect_ratio, aperture, dist_to_focus, 0.0, 0.0);
+	camera cam(lookfrom, lookat, vup, vfov, aspect_ratio, aperture, dist_to_focus, 0.0, 1.0);// moving 动态模糊
+//	camera cam(lookfrom, lookat, vup, vfov, aspect_ratio, aperture, dist_to_focus, 0.0, 0.0);// still 静止不动
 
 	// Render
 
@@ -644,8 +652,9 @@ int main()
 	std::cerr << "image_width　==　" << image_width << "，　image_height　==　" << image_height << "\n";
 	for (int j = image_height -1; j >= 0; --j)
 	{
-		std::cerr << "\n\r---------------------------Scanlines remaining : " << j << ' ' << std::flush << '------------------------------------------\n';
-	
+//		std::cerr << "\n\r---------------------------\nScanlines remaining : " << j << ' ------------------------------------------\n' << std::flush << '\n';
+		std::cerr << "\n\r---------------------------\nScanlines remaining : " << j << ' ------------------------------------------\n' << std::flush;
+
 			
 		for (int i = 0; i < image_width ;++i)
 		{

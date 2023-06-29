@@ -346,6 +346,7 @@ private:
         public:
             noise_texture() {}
             noise_texture(double sc) : scale(sc) {}
+            noise_texture(double sc, color c) : scale(sc), m_color(c) {}
 
             virtual color value(double u, double v, const point3& p) const override
             {
@@ -355,7 +356,8 @@ private:
 //                return color(1, 1, 1) * noise.turb(scale * p);// Commenting out straight noise and turbulence
 
                 // take turbulence as an additional item.
-                return color(1, 1, 1) * 0.5 * (1 + sin(scale * p.z() + 10 * noise.turb(p)));
+//                return color(1, 1, 1) * 0.5 * (1 + sin(scale * p.z() + 10 * noise.turb(p)));
+                return m_color * 0.5 * (1 + sin(scale * p.z() + 10 * noise.turb(p)));
             }
 
 
@@ -363,6 +365,7 @@ private:
     public:
         perlin noise;
         double scale;
+        color m_color = color(1, 1, 1);
 
     };
 
