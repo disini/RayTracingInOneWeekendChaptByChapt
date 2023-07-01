@@ -450,9 +450,22 @@ hittable_list final_scene() {
     auto pertext = make_shared<noise_texture>(0.1, color(0.6, 1.0, 0.3));
     objects.add(make_shared<sphere>(point3(220, 280, 350), 80, make_shared<lambertian>(pertext)));
 
+    hittable_list boxes2;
+    auto white = make_shared<lambertian>(color(.73, .73, .73));
 
+    int num_spheres = 1000;
+    for (int j = 0; j < num_spheres; ++j) {
+//        boxes2.add(make_shared<sphere>(point3::random(0, 165), 10, white));
+        auto randomColor = make_shared<lambertian>(color::random(0.5, 1));
+        boxes2.add(make_shared<sphere>(point3::random(0, 165), 10, randomColor));
+    }
 
-
+    objects.add(make_shared<translate>(
+            make_shared<rotate_y>(
+                    make_shared<bvh_node>(boxes2, 0.0, 1.0), 15),
+                    vec3(-100, 270, 395)
+                    )
+            );
 
 
 
@@ -628,8 +641,8 @@ int main()
             world = final_scene();
             // Changing aspect ratio and viewing parameters.
             aspect_ratio = 1.0;
-            image_width = 800;
-            samples_per_pixel = 500;
+            image_width = 2000;
+            samples_per_pixel = 5000;
 //            max_depth = 200;
             background = color(0, 0, 0);
 //            lookfrom = point3(278, 278, -900);// camera on the -z axis
