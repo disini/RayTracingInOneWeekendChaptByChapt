@@ -476,13 +476,122 @@ hittable_list final_scene() {
 
 
 
+
     return objects;
 
 
 }
 
 
+hittable_list final_scene_in_mirror_box() {
+    hittable_list boxes1;// the ragged floor
+    auto ground = make_shared<lambertian>(color(0.48, 0.83, 0.53));// green
 
+    // 1. the ragged floor formed by 400 little boxes
+    const int boxes_per_side = 20;
+    for (int i = 0; i < boxes_per_side; ++i) {
+        for (int j = 0; j < boxes_per_side; ++j) {
+            auto w = 100.0;
+            auto x0 = -1000.0 + i * w;
+            auto z0 = -1000.0 + j * w;
+//            auto y0 = 0.0;
+            auto y0 = -50.0;
+            auto x1 = x0 + w;
+            auto y1 = random_double(1, 101);
+            auto z1 = z0 + w;
+
+            boxes1.add(make_shared<box>(point3(x0, y0, z0), point3(x1, y1 ,z1), ground));
+        }
+    }
+
+    hittable_list objects;
+
+    objects.add(make_shared<bvh_node>(boxes1, 0, 1));
+
+    // 2. the light on the roof
+    auto light = make_shared<diffuse_light>(color(7, 7, 7));
+    objects.add(make_shared<xz_rect>(123, 423, 147, 412, 554, light));
+
+    // 3. the brown moving ball on the top left
+    auto center1 = point3(400, 400, 200);
+    auto center2 = center1 + vec3(60, 0, 0);
+    auto moving_sphere_material = make_shared<lambertian>(color(0.7, 0.3, 0.1));
+    objects.add(make_shared<moving_sphere>(center1, center2, 0, 1, 50, moving_sphere_material));
+
+    // 4. the tranparent glass ball in the middle bottom
+    objects.add(make_shared<sphere>(point3(260, 150, 45), 50, make_shared<dielectric>(1.5)));
+
+    // 5. the smaller grey metal ball on the right
+    //objects.add(make_shared<sphere>(	point3(0, 150, 145), 50, make_shared<metal>(color(0.8, 0.8, 0.9), 1.0)));
+
+    // 5. the smaller purple metal ball on the right
+    objects.add(make_shared<sphere>(	point3(0, 150, 145), 50, make_shared<metal>(color(1.0, 0.6, 0.9), 0.8)));
+
+
+    // 6. the blue snooker ball
+    // part 1 , the outer varnish/natual clear lacquer(清漆) layer
+    auto boundary = make_shared<sphere>(point3(360, 150, 145), 70, make_shared<dielectric>(1.5));
+    objects.add(boundary);
+    // part 2, the inner blue, frog material ball
+//    objects.add(make_shared<constant_medium>(boundary, 0.2, color(0.2, 0.4, 0.9)));
+// part 2, the inner red, frog material ball
+    objects.add(make_shared<constant_medium>(boundary, 0.1, color(1.0, 0, 0.2)));
+
+    // fog of the whole atmosphere
+    auto  boundary2 = make_shared<sphere>(point3(0, 0, 0), 5000, make_shared<dielectric>(1.5));
+    objects.add(make_shared<constant_medium>(boundary2, 0.0003, color(1, 1, 1)));
+
+
+    // 7. the earth ball
+    auto emat = make_shared<lambertian>(make_shared<image_texture>("../../../../images/textures/earth/005.jpg"));
+    objects.add(make_shared<sphere>(point3(400, 200, 400), 100, emat));
+
+    // 8. the big grind arenaceous(磨砂的) grey metal ball in the center
+//    auto pertext = make_shared<noise_texture>(2);
+    auto pertext = make_shared<noise_texture>(0.1, color(0.6, 1.0, 0.3));
+    objects.add(make_shared<sphere>(point3(220, 280, 350), 80, make_shared<lambertian>(pertext)));
+
+    // box formed with small spheres
+    hittable_list boxes2;
+    auto white = make_shared<lambertian>(color(.73, .73, .73));
+
+    int num_spheres = 1000;
+    for (int j = 0; j < num_spheres; ++j) {
+//        boxes2.add(make_shared<sphere>(point3::random(0, 165), 10, white));
+        auto randomColor = make_shared<lambertian>(color::random(0.5, 1));
+        boxes2.add(make_shared<sphere>(point3::random(0, 165), 10, randomColor));
+    }
+
+    // rotate then move them
+    objects.add(make_shared<translate>(
+                        make_shared<rotate_y>(
+                                make_shared<bvh_node>(boxes2, 0.0, 1.0), 15),
+                        vec3(-100, 270, 395)
+                )
+    );
+
+
+    // adding 6 mirror surfaces of the cornel box
+    auto mirror = make_shared<metal>(color(0.95, 0.95, 0.95));
+
+    // make a box
+    objects.add(make_shared<yz_rect>(0 ,555, -600, 600, 600, mirror));// right face
+    objects.add(make_shared<yz_rect>(0, 555, -600, 600, 0, mirror));// left face
+//    objects.add(make_shared<xz_rect>(213, 343, 227, 332, 554, light));// a little bit lower than the top face
+//    objects.add(make_shared<xz_rect>(113, 443, 127, 432, 554, light));// make the light bigger!
+//    objects.add(make_shared<xz_rect>(0, 555, 0, 555, 0, mirror));// bottom face
+    objects.add(make_shared<xz_rect>(0, 600, -600, 600, 555, mirror));// top face
+
+    objects.add(make_shared<xy_rect>(0, 600, 0, 555, 600, mirror));// front face
+
+    objects.add(make_shared<xy_rect>(0, 600, 0, 555, -600, mirror));// back face
+
+
+
+    return objects;
+
+
+}
 
 
 
@@ -642,7 +751,7 @@ int main()
             lookat = point3(278, 278, 0);
             vfov = 40.0;
             break;
-        default:
+//        default:
         case 11:
             world = final_scene();
             // Changing aspect ratio and viewing parameters.
@@ -653,6 +762,22 @@ int main()
             background = color(0, 0, 0);
 //            lookfrom = point3(278, 278, -900);// camera on the -z axis
             lookfrom = point3(478, 278, -600);// camera on the -z axis
+            lookat = point3(278, 278, 0);
+            vfov = 40.0;
+            break;
+
+        default:
+        case 12:
+            world = final_scene_in_mirror_box();
+            // Changing aspect ratio and viewing parameters.
+            aspect_ratio = 1.0;
+            image_width = 400;
+            samples_per_pixel = 100;
+//            max_depth = 200;
+            background = color(0, 0, 0);
+//            lookfrom = point3(278, 278, -900);// camera on the -z axis
+            lookfrom = point3(478, 278, -600);// camera on the -z axis
+            lookfrom = point3(478, 278, -590);// camera on the -z axis
             lookat = point3(278, 278, 0);
             vfov = 40.0;
             break;
