@@ -509,7 +509,8 @@ hittable_list final_scene_in_mirror_box() {
     objects.add(make_shared<bvh_node>(boxes1, 0, 1));
 
     // 2. the light on the roof
-    auto light = make_shared<diffuse_light>(color(7, 7, 7));
+//    auto light = make_shared<diffuse_light>(color(7, 7, 7));
+    auto light = make_shared<diffuse_light>(color(2, 2, 2));
     objects.add(make_shared<xz_rect>(123, 423, 147, 412, 554, light));
 
     // 3. the brown moving ball on the top left
@@ -771,8 +772,8 @@ int main()
             world = final_scene_in_mirror_box();
             // Changing aspect ratio and viewing parameters.
             aspect_ratio = 1.0;
-            image_width = 400;
-            samples_per_pixel = 100;
+            image_width = 800;
+            samples_per_pixel = 200;
 //            max_depth = 200;
             background = color(0, 0, 0);
 //            lookfrom = point3(278, 278, -900);// camera on the -z axis
