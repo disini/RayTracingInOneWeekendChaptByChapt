@@ -440,6 +440,10 @@ hittable_list final_scene() {
 // part 2, the inner red, frog material ball
     objects.add(make_shared<constant_medium>(boundary, 0.1, color(1.0, 0, 0.2)));
 
+    // fog of the whole atmosphere
+    auto  boundary2 = make_shared<sphere>(point3(0, 0, 0), 5000, make_shared<dielectric>(1.5));
+    objects.add(make_shared<constant_medium>(boundary2, 0.0003, color(1, 1, 1)));
+
 
     // 7. the earth ball
     auto emat = make_shared<lambertian>(make_shared<image_texture>("../../../../images/textures/earth/005.jpg"));
@@ -450,6 +454,7 @@ hittable_list final_scene() {
     auto pertext = make_shared<noise_texture>(0.1, color(0.6, 1.0, 0.3));
     objects.add(make_shared<sphere>(point3(220, 280, 350), 80, make_shared<lambertian>(pertext)));
 
+    // box formed with small spheres
     hittable_list boxes2;
     auto white = make_shared<lambertian>(color(.73, .73, .73));
 
@@ -460,6 +465,7 @@ hittable_list final_scene() {
         boxes2.add(make_shared<sphere>(point3::random(0, 165), 10, randomColor));
     }
 
+    // rotate then move them
     objects.add(make_shared<translate>(
             make_shared<rotate_y>(
                     make_shared<bvh_node>(boxes2, 0.0, 1.0), 15),
@@ -642,7 +648,7 @@ int main()
             // Changing aspect ratio and viewing parameters.
             aspect_ratio = 1.0;
             image_width = 2000;
-            samples_per_pixel = 5000;
+            samples_per_pixel = 500;
 //            max_depth = 200;
             background = color(0, 0, 0);
 //            lookfrom = point3(278, 278, -900);// camera on the -z axis
