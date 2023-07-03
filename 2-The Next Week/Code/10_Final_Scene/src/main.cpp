@@ -510,7 +510,8 @@ hittable_list final_scene_in_mirror_box() {
 
     // 2. the light on the roof
 //    auto light = make_shared<diffuse_light>(color(7, 7, 7));
-    auto light = make_shared<diffuse_light>(color(2, 2, 2));
+//    auto light = make_shared<diffuse_light>(color(2, 2, 2));
+    auto light = make_shared<diffuse_light>(color(4, 4, 4));
     objects.add(make_shared<xz_rect>(123, 423, 147, 412, 554, light));
 
     // 3. the brown moving ball on the top left
@@ -540,7 +541,8 @@ hittable_list final_scene_in_mirror_box() {
 
     // fog of the whole atmosphere
     auto  boundary2 = make_shared<sphere>(point3(0, 0, 0), 5000, make_shared<dielectric>(1.5));
-    objects.add(make_shared<constant_medium>(boundary2, 0.0003, color(1, 1, 1)));
+//    objects.add(make_shared<constant_medium>(boundary2, 0.0003, color(1, 1, 1)));
+//    objects.add(make_shared<constant_medium>(boundary2, 0.00003, color(1, 1, 1)));
 
 
     // 7. the earth ball
@@ -573,7 +575,10 @@ hittable_list final_scene_in_mirror_box() {
 
 
     // adding 6 mirror surfaces of the cornel box
-    auto mirror = make_shared<metal>(color(0.95, 0.95, 0.95));
+//    auto mirror = make_shared<metal>(color(0.95, 0.95, 0.95));
+//    auto mirror = make_shared<metal>(color(0.95, 0.95, 0.95), 0.1);//add a little fuzzy
+    auto mirror = make_shared<metal>(color(0.85, 0.85, 0.85));//no fuzzy
+//    auto mirror = make_shared<metal>(color(0.85, 0.85, 0.85), 0.005);//add a tiny fuzzy
 
     // make a box
     objects.add(make_shared<yz_rect>(0 ,555, -600, 600, 600, mirror));// right face
@@ -641,7 +646,7 @@ int main()
 	point3 lookat(0, 0, 0);
 	vec3 vup(0, 1, 0);
     auto vfov = 40.0;
-	//auto dist_to_focus = (lookfrom - lookat).length();// 5.1961524227066320
+//	auto dist_to_focus = (lookfrom - lookat).length();// 5.1961524227066320
 	auto dist_to_focus = 10.0;// 手动对焦焦平面位置
 	//auto aperture = 2.0;
 	auto aperture = 0.0;
@@ -772,14 +777,16 @@ int main()
             world = final_scene_in_mirror_box();
             // Changing aspect ratio and viewing parameters.
             aspect_ratio = 1.0;
-            image_width = 800;
-            samples_per_pixel = 200;
+            image_width = 1200;
+            samples_per_pixel = 500;
 //            max_depth = 200;
+            aperture = 1.5;
             background = color(0, 0, 0);
 //            lookfrom = point3(278, 278, -900);// camera on the -z axis
             lookfrom = point3(478, 278, -600);// camera on the -z axis
-            lookfrom = point3(478, 278, -590);// camera on the -z axis
+            lookfrom = point3(428, 278, -590);// camera on the -z axis
             lookat = point3(278, 278, 0);
+            dist_to_focus = (lookfrom - lookat).length();
             vfov = 40.0;
             break;
 
