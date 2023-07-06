@@ -97,7 +97,7 @@ color ray_color(const ray& r, const hittable& world, int depth)
 color ray_color(const ray& r, const color& background, const hittable& world, int depth)
 {
     hit_record rec;
-    vec3 vec;
+//    vec3 vec;
 
     // If we've exceeded the ray bounce limit, no more light is gathered.
     if (depth <= 0)
@@ -107,14 +107,21 @@ color ray_color(const ray& r, const color& background, const hittable& world, in
         return background;
 
     ray scattered;
-    color attenuation;
+//    color attenuation;
     color emitted = rec.mat_ptr->emitted(rec.u, rec.v, rec.p);
+    double pdf1;
+    double pdf2; // == pdf1
+    color albedo;
 
-    if (!rec.mat_ptr->scatter(r, rec, attenuation, scattered))
+//    if (!rec.mat_ptr->scatter(r, rec, attenuation, scattered))
+    if (!rec.mat_ptr->scatter(r, rec, albedo, scattered, pdf1))// scatter for the current time
         return emitted;
 
+    pdf2 = rec.mat_ptr->scattering_pdf(r, rec, scattered);// == pdf1
 //    return attenuation * ray_color(scattered, world, depth - 1);
-    return emitted + attenuation * ray_color(scattered, background, world, depth - 1);
+//    return emitted + attenuation * ray_color(scattered, background, world, depth - 1);// scatter for the next time
+    return emitted + albedo * pdf2
+                            * ray_color(scattered, background, world, depth - 1) / pdf1;
 
 }
 

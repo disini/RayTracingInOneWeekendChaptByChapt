@@ -19,6 +19,20 @@ class material
         virtual bool scatter(// Include both reflection and refraction
 			const ray& r_in, const hit_record& rec, color& attenuation, ray& scattered
 		) const = 0;
+
+        virtual bool scatter(const ray& r_in, const hit_record& rec, color& albedo, ray& scattered, double& pdf
+        ) const {
+            return false;
+        }
+
+        virtual double scattering_pdf(const ray& r_in, const hit_record& rec, const ray& scattered
+        ) const {
+            return 0;
+        }
+
+
+
+
 };
 
 
@@ -28,6 +42,12 @@ class lambertian : public material
 
 //		color albedo;
 		shared_ptr<texture> albedo;
+//        double dir_length1;
+//        double dir_length2;
+//        double dir_length3;
+//        double dir_length4;
+
+
 
 //		lambertian(const color& a) : albedo(a){};
 		lambertian(const color& a) : albedo(make_shared<solid_color>(a)) {}
@@ -47,6 +67,40 @@ class lambertian : public material
 			attenuation = albedo->value(rec.u, rec.v, rec.p);// 根据反照率计算反射的衰减
 			return true;
 		}
+
+        virtual bool scatter(const ray& r_in, const hit_record& rec, color& alb, ray& scattered, double& pdf
+        ) const override {
+            auto scatter_direction = rec.normal + random_unit_vector();
+
+            double dir_length1 = scatter_direction.length();// unnormalized, not 1
+
+            // Catch degenerate scatter direction
+            if (scatter_direction.near_zero())
+                scatter_direction = rec.normal;
+
+            double dir_length2 = scatter_direction.length();// unnormalized, not 1
+
+//			scattered = ray(rec.p, scatter_direction);
+//            scattered = ray(rec.p, scatter_direction, r_in.time());
+            scattered = ray(rec.p, unit_vector(scatter_direction), r_in.time());
+            //			attenuation = albedo;// 反照率
+//            attenuation = albedo->value(rec.u, rec.v, rec.p);// 根据反照率计算反射的衰减
+            alb = albedo->value(rec.u, rec.v, rec.p);
+            double dir_length3 = scattered.direction().length();// 1, normalized
+            pdf = dot(rec.normal, scattered.direction()) / pi;// cos_theta / pi, cos_theta = dot(rec.normal, scattered.direction()
+
+//            scattered = ray(rec.p, scatter_direction, r_in.time());
+
+            return true;
+        }
+
+        double scattering_pdf(
+                const ray& r_in, const hit_record& rec, const ray& scattered
+                ) const {
+            double dir_length4 = scattered.direction().length();// unnormalized, not 1
+            auto cosine = dot(rec.normal, unit_vector((scattered.direction())));
+            return cosine < 0 ? 0 : cosine / pi;
+        }
 
 };
 
