@@ -60,6 +60,11 @@ set(SOURCE_BOOK_3_PROJ_06
         06_Importance_Sampling_Materials/src/main.cpp
 )
 
+set(SOURCE_BOOK_3_PROJ_07
+        07_Generating_Random_Directions/src/sphere_plot.cc
+)
+
+
 
 # Executables
 
@@ -67,6 +72,7 @@ add_executable(02_A_Simple_Monte_Carlo_Program ${SOURCE_BOOK_3_PROJ_02})
 add_executable(03_One_Dimensional_MC_Integration ${SOURCE_BOOK_3_PROJ_03})
 add_executable(04_MC_Integration_on_the_Sphere_of_Directions ${SOURCE_BOOK_3_PROJ_04})
 add_executable(06_Importance_Sampling_Materials ${SOURCE_BOOK_3_PROJ_06})
+add_executable(07_Generating_Random_Directions ${SOURCE_BOOK_3_PROJ_07})
 
 message(STATUS "PROJECT_BINARY_DIR: ${PROJECT_BINARY_DIR}")
 message(STATUS "PROJECT_SOURCE_DIR: ${PROJECT_SOURCE_DIR}")
