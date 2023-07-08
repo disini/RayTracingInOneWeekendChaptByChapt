@@ -62,7 +62,8 @@ set(SOURCE_BOOK_3_PROJ_06
 
 set(SOURCE_BOOK_3_PROJ_07
 #        07_Generating_Random_Directions/src/sphere_plot.cc
-        07_Generating_Random_Directions/src/cos_cubed.cc
+#        07_Generating_Random_Directions/src/cos_cubed.cc
+        07_Generating_Random_Directions/src/cos_density.cc
 )
 
 
