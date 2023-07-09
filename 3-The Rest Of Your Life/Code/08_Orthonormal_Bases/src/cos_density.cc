@@ -22,7 +22,7 @@ inline vec3 random_cosine_direction() {
 
 
 
-int main() {
+int main0() {
     int N = 1000000;
     auto sum = 0.0;
 
@@ -37,7 +37,7 @@ int main() {
     std::cout << "Pi/2      = " << pi/2 << "\n";
     std::cout << "Estimate  = " << sum/N << "\n";
 
-
+    return 0;
 }
 
 

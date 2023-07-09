@@ -5,7 +5,8 @@
 
 //#include "rtweekend.h"
 #include "texture.h"
-
+#include "onb.h"
+#include "cos_density.cc"
 //struct hit_record;
 
 class material
@@ -70,36 +71,13 @@ class lambertian : public material
 
         virtual bool scatter(const ray& r_in, const hit_record& rec, color& alb, ray& scattered, double& pdf
         ) const override {
-//            auto scatter_direction = rec.normal + random_unit_vector();
-//
-//            double dir_length1 = scatter_direction.length();// unnormalized, not 1
-//
-//            // Catch degenerate scatter direction
-//            if (scatter_direction.near_zero())
-//                scatter_direction = rec.normal;
-//
-//            double dir_length2 = scatter_direction.length();// unnormalized, not 1
-//
-////			scattered = ray(rec.p, scatter_direction);
-////            scattered = ray(rec.p, scatter_direction, r_in.time());
-
-            auto direction = random_in_hemisphere((rec.normal));
-
-//            scattered = ray(rec.p, unit_vector(scatter_direction), r_in.time());
+            onb uvw;
+            uvw.build_from_w(rec.normal);
+//           auto direction = random_in_hemisphere((rec.normal));
+            auto direction = uvw.local(random_cosine_direction());
             scattered = ray(rec.p, unit_vector(direction), r_in.time());
-
-            if(scattered.origin().length() > 1)
-            {
-                std::cerr << "scattered.origin().length() > 1 !" << std::endl;
-            }
-            //			attenuation = albedo;// 反照率
-//            attenuation = albedo->value(rec.u, rec.v, rec.p);// 根据反照率计算反射的衰减
             alb = albedo->value(rec.u, rec.v, rec.p);
-//            double dir_length3 = scattered.direction().length();// 1, normalized
-//            pdf = dot(rec.normal, scattered.direction()) / pi;// cos_theta / pi, cos_theta = dot(rec.normal, scattered.direction()
-            pdf = 0.5 / pi;// probability density function
-
-//            scattered = ray(rec.p, scatter_direction, r_in.time());
+            pdf = dot(uvw.w(), scattered.direction()) / pi;
 
             return true;
         }
