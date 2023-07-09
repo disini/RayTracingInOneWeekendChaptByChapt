@@ -66,6 +66,16 @@ set(SOURCE_BOOK_3_PROJ_07
         07_Generating_Random_Directions/src/cos_density.cc
 )
 
+set(SOURCE_BOOK_3_PROJ_08
+        08_Orthonormal_Bases/src/main.cpp
+#        08_Orthonormal_Bases/src/onb.h
+)
+
+set(SOURCE_BOOK_3_PROJ_09
+        09_Sampling_Lights_Directly/src/main.cpp
+        #        08_Orthonormal_Bases/src/onb.h
+)
+
 
 
 
@@ -76,6 +86,8 @@ add_executable(03_One_Dimensional_MC_Integration ${SOURCE_BOOK_3_PROJ_03})
 add_executable(04_MC_Integration_on_the_Sphere_of_Directions ${SOURCE_BOOK_3_PROJ_04})
 add_executable(06_Importance_Sampling_Materials ${SOURCE_BOOK_3_PROJ_06})
 add_executable(07_Generating_Random_Directions ${SOURCE_BOOK_3_PROJ_07})
+add_executable(08_Orthonormal_Bases ${SOURCE_BOOK_3_PROJ_08})
+add_executable(09_Sampling_Lights_Directly ${SOURCE_BOOK_3_PROJ_09})
 
 message(STATUS "PROJECT_BINARY_DIR: ${PROJECT_BINARY_DIR}")
 message(STATUS "PROJECT_SOURCE_DIR: ${PROJECT_SOURCE_DIR}")
