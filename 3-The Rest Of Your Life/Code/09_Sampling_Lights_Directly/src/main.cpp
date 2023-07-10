@@ -109,7 +109,8 @@ color ray_color(const ray& r, const color& background, const hittable& world, in
 
     ray scattered;
 //    color attenuation;
-    color emitted = rec.mat_ptr->emitted(rec.u, rec.v, rec.p);
+//    color emitted = rec.mat_ptr->emitted(rec.u, rec.v, rec.p);//error: no matching function for call to ‘material::emitted(double&, double&, point3&)’
+    color emitted = rec.mat_ptr->emitted(r, rec, rec.u, rec.v, rec.p);
     double pdf1;
     double pdf2; // == pdf1
     color albedo;
