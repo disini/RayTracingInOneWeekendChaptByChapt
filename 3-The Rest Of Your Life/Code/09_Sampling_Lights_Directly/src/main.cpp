@@ -157,7 +157,8 @@ hittable_list cornell_box() {
     // make a box
     objects.add(make_shared<yz_rect>(0 ,555, 0, 555, 555, green));// right face
     objects.add(make_shared<yz_rect>(0, 555, 0, 555, 0, red));// left face
-    objects.add(make_shared<xz_rect>(213, 343, 227, 332, 554, light));// a little bit lower than the top face
+//    objects.add(make_shared<xz_rect>(213, 343, 227, 332, 554, light));// a little bit lower than the top face
+    objects.add(make_shared<flip_face>(make_shared<xz_rect>(213, 343, 227, 332, 554, light)));// flip the front face of the light
     objects.add(make_shared<xz_rect>(0, 555, 0, 555, 0, white));// bottom face
     objects.add(make_shared<xz_rect>(0, 555, 0, 555, 555, white));// top face
     objects.add(make_shared<xy_rect>(0, 555, 0, 555, 555, white));// front face
