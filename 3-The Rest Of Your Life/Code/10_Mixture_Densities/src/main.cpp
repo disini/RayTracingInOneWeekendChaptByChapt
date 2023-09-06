@@ -174,12 +174,17 @@ color ray_color(const ray& r, const color& background, const hittable& world, sh
         return emitted;
 
 //    cosine_pdf p(rec.normal);
-    hittable_pdf light_pdf(lights, rec.p);
+//    hittable_pdf light_pdf(lights, rec.p);
+    auto p0 = make_shared<hittable_pdf>(lights, rec.p);
+    auto p1 = make_shared<cosine_pdf>(rec.normal);
+    mixture_pdf mixed_pdf(p0, p1);
 
-    scattered = ray(rec.p, light_pdf.generate(), r.time());
+//    scattered = ray(rec.p, light_pdf.generate(), r.time());
+    scattered = ray(rec.p, mixed_pdf.generate(), r.time());
 //    pdf1 = distance_squared / (light_cosine * light_area);
 // calculate a pdf according to the lights
-    pdf_val = light_pdf.value(scattered.direction());
+//    pdf_val = light_pdf.value(scattered.direction());
+    pdf_val = mixed_pdf.value(scattered.direction());
 //    scattered = ray(rec.p, to_light, r.time());
 
 
@@ -253,7 +258,7 @@ int main()
 	int image_height = static_cast<int>(image_width /aspect_ratio);
 //	const int samples_per_pixel = 500;
 //	const int samples_per_pixel = 200;
-	int samples_per_pixel = 10;
+	int samples_per_pixel = 1000;
 	int max_depth = 50;
 
 	// World(Objects)
