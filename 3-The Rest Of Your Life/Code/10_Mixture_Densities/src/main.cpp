@@ -148,7 +148,48 @@ color ray_color(const ray& r, const color& background, const hittable& world, in
 
 }
 
+color ray_color(const ray& r, const color& background, const hittable& world, shared_ptr<hittable>& lights, int depth)
+{
+    hit_record rec;
+//    vec3 vec;
 
+    // If we've exceeded the ray bounce limit, no more light is gathered.
+    if (depth <= 0)
+        return color(0, 0, 0);// black!
+
+    // If the ray hits nothing, return the background color.
+    if (!world.hit(r, 0.001, infinity, rec))
+        return background;
+
+    ray scattered;
+    color attenuation;
+//    color emitted = rec.mat_ptr->emitted(rec.u, rec.v, rec.p);//error: no matching function for call to ‘material::emitted(double&, double&, point3&)’
+    color emitted = rec.mat_ptr->emitted(r, rec, rec.u, rec.v, rec.p);
+    double pdf_val;
+    double pdf2;
+    color albedo;
+
+//    if (!rec.mat_ptr->scatter(r, rec, attenuation, scattered))
+    if (!rec.mat_ptr->scatter(r, rec, albedo, scattered, pdf_val))// scatter for the current time
+        return emitted;
+
+//    cosine_pdf p(rec.normal);
+    hittable_pdf light_pdf(lights, rec.p);
+
+    scattered = ray(rec.p, light_pdf.generate(), r.time());
+//    pdf1 = distance_squared / (light_cosine * light_area);
+// calculate a pdf according to the lights
+    pdf_val = light_pdf.value(scattered.direction());
+//    scattered = ray(rec.p, to_light, r.time());
+
+
+    pdf2 = rec.mat_ptr->scattering_pdf(r, rec, scattered);// != pdf1
+//    return attenuation * ray_color(scattered, world, depth - 1);
+//    return emitted + attenuation * ray_color(scattered, background, world, depth - 1);// scatter for the next time
+    return emitted + albedo * pdf2
+                     * ray_color(scattered, background, world, lights, depth - 1) / pdf_val;
+
+}
 
 
 hittable_list cornell_box() {
@@ -212,7 +253,7 @@ int main()
 	int image_height = static_cast<int>(image_width /aspect_ratio);
 //	const int samples_per_pixel = 500;
 //	const int samples_per_pixel = 200;
-	int samples_per_pixel = 200;
+	int samples_per_pixel = 10;
 	int max_depth = 50;
 
 	// World(Objects)
@@ -236,6 +277,11 @@ int main()
 
 
 	camera cam(lookfrom, lookat, vup, vfov, aspect_ratio, aperture, dist_to_focus, time0, time1);
+
+    // World
+
+//    auto world = cornell_box();
+    shared_ptr<hittable> lights = make_shared<xz_rect>(213, 343, 227, 332, 554, shared_ptr<material>());
 
 	// Render
 
@@ -263,7 +309,8 @@ int main()
 
 					//pixel_color += ray_color(r, world);
 //					pixel_color += ray_color(r, world, max_depth);
-					pixel_color += ray_color(r, background, world, max_depth);
+//					pixel_color += ray_color(r, background, world, max_depth);
+					pixel_color += ray_color(r, background, world, lights, max_depth);
 				}
 
 				//write_color(std::cout, pixel_color);
