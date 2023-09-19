@@ -76,7 +76,9 @@ set(SOURCE_BOOK_3_PROJ_10
         10_Mixture_Densities/src/main.cpp
 )
 
-
+set(SOURCE_BOOK_3_PROJ_12
+        12_Cleaning_Up_PDF_Management/src/main.cpp
+)
 
 
 # Executables
@@ -89,6 +91,7 @@ add_executable(07_Generating_Random_Directions ${SOURCE_BOOK_3_PROJ_07})
 add_executable(08_Orthonormal_Bases ${SOURCE_BOOK_3_PROJ_08})
 add_executable(09_Sampling_Lights_Directly ${SOURCE_BOOK_3_PROJ_09})
 add_executable(10_Mixture_Densities ${SOURCE_BOOK_3_PROJ_10})
+add_executable(12_Cleaning_Up_PDF_Management ${SOURCE_BOOK_3_PROJ_12})
 
 message(STATUS "PROJECT_BINARY_DIR: ${PROJECT_BINARY_DIR}")
 message(STATUS "PROJECT_SOURCE_DIR: ${PROJECT_SOURCE_DIR}")
