@@ -162,36 +162,25 @@ color ray_color(const ray& r, const color& background, const hittable& world, sh
         return background;
 
     ray scattered;
-    color attenuation;
-//    color emitted = rec.mat_ptr->emitted(rec.u, rec.v, rec.p);//error: no matching function for call to ‘material::emitted(double&, double&, point3&)’
+//    color attenuation;
+    scatter_record srec;
     color emitted = rec.mat_ptr->emitted(r, rec, rec.u, rec.v, rec.p);
     double pdf_val;
     double pdf2;
-    color albedo;
 
-//    if (!rec.mat_ptr->scatter(r, rec, attenuation, scattered))
-    if (!rec.mat_ptr->scatter(r, rec, albedo, scattered, pdf_val))// scatter for the current time
+    if (!rec.mat_ptr->scatter(r, rec, srec))
         return emitted;
 
-//    cosine_pdf p(rec.normal);
-//    hittable_pdf light_pdf(lights, rec.p);
-    auto p0 = make_shared<hittable_pdf>(lights, rec.p);
-    auto p1 = make_shared<cosine_pdf>(rec.normal);
-    mixture_pdf mixed_pdf(p0, p1);
 
-//    scattered = ray(rec.p, light_pdf.generate(), r.time());
+    auto light_ptr = make_shared<hittable_pdf>(lights, rec.p);
+
+    mixture_pdf mixed_pdf(light_ptr, srec.pdf_ptr);
+
     scattered = ray(rec.p, mixed_pdf.generate(), r.time());
-//    pdf1 = distance_squared / (light_cosine * light_area);
-// calculate a pdf according to the lights
-//    pdf_val = light_pdf.value(scattered.direction());
     pdf_val = mixed_pdf.value(scattered.direction());
-//    scattered = ray(rec.p, to_light, r.time());
-
 
     pdf2 = rec.mat_ptr->scattering_pdf(r, rec, scattered);// != pdf1
-//    return attenuation * ray_color(scattered, world, depth - 1);
-//    return emitted + attenuation * ray_color(scattered, background, world, depth - 1);// scatter for the next time
-    return emitted + albedo * pdf2
+    return emitted + srec.attenuation * pdf2
                      * ray_color(scattered, background, world, lights, depth - 1) / pdf_val;
 
 }
@@ -258,7 +247,7 @@ int main()
 	int image_height = static_cast<int>(image_width /aspect_ratio);
 //	const int samples_per_pixel = 500;
 //	const int samples_per_pixel = 200;
-	int samples_per_pixel = 1000;
+	int samples_per_pixel = 300;
 	int max_depth = 50;
 
 	// World(Objects)
@@ -286,7 +275,10 @@ int main()
     // World
 
 //    auto world = cornell_box();
+
     shared_ptr<hittable> lights = make_shared<xz_rect>(213, 343, 227, 332, 554, shared_ptr<material>());
+//    auto lights = make_shared<hittable_list>();
+//    lights->add(make_shared<xz_rect>(213, 343, 227, 332, 554, shared_ptr<material>()));
 
 	// Render
 

@@ -9,6 +9,15 @@
 #include "pdf.h"
 //struct hit_record;
 
+struct scatter_record {
+    ray specular_ray;
+    bool is_specular;
+    color attenuation;
+    shared_ptr<pdf> pdf_ptr;
+};
+
+
+
 class material
 {
 	public:
@@ -26,6 +35,11 @@ class material
 		) const = 0;
 
         virtual bool scatter(const ray& r_in, const hit_record& rec, color& albedo, ray& scattered, double& pdf
+        ) const {
+            return false;
+        }
+
+        virtual bool scatter(const ray& r_in, const hit_record& rec, scatter_record& srec
         ) const {
             return false;
         }
@@ -82,6 +96,17 @@ class lambertian : public material
             scattered = ray(rec.p, unit_vector(direction), r_in.time());
             alb = albedo->value(rec.u, rec.v, rec.p);
             pdf = dot(uvw.w(), scattered.direction()) / pi;
+
+            return true;
+        }
+
+
+        virtual bool scatter(const ray& r_in, const hit_record& rec, scatter_record& srec
+        ) const override {
+            srec.is_specular = false;
+            srec.attenuation = albedo->value(rec.u, rec.v, rec.p);
+//            srec.pdf_ptr = new cosine_pdf(rec.normal);//error: no match for ¡®operator=¡¯ (operand types are ¡®std::shared_ptr<pdf>¡¯ and ¡®cosine_pdf*¡¯)
+            srec.pdf_ptr = make_shared<cosine_pdf>(rec.normal);
 
             return true;
         }
