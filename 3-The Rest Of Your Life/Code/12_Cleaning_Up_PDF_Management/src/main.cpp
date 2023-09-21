@@ -190,18 +190,36 @@ color ray_color(const ray& r, const color& background, const hittable& world, sh
 //        std::cerr << "pdf_val == 0!\n";
 //    }
 
+    if(emitted.length() > 0)
+    {
+//        std::cerr << "emitted <= 0!\n";
+//    }
+//    else
+//    {
+        if(depth < 2) {
+            std::cerr << "emitted == " << emitted << " .\n";
+        }
+    }
+
     pdf2 = rec.mat_ptr->scattering_pdf(r, rec, scattered);// != pdf1
 
-    if(pdf_val) {
-        std::cerr << "pdf_val == " << pdf_val << " .\n";
+    if(pdf_val > 0) {
+        if(depth < 2)
+        {
+            std::cerr << "pdf_val == " << pdf_val << " .\n";
+        }
         return emitted + srec.attenuation * pdf2
                          * ray_color(scattered, background, world, lights, depth - 1) / pdf_val;
     }
     else
     {
-        std::cerr << "pdf_val == 0!\n";
+        if(depth < 2)
+        {
+//        std::cerr << "pdf_val == 0!\n";
+            std::cerr << "Error ! pdf_val == " << pdf_val << " .\n";
+        }
 //        return emitted;
-        return emitted + srec.attenuation * pdf2;
+        return emitted + srec.attenuation * pdf2 * ray_color(scattered, background, world, lights, depth - 1);
     }
 
 }
@@ -303,6 +321,9 @@ int main()
     auto light1 = make_shared<xz_rect>(213, 343, 227, 332, 554, shared_ptr<material>());
     light1->setName("light1");
     lights->add(light1);
+    auto light2 = make_shared<sphere>(point3(190, 90, 190), 90, shared_ptr<material>());
+    light2->setName("light2");
+    lights->add(light2);
     // because the value lights added is a rvalue, so the lights turned into a rvalue too!
 
 	// Render
@@ -332,9 +353,15 @@ int main()
 					//pixel_color += ray_color(r, world);
 //					pixel_color += ray_color(r, world, max_depth);
 //					pixel_color += ray_color(r, background, world, max_depth);
+
 //					pixel_color += ray_color(r, background, world, lights, max_depth);
-                    auto curLight = lights->getObjByName("light1");
+
+//                    auto curLight = lights->getObjByName("light1");
+//					pixel_color += ray_color(r, background, world, curLight, max_depth);
+
+                    auto curLight = lights->getObjByName("light2");
 					pixel_color += ray_color(r, background, world, curLight, max_depth);
+
                     //main.cpp:311:88: error: cannot bind non-const lvalue reference of type ‘std::shared_ptr<hittable>&’ to an rvalue of type ‘std::shared_ptr<hittable>’
                     //  311 |                                         pixel_color += ray_color(r, background, world, lights, max_depth);
                     // add const in ray_color() function to solve this issue!
