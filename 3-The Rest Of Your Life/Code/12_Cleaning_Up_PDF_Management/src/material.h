@@ -115,7 +115,7 @@ class lambertian : public material
                 const ray& r_in, const hit_record& rec, const ray& scattered
                 ) const {
             double dir_length4 = scattered.direction().length();// unnormalized, not 1
-            auto cosine = dot(rec.normal, unit_vector((scattered.direction())));
+            auto cosine = dot(rec.normal, unit_vector(scattered.direction()));
             return cosine < 0 ? 0 : cosine / pi;
         }
 

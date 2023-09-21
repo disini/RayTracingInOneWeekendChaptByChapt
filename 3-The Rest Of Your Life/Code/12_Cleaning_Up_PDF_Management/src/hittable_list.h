@@ -8,8 +8,10 @@
 #include <memory>
 #include <vector>
 
-using std::shared_ptr;
-using std::make_shared;
+using namespace std;
+
+//using std::shared_ptr;
+//using std::make_shared;
 
 
 class hittable_list : public hittable
@@ -25,8 +27,11 @@ class hittable_list : public hittable
 		void clear() { objects.clear(); }
 		void add(shared_ptr<hittable> object) { objects.push_back(object); }
 
+        shared_ptr<hittable> getObjByName(const string name);
+
 		virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) const override;
         virtual bool bounding_box(double time0, double time1, aabb& output_box) const override;
+        virtual double pdf_value(const vec3 &o, const vec3 &v) const override;
 };
 
 
@@ -64,9 +69,30 @@ bool hittable_list::bounding_box(double time0, double time1, aabb &output_box) c
     return true;
 }
 
+double hittable_list::pdf_value(const point3 &o, const vec3 &v) const {
+    auto weight = 1.0/objects.size();
+    auto sum = 0.0;
 
+    for (const auto& object : objects)
+    {
+        sum += weight * object->pdf_value(o, v);
+    }
 
+    return sum;
+}
 
+shared_ptr<hittable> hittable_list::getObjByName(const string name){
+    for (const auto& object : objects) {
+        if (object->getName() == name)
+        {
+            return object;
+        }
+    }
+
+//    auto newObj = make_shared<xzerect>()
+    return objects.at(0);
+
+}
 
 
 #endif

@@ -7,6 +7,8 @@
 #include "aabb.h"
 #include "rtweekend.h"
 
+using namespace std;
+
 class material;
 
 struct hit_record
@@ -18,6 +20,7 @@ struct hit_record
     double u;
     double v;
 	bool front_face = true;
+
 
 	inline void set_face_normal(const ray& r, const vec3& outward_normal)
 	{
@@ -39,6 +42,13 @@ public:
     virtual vec3 random(const vec3& o) const {
         return vec3(1, 0, 0);
     }
+
+//    void setName(string _name){name = std::move(_name);}
+    void setName(string _name){name = _name;}
+    string getName(){return name;}
+
+protected:
+    string name = "";
 };
 
 

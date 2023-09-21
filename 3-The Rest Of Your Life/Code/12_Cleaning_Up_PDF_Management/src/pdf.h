@@ -5,8 +5,12 @@
 #ifndef CODE03_PDF_H
 #define CODE03_PDF_H
 
-#include "../../09_Sampling_Lights_Directly/src/rtweekend.h"
-#include "../../09_Sampling_Lights_Directly/src/onb.h"
+//#include "../../09_Sampling_Lights_Directly/src/rtweekend.h"
+//#include "../../09_Sampling_Lights_Directly/src/onb.h"
+
+#include "rtweekend.h"
+
+#include "onb.h"
 
 
 class pdf {
@@ -44,7 +48,9 @@ class cosine_pdf : public pdf {
         }
 
         virtual vec3 generate() const override {
-            return uvw.local(random_cosine_direction());
+            auto result = uvw.local(random_cosine_direction());
+//            return uvw.local(random_cosine_direction());
+            return result;
         }
 
     public:
@@ -55,7 +61,9 @@ class hittable_pdf : public pdf {
     public:
     hittable_pdf(shared_ptr<hittable> p, const point3& origin) : ptr(p), o(origin) {}
     virtual double value(const vec3& direction) const override {
-        return ptr->pdf_value(o, direction);
+        auto result = ptr->pdf_value(o, direction);
+//        return ptr->pdf_value(o, direction);
+        return result;
     }
 
     virtual  vec3 generate() const override {
@@ -78,17 +86,24 @@ class mixture_pdf : public pdf {
     }
 
     virtual double value(const vec3& direction) const override {
-        return 0.5 * p[0]->value(direction) + 0.5 * p[1]->value(direction);
+        auto value0 = p[0]->value(direction);
+        auto value1 = p[1]->value(direction);
+//        return 0.5 * p[0]->value(direction) + 0.5 * p[1]->value(direction);
+        return 0.5 * value0 + 0.5 * value1;
     }
 
     virtual vec3 generate() const override {
         if (random_double() < 0.5)
         {
-            return p[0]->generate();
+//            return p[0]->generate();
+            auto result0 = p[0]->generate();
+            return result0;
         }
         else
         {
-            return p[1]->generate();
+//            return p[1]->generate();
+            auto result1 = p[1]->generate();
+            return result1;
         }
     }
 

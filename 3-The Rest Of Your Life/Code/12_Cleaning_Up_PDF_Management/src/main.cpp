@@ -152,7 +152,9 @@ color ray_color(const ray& r, const color& background, const hittable& world, in
 //main.cpp:311:88: error: cannot bind non-const lvalue reference of type ‘std::shared_ptr<hittable>&’ to an rvalue of type ‘std::shared_ptr<hittable>’
 //  311 |                                         pixel_color += ray_color(r, background, world, lights, max_depth);
 // add const in ray_color() function to solve this issue!
-color ray_color(const ray& r, const color& background, const hittable& world, const shared_ptr<hittable>& lights, int depth)
+//color ray_color(const ray& r, const color& background, const hittable& world, const shared_ptr<hittable>& lights, int depth)
+//color ray_color(const ray& r, const color& background, const hittable& world, shared_ptr<hittable>& lights, int depth)
+color ray_color(const ray& r, const color& background, const hittable& world, shared_ptr<hittable> lights, int depth)
 {
     hit_record rec;
 //    vec3 vec;
@@ -183,9 +185,24 @@ color ray_color(const ray& r, const color& background, const hittable& world, co
     scattered = ray(rec.p, mixed_pdf.generate(), r.time());
     pdf_val = mixed_pdf.value(scattered.direction());
 
+//    if(!pdf_val)
+//    {
+//        std::cerr << "pdf_val == 0!\n";
+//    }
+
     pdf2 = rec.mat_ptr->scattering_pdf(r, rec, scattered);// != pdf1
-    return emitted + srec.attenuation * pdf2
-                     * ray_color(scattered, background, world, lights, depth - 1) / pdf_val;
+
+    if(pdf_val) {
+        std::cerr << "pdf_val == " << pdf_val << " .\n";
+        return emitted + srec.attenuation * pdf2
+                         * ray_color(scattered, background, world, lights, depth - 1) / pdf_val;
+    }
+    else
+    {
+        std::cerr << "pdf_val == 0!\n";
+//        return emitted;
+        return emitted + srec.attenuation * pdf2;
+    }
 
 }
 
@@ -251,7 +268,7 @@ int main()
 	int image_height = static_cast<int>(image_width /aspect_ratio);
 //	const int samples_per_pixel = 500;
 //	const int samples_per_pixel = 200;
-	int samples_per_pixel = 20;
+	int samples_per_pixel = 10;
 	int max_depth = 50;
 
 	// World(Objects)
@@ -281,9 +298,11 @@ int main()
 //    auto world = cornell_box();
 
 //    shared_ptr<hittable> lights = make_shared<xz_rect>(213, 343, 227, 332, 554, shared_ptr<material>());
-//    auto lights = make_shared<hittable_list>();
-    shared_ptr<hittable_list> lights = make_shared<hittable_list>();
-    lights->add(make_shared<xz_rect>(213, 343, 227, 332, 554, shared_ptr<material>()));
+    auto lights = make_shared<hittable_list>();
+//    shared_ptr<hittable_list> lights = make_shared<hittable_list>();
+    auto light1 = make_shared<xz_rect>(213, 343, 227, 332, 554, shared_ptr<material>());
+    light1->setName("light1");
+    lights->add(light1);
     // because the value lights added is a rvalue, so the lights turned into a rvalue too!
 
 	// Render
@@ -314,6 +333,8 @@ int main()
 //					pixel_color += ray_color(r, world, max_depth);
 //					pixel_color += ray_color(r, background, world, max_depth);
 					pixel_color += ray_color(r, background, world, lights, max_depth);
+//                    auto curLight = lights->getObjByName("light1");
+//					pixel_color += ray_color(r, background, world, curLight, max_depth);
                     //main.cpp:311:88: error: cannot bind non-const lvalue reference of type ‘std::shared_ptr<hittable>&’ to an rvalue of type ‘std::shared_ptr<hittable>’
                     //  311 |                                         pixel_color += ray_color(r, background, world, lights, max_depth);
                     // add const in ray_color() function to solve this issue!
