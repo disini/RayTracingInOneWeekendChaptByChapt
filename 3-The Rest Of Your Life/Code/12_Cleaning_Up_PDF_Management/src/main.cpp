@@ -332,9 +332,9 @@ int main()
 					//pixel_color += ray_color(r, world);
 //					pixel_color += ray_color(r, world, max_depth);
 //					pixel_color += ray_color(r, background, world, max_depth);
-					pixel_color += ray_color(r, background, world, lights, max_depth);
-//                    auto curLight = lights->getObjByName("light1");
-//					pixel_color += ray_color(r, background, world, curLight, max_depth);
+//					pixel_color += ray_color(r, background, world, lights, max_depth);
+                    auto curLight = lights->getObjByName("light1");
+					pixel_color += ray_color(r, background, world, curLight, max_depth);
                     //main.cpp:311:88: error: cannot bind non-const lvalue reference of type ‘std::shared_ptr<hittable>&’ to an rvalue of type ‘std::shared_ptr<hittable>’
                     //  311 |                                         pixel_color += ray_color(r, background, world, lights, max_depth);
                     // add const in ray_color() function to solve this issue!
