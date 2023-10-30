@@ -241,6 +241,7 @@ hittable_list cornell_box() {
     objects.add(make_shared<xz_rect>(0, 555, 0, 555, 0, white));// bottom face
     objects.add(make_shared<xz_rect>(0, 555, 0, 555, 555, white));// top face
     objects.add(make_shared<xy_rect>(0, 555, 0, 555, 555, white));// front face
+    objects.add(make_shared<sphere>(point3(190, 90, 190), 90, light));
 
 
 // Two boxes
