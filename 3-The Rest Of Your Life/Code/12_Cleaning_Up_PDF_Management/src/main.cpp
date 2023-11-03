@@ -177,6 +177,10 @@ color ray_color(const ray& r, const color& background, const hittable& world, sh
     if (!rec.mat_ptr->scatter(r, rec, srec))
         return emitted;
 
+    if (srec.is_specular) {
+        return srec.attenuation * ray_color(srec.specular_ray, background, world, lights, depth - 1);
+    }
+
 
     auto light_ptr = make_shared<hittable_pdf>(lights, rec.p);
 
@@ -241,19 +245,27 @@ hittable_list cornell_box() {
     objects.add(make_shared<xz_rect>(0, 555, 0, 555, 0, white));// bottom face
     objects.add(make_shared<xz_rect>(0, 555, 0, 555, 555, white));// top face
     objects.add(make_shared<xy_rect>(0, 555, 0, 555, 555, white));// front face
-    objects.add(make_shared<sphere>(point3(190, 90, 190), 90, light));
+//    objects.add(make_shared<sphere>(point3(190, 90, 190), 90, light));// added by me! there is not this item in the origin book on V3! but if without this light item,
+    // the image will be weird and very dark!
 
 
 // Two boxes
 //    objects.add(make_shared<box>(point3(130, 0, 65), point3(295, 165, 230), white));// the shorter one
 //    objects.add(make_shared<box>(point3(265, 0, 295), point3(430, 330, 460), white));// the taller one
 
+    shared_ptr<material> aluminum = make_shared<metal>(color(0.8, 0.85, 0.88), 0.0);
+
 // Two Y-rotated boxes
 // the taller one
-    shared_ptr<hittable> box1 = make_shared<box>(point3(0, 0, 0), point3(165,330, 165), white);
+//    shared_ptr<hittable> box1 = make_shared<box>(point3(0, 0, 0), point3(165,330, 165), white);
+    shared_ptr<hittable> box1 = make_shared<box>(point3(0, 0, 0), point3(165,330, 165), aluminum);
     box1 = make_shared<rotate_y>(box1, 15);// 沿y轴旋转15度（degrees）,先旋转再平移！
     box1 = make_shared<translate>(box1, vec3(265, 0, 295));
     objects.add(box1);
+
+    // add a glass ball that surround the shorter box!
+//    auto glass = make_shared<dielectric>(1.5);
+//    objects.add(make_shared<sphere>(point3(190, 90, 190), 90, glass));
 
     // the shorter one
     shared_ptr<hittable> box2 = make_shared<box>(point3(0, 0, 0), point3(165,165, 165), white);
@@ -287,7 +299,7 @@ int main()
 	int image_height = static_cast<int>(image_width /aspect_ratio);
 //	const int samples_per_pixel = 500;
 //	const int samples_per_pixel = 200;
-	int samples_per_pixel = 10;
+	int samples_per_pixel = 500;
 	int max_depth = 50;
 
 	// World(Objects)
