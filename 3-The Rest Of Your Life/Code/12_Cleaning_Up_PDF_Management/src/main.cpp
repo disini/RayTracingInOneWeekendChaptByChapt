@@ -425,12 +425,15 @@ int main(int argc, char *argv[])
                 break;
             }
 
-//            case '>':// 控制台窗口中输入>程序无法识别，但是ide中调试参数填入就可以，why?
-//            {
-//                cerr << "case \'>\' found ! " << endl;
-//                ofile_name = argv[i + 1];
-//                break;
-//            }
+            case '>':// 保留原输入： 控制台窗口中输入 > ，程序无法识别，但是ide中调试参数填入 > 就可以，why?
+            // 品味人生：终端里>是bash处理, 终端里输入的时候加上引号 ： '>' 1.ppm !
+            // ./12_Cleaning_Up_PDF_Management '>' 1122.ppm -spp 10 -depth 5
+            {
+                cerr << "case \'>\' found ! " << endl;
+                ofile_name = argv[i + 1];
+                ofile_on = true;
+                break;
+            }
 
             /*
             default:// //不以'-'开头 ,是文件名
