@@ -22,7 +22,17 @@
 
 #include "chrono"// 头文件chrono 自c++ 11起
 
+#include <ctype.h>// 调用atoi函数
+// https://www.cnblogs.com/icmzn/articles/14097860.html
+
+#include <bits/stdc++.h>
+
+using namespace std;
 using namespace std::chrono;// chrono的所有函数都存储在命名空间chrono中
+
+
+const char* const prog_name = "Peter Shirley RT Renderer";
+const char* const prog_version = "version 1.0 (20231103)";
 
 double hit_sphere(const point3& center, double radius, const ray& r)// after denominator '2' extracted
 {
@@ -277,33 +287,39 @@ hittable_list cornell_box() {
 }
 
 
-
-
-
-int main()
+// 退出函数
+inline void usage(int exit_value = 0)
 {
-	auto startTime = system_clock::now();
+    std::cerr << prog_name << "  usage! exit_value == " << exit_value << endl;
+    exit(exit_value);
+}
+
+int main(int argc, char *argv[])
+//int main()
+{
+
+    auto startTime = system_clock::now();
 
     // http://c.biancheng.net/view/1352.html
-	unsigned seed;// Random generator seed
-	double result;
-	seed = time(0);// 从“time_t”转换到“unsigned int”，可能丢失数据
-	srand(seed);
+    unsigned seed;// Random generator seed
+    double result;
+    seed = time(0);// 从“time_t”转换到“unsigned int” ,可能丢失数据
+    srand(seed);
 
-	
-	
-	// Image
-	auto aspect_ratio = 1.0;
 
-	int image_width = 800;
-	int image_height = static_cast<int>(image_width /aspect_ratio);
+
+    // Image
+    auto aspect_ratio = 1.0;
+
+    int image_width = 800;
+    int image_height = static_cast<int>(image_width /aspect_ratio);
 //	const int samples_per_pixel = 500;
 //	const int samples_per_pixel = 200;
-	int samples_per_pixel = 500;
-	int max_depth = 50;
+    int samples_per_pixel = 500;
+    int max_depth = 50;
 
-	// World(Objects)
-	hittable_list world = cornell_box();
+    // World(Objects)
+    hittable_list world = cornell_box();
 
     color background(0, 0, 0);
 
@@ -311,15 +327,189 @@ int main()
 
     point3 lookfrom = point3(278, 278, -800);// on the -z axis
     point3 lookat = point3(278, 278, 0);
-	vec3 vup(0, 1, 0);
+    vec3 vup(0, 1, 0);
 
-	//auto dist_to_focus = (lookfrom - lookat).length();// 5.1961524227066320
-	auto dist_to_focus = 10.0;// 手动对焦焦平面位置
-	//auto aperture = 2.0;
-	auto aperture = 0.0;
+    //auto dist_to_focus = (lookfrom - lookat).length();// 5.1961524227066320
+    auto dist_to_focus = 10.0;// 手动对焦焦平面位置
+    //auto aperture = 2.0;
+    auto aperture = 0.0;
     auto vfov = 40.0;
     auto time0 = 0.0;
     auto time1 = 1.0;
+
+
+    bool debug_on = false;
+    bool ofile_on = false;// 正在处理输出文件
+    bool limit_on = false;// 是否限制输入值的类型为数值类型
+
+    string ofile_name;// 记录出现的输出文件名
+    int limit = -1;// 限制值
+    vector <string> file_names;// 记录文件名
+
+//    unordered_map<string, int> control_param = {
+//    map<string, int> control_param = {
+    unordered_map<string, int> control_param = {
+            {"-depth", 1},
+            {"-spp", 2}
+    };
+// https://blog.csdn.net/u013620306/article/details/127526385
+// https://blog.csdn.net/gaoqiandr/article/details/127233513
+
+
+
+    cout << "argc : " << argc << endl;
+    for (int i = 0; i < argc; ++i) {//读取argv中的每个选项
+        // output the i+1 th parameter value, 输出第i+1个参量
+        cout << "argv[" << i << "] : " << argv[i] << endl;
+
+        char* pchar = argv[i];
+        switch(pchar[0]) {//确定选项类型：-h,-d,-v,-l,-o;或者其他
+            case '-':{
+                cerr << "case \'-\' found ! " << endl;
+
+                string argvStr = pchar;
+                int caseKey = control_param[pchar];
+
+                switch (caseKey) {
+                    cout << "arg[" << i << "] is " << pchar << endl;
+//                    case '-depth':
+                    case 1:// '-depth'
+                    {
+                        int depth = atoi(argv[i + 1]);
+                        max_depth = depth ? depth : max_depth;
+                        cout << "set max_depth to " << max_depth << endl;
+                        break;
+                    }
+//                    case '-spp':
+                    case 2:// '-spp'
+                    {
+                        int spp = atoi(argv[i + 1]);
+                        samples_per_pixel = spp ? spp : samples_per_pixel;
+                        cout << "set spp to " << samples_per_pixel << endl;
+                        break;
+                    }
+                    default://
+                    {
+                        switch (pchar[1]) {
+                            case 'd':
+                                // 处理调试：
+                                cout<<"-d found:debugging turned on!"<<endl;
+                                debug_on = true;
+                                break;
+                            case 'v'://处理版本请求
+                                cout<<"-v found:version info displayed!"<<endl;
+                                cout<<prog_name<<":"<<prog_version<<endl;
+                                return 0;
+                            case 'h'://处理帮助
+                                cout<<"-h found:help info!"<<endl;
+                                usage(1);
+//                        return 1;
+                            case 'o'://处理输出文件
+                                cout<<"-o found:output file!"<<endl;
+                                ofile_name = argv[i + 1];
+                                ofile_on = true;
+                                break;
+                            case 'l'://处理限制量
+                                cout<<"-l found:resorce limit!"<<endl;
+                                limit_on = true;
+                                break;
+                            default://无法识别的选项
+                                cerr<<prog_name<<":error:unrecognition option -:"<<pchar<<endl;
+                                usage(-1);
+//                        return -1;
+                        }
+                        break;
+                    }
+                }
+
+                break;
+            }
+
+//            case '>':// 控制台窗口中输入>程序无法识别，但是ide中调试参数填入就可以，why?
+//            {
+//                cerr << "case \'>\' found ! " << endl;
+//                ofile_name = argv[i + 1];
+//                break;
+//            }
+
+            /*
+            default:// //不以'-'开头 ,是文件名
+                if (ofile_on) {//输出文件名
+                    cout << "file name : " << pchar << endl;
+                    ofile_name = pchar;
+                    ofile_on = false;//复位
+                }
+                else if(limit_on) {// 如果没有正在输出文件 ,且限制了输入值类型
+                    limit_on = false;//复位
+                    limit = atoi(pchar);
+                    if (limit < 0) {// 转换失败 ,说明输入类型错误
+                        std::cerr << prog_name << ": error : negtive value for limit!" << endl;
+                        usage(-2);
+                    }
+                }
+                else{// 文件名
+                    file_names.push_back(pchar);
+                }
+                break;
+                */
+        }
+    }
+
+    /*
+    if (file_names.empty()) {
+        std::cerr << prog_name << ": error : no file for processing!" << endl;
+        usage(3);
+    }
+    else{
+        cout << (file_names.size() == 1 ? "File" : "Files") <<
+        " to be processed are the followed : " << endl;
+        for (int i = 0; i < file_names.size(); ++i) {
+            cout << file_names[i] << "\t" << endl;
+        }
+        if (limit != -1){
+            cout << "user-specified limit:" << limit << endl;
+        }
+        if (!ofile_name.empty()) {
+            cout << "user-specified ofile : " << ofile_name << endl;
+        }
+    }
+    */
+
+    if(ofile_name.empty())
+    {
+        cerr << "output file name missing!" << endl;
+        usage(-3);
+        return -3;
+    }
+    else
+//    if (!ofile_name.empty())
+    {
+        cerr << "user-specified ofile : " << ofile_name << endl;
+    }
+
+//    std::ofstream outputFile(ofile_name);
+//    std::ostream outStream;
+    std::ofstream outputFile;
+    outputFile.open(ofile_name);
+
+//    if(!outputFile.is_open())
+//    {
+//        std::cerr << "Can not open the target output file!" << endl;
+//        return -2;
+//    }
+
+    // 清空输出缓冲区:
+    // https://www.cppblog.com/biao/archive/2008/04/12/46888.aspx
+    fflush(stdout);
+    std::cout.clear();
+    std::cout.flush();
+
+    // 将 std::cout 的输出重定向到文件
+    std::streambuf *coutBuf = std::cout.rdbuf(); // 保存原始的 cout 缓冲区
+    std::cout.rdbuf(outputFile.rdbuf());
+
+    // 现在，任何东西写入 std::cout 都会写入文件
+//    std::cout << "这是写入文件的内容" << std::endl;
 
 
 	camera cam(lookfrom, lookat, vup, vfov, aspect_ratio, aperture, dist_to_focus, time0, time1);
@@ -341,8 +531,12 @@ int main()
 
 	// Render
 
+
+
 	std::cout << "P3\n" << image_width << " " << image_height << "\n255\n";
-	std::cerr << "image_width　==　" << image_width << "，　image_height　==　" << image_height << "\n";
+	std::cerr << "image_width == " << image_width << " , image_height == " << image_height << "\n";
+
+
 	for (int j = image_height -1; j >= 0; --j)
 	{
         std::cerr << "\n \r --------------------------- Scanlines remaining : " << j << " ------------------------------------ \n" << std::flush;
@@ -358,8 +552,8 @@ int main()
 				color pixel_color(0, 0, 0);
 				for (int s=0; s < samples_per_pixel;++s)
 				{
-					auto u = (i + random_double()) / (image_width - 1);// 随机多重采样				
-					auto v = (j + random_double()) / (image_height - 1);						
+					auto u = (i + random_double()) / (image_width - 1);// 随机多重采样
+					auto v = (j + random_double()) / (image_height - 1);
 
 					ray r = cam.get_ray(u, v);
 
@@ -382,6 +576,12 @@ int main()
 
 				//write_color(std::cout, pixel_color);
 				write_color(std::cout, pixel_color, samples_per_pixel);
+//                if(outputFile.is_open())
+//                {
+////                    write_color(outputFile, pixel_color, samples_per_pixel);
+//                    write_color(std::cout, pixel_color, samples_per_pixel);
+//                }
+
 
 				//std::cout << ir << " " << ig << " " << ib << "\n";
 
@@ -391,7 +591,7 @@ int main()
 				}*/
 
 			//}
-					
+
 		}
 
 		//if ( j <= image_height - 6)// 仅部分行（rows）绘制
@@ -399,6 +599,18 @@ int main()
 		//	return 0;
 		//}
 	}
+
+//    // 恢复原始的 cout 缓冲区
+    std::cout.rdbuf(coutBuf);
+//
+//    // 关闭文件
+    outputFile.close();
+
+//    if(outputFile.is_open())
+//    {
+//        outputFile << std::cout;
+//
+//    }
 
     auto finishTime = system_clock::now();
 
@@ -415,3 +627,4 @@ int main()
 
 	return 0;
 }
+

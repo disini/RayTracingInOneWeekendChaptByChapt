@@ -5,8 +5,8 @@ project(Code03
         LANGUAGES CXX
 )
 
-# Set to c++ 11
-set(CMAKE_CXX_STANDARD 11)
+# Set to c++ 20
+set(CMAKE_CXX_STANDARD 20)
 
 # 交叉编译
 #set(CMAKE_CROSSCOMPILING 1)
