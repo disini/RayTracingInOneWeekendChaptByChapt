@@ -7,6 +7,7 @@
 
 #include "vec3.h"
 
+// Orthonormal Basis : Õý½»»ù
 class onb {
     public:
         onb() {}

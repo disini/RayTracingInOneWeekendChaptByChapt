@@ -369,9 +369,10 @@ int main(int argc, char *argv[])
 
                 string argvStr = pchar;
                 int caseKey = control_param[pchar];
+                cout << "arg[" << i << "] is " << pchar << endl;
 
                 switch (caseKey) {
-                    cout << "arg[" << i << "] is " << pchar << endl;
+
 //                    case '-depth':
                     case 1:// '-depth'
                     {
@@ -526,7 +527,7 @@ int main(int argc, char *argv[])
 //    shared_ptr<hittable_list> lights = make_shared<hittable_list>();
     auto light1 = make_shared<xz_rect>(213, 343, 227, 332, 554, shared_ptr<material>());
     light1->setName("light1");
-    lights->add(light1);
+//    lights->add(light1);
     auto light2 = make_shared<sphere>(point3(190, 90, 190), 90, shared_ptr<material>());
     light2->setName("light2");
     lights->add(light2);
