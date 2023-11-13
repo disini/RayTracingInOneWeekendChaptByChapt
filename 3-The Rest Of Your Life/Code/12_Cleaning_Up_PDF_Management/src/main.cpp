@@ -523,16 +523,14 @@ int main(int argc, char *argv[])
 //    auto world = cornell_box();
 
 //    shared_ptr<hittable> lights = make_shared<xz_rect>(213, 343, 227, 332, 554, shared_ptr<material>());
-//    auto lights = make_shared<hittable_list>();
+    auto lights = make_shared<hittable_list>();
 //    shared_ptr<hittable_list> lights = make_shared<hittable_list>();
     auto light1 = make_shared<xz_rect>(213, 343, 227, 332, 554, shared_ptr<material>());
     light1->setName("light1");
-//    lights->add(light1);
-
-    auto lights = make_shared<sphere>(point3(190, 90, 190), 90, shared_ptr<material>());
-//    auto light2 = make_shared<sphere>(point3(190, 90, 190), 90, shared_ptr<material>());
-//    light2->setName("light2");
-//    lights->add(light2);
+    lights->add(light1);
+    auto light2 = make_shared<sphere>(point3(190, 90, 190), 90, shared_ptr<material>());
+    light2->setName("light2");
+    lights->add(light2);
     // because the value lights added is a rvalue, so the lights turned into a rvalue too!
 
 	// Render
@@ -567,13 +565,13 @@ int main(int argc, char *argv[])
 //					pixel_color += ray_color(r, world, max_depth);
 //					pixel_color += ray_color(r, background, world, max_depth);
 
-					pixel_color += ray_color(r, background, world, lights, max_depth);
+//					pixel_color += ray_color(r, background, world, lights, max_depth);
 
 //                    auto curLight = lights->getObjByName("light1");
 //					pixel_color += ray_color(r, background, world, curLight, max_depth);
 
-//                    auto curLight = lights->getObjByName("light2");
-//					pixel_color += ray_color(r, background, world, curLight, max_depth);
+                    auto curLight = lights->getObjByName("light2");
+					pixel_color += ray_color(r, background, world, curLight, max_depth);
 
                     //main.cpp:311:88: error: cannot bind non-const lvalue reference of type ‘std::shared_ptr<hittable>&’ to an rvalue of type ‘std::shared_ptr<hittable>’
                     //  311 |                                         pixel_color += ray_color(r, background, world, lights, max_depth);
