@@ -267,8 +267,8 @@ hittable_list cornell_box() {
 
 // Two Y-rotated boxes
 // the taller one
-//    shared_ptr<hittable> box1 = make_shared<box>(point3(0, 0, 0), point3(165,330, 165), white);
-    shared_ptr<hittable> box1 = make_shared<box>(point3(0, 0, 0), point3(165,330, 165), aluminum);
+    shared_ptr<hittable> box1 = make_shared<box>(point3(0, 0, 0), point3(165,330, 165), white);
+//    shared_ptr<hittable> box1 = make_shared<box>(point3(0, 0, 0), point3(165,330, 165), aluminum);
     box1 = make_shared<rotate_y>(box1, 15);// 沿y轴旋转15度（degrees）,先旋转再平移！
     box1 = make_shared<translate>(box1, vec3(265, 0, 295));
     objects.add(box1);
