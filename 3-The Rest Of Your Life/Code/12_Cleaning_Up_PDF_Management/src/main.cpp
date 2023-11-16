@@ -220,7 +220,7 @@ color ray_color(const ray& r, const color& background, const hittable& world, sh
     if(pdf_val > 0) {
         if(depth < 2)
         {
-            std::cerr << "pdf_val == " << pdf_val << " .\n";
+//            std::cerr << "pdf_val == " << pdf_val << " .\n";
         }
         return emitted + srec.attenuation * pdf2
                          * ray_color(scattered, background, world, lights, depth - 1) / pdf_val;
