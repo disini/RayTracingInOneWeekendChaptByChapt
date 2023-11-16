@@ -350,7 +350,9 @@ int main(int argc, char *argv[])
 //    map<string, int> control_param = {
     unordered_map<string, int> control_param = {
             {"-depth", 1},
-            {"-spp", 2}
+            {"-spp", 2},
+            {"-width", 3},
+            {"-height", 4},
     };
 // https://blog.csdn.net/u013620306/article/details/127526385
 // https://blog.csdn.net/gaoqiandr/article/details/127233513
@@ -389,33 +391,51 @@ int main(int argc, char *argv[])
                         cout << "set spp to " << samples_per_pixel << endl;
                         break;
                     }
+//                    case '-width':
+                    case 3:// '-width'
+                    {
+                        int width = atoi(argv[i + 1]);
+                        image_width = width ? width : max_depth;
+                        cout << "set image width to " << image_width << endl;
+                        break;
+                    }
+//                    case '-height':
+                    case 4:// '-height'
+                    {
+                        int height = atoi(argv[i + 1]);
+                        image_height = height ? height : static_cast<int>(image_width /aspect_ratio);
+                        aspect_ratio = double(image_width) / double(image_height);
+                        cout << "set image height to " << image_height << endl;
+                        cout << "set aspect_ratio to " << aspect_ratio << endl;
+                        break;
+                    }
                     default://
                     {
                         switch (pchar[1]) {
                             case 'd':
                                 // 处理调试：
-                                cout<<"-d found:debugging turned on!"<<endl;
+                                cout<<"-d found : debugging turned on!"<<endl;
                                 debug_on = true;
                                 break;
                             case 'v'://处理版本请求
-                                cout<<"-v found:version info displayed!"<<endl;
+                                cout<<"-v found : version info displayed!"<<endl;
                                 cout<<prog_name<<":"<<prog_version<<endl;
                                 return 0;
                             case 'h'://处理帮助
-                                cout<<"-h found:help info!"<<endl;
+                                cout<<"-h found : help info!"<<endl;
                                 usage(1);
 //                        return 1;
                             case 'o'://处理输出文件
-                                cout<<"-o found:output file!"<<endl;
+                                cout<<"-o found : output file!"<<endl;
                                 ofile_name = argv[i + 1];
                                 ofile_on = true;
                                 break;
                             case 'l'://处理限制量
-                                cout<<"-l found:resorce limit!"<<endl;
+                                cout<<"-l found : resorce limit!"<<endl;
                                 limit_on = true;
                                 break;
                             default://无法识别的选项
-                                cerr<<prog_name<<":error:unrecognition option -:"<<pchar<<endl;
+                                cerr<<prog_name<<" : error : unrecognition option - : "<<pchar<<endl;
                                 usage(-1);
 //                        return -1;
                         }
