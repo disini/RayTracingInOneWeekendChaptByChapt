@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8A86E00B-058D-3D47-8DA3-2826EC8C9A73}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>08_Final_Render</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\build_windows\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">08_Final_Render.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">08_Final_Render</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\build_windows\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">08_Final_Render.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">08_Final_Render</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\build_windows\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">08_Final_Render.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">08_Final_Render</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\build_windows\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">08_Final_Render.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">08_Final_Render</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>K:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01/build_windows/Debug/08_Final_Render.lib</ImportLibrary>
+      <ProgramDataBaseFile>K:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01/build_windows/Debug/08_Final_Render.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>K:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01/build_windows/Release/08_Final_Render.lib</ImportLibrary>
+      <ProgramDataBaseFile>K:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01/build_windows/Release/08_Final_Render.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>K:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01/build_windows/MinSizeRel/08_Final_Render.lib</ImportLibrary>
+      <ProgramDataBaseFile>K:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01/build_windows/MinSizeRel/08_Final_Render.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>K:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01/build_windows/RelWithDebInfo/08_Final_Render.lib</ImportLibrary>
+      <ProgramDataBaseFile>K:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01/build_windows/RelWithDebInfo/08_Final_Render.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule K:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+I:\Programs\libs\CMake\3.24.1\windows-x86_64\bin\cmake.exe "-SK:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01" "-BK:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01/build_windows" --check-stamp-file "K:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01/build_windows/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeCXXCompiler.cmake.in;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeCXXCompilerABI.cpp;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeCXXInformation.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeCommonLanguageInclude.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeCompilerIdDetection.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineCXXCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineCompileFeatures.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineCompilerABI.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineCompilerId.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineRCCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineSystem.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeFindBinUtils.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeGenericSystem.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeInitializeConfigs.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeLanguageInformation.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeParseImplicitIncludeInfo.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeParseImplicitLinkInfo.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeParseLibraryArchitecture.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeRCCompiler.cmake.in;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeRCInformation.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeSystem.cmake.in;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeSystemSpecificInformation.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeSystemSpecificInitialize.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeTestCXXCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeTestCompilerCommon.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeTestRCCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\ADSP-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\ARMCC-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\ARMClang-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\AppleClang-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Borland-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\CMakeCommonCompilerMacros.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Clang-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Cray-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\GHS-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\IAR-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\IBMClang-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Intel-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\LCC-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\MSVC-CXX.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\MSVC-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\MSVC.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\NVHPC-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\PGI-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\PathScale-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\SCO-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\TI-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Watcom-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CompilerId\VS-10.vcxproj.in;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Internal\FeatureTesting.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Platform\Windows-Determine-CXX.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Platform\Windows-MSVC-CXX.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Platform\Windows-MSVC.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Platform\Windows.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Platform\WindowsPaths.cmake;K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\build_windows\CMakeFiles\3.24.1\CMakeCXXCompiler.cmake;K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\build_windows\CMakeFiles\3.24.1\CMakeRCCompiler.cmake;K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\build_windows\CMakeFiles\3.24.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\build_windows\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule K:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+I:\Programs\libs\CMake\3.24.1\windows-x86_64\bin\cmake.exe "-SK:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01" "-BK:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01/build_windows" --check-stamp-file "K:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01/build_windows/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeCXXCompiler.cmake.in;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeCXXCompilerABI.cpp;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeCXXInformation.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeCommonLanguageInclude.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeCompilerIdDetection.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineCXXCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineCompileFeatures.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineCompilerABI.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineCompilerId.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineRCCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineSystem.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeFindBinUtils.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeGenericSystem.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeInitializeConfigs.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeLanguageInformation.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeParseImplicitIncludeInfo.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeParseImplicitLinkInfo.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeParseLibraryArchitecture.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeRCCompiler.cmake.in;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeRCInformation.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeSystem.cmake.in;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeSystemSpecificInformation.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeSystemSpecificInitialize.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeTestCXXCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeTestCompilerCommon.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeTestRCCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\ADSP-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\ARMCC-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\ARMClang-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\AppleClang-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Borland-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\CMakeCommonCompilerMacros.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Clang-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Cray-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\GHS-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\IAR-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\IBMClang-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Intel-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\LCC-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\MSVC-CXX.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\MSVC-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\MSVC.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\NVHPC-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\PGI-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\PathScale-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\SCO-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\TI-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Watcom-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CompilerId\VS-10.vcxproj.in;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Internal\FeatureTesting.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Platform\Windows-Determine-CXX.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Platform\Windows-MSVC-CXX.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Platform\Windows-MSVC.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Platform\Windows.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Platform\WindowsPaths.cmake;K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\build_windows\CMakeFiles\3.24.1\CMakeCXXCompiler.cmake;K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\build_windows\CMakeFiles\3.24.1\CMakeRCCompiler.cmake;K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\build_windows\CMakeFiles\3.24.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\build_windows\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule K:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+I:\Programs\libs\CMake\3.24.1\windows-x86_64\bin\cmake.exe "-SK:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01" "-BK:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01/build_windows" --check-stamp-file "K:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01/build_windows/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeCXXCompiler.cmake.in;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeCXXCompilerABI.cpp;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeCXXInformation.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeCommonLanguageInclude.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeCompilerIdDetection.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineCXXCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineCompileFeatures.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineCompilerABI.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineCompilerId.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineRCCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineSystem.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeFindBinUtils.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeGenericSystem.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeInitializeConfigs.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeLanguageInformation.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeParseImplicitIncludeInfo.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeParseImplicitLinkInfo.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeParseLibraryArchitecture.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeRCCompiler.cmake.in;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeRCInformation.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeSystem.cmake.in;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeSystemSpecificInformation.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeSystemSpecificInitialize.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeTestCXXCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeTestCompilerCommon.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeTestRCCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\ADSP-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\ARMCC-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\ARMClang-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\AppleClang-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Borland-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\CMakeCommonCompilerMacros.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Clang-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Cray-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\GHS-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\IAR-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\IBMClang-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Intel-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\LCC-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\MSVC-CXX.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\MSVC-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\MSVC.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\NVHPC-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\PGI-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\PathScale-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\SCO-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\TI-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Watcom-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CompilerId\VS-10.vcxproj.in;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Internal\FeatureTesting.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Platform\Windows-Determine-CXX.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Platform\Windows-MSVC-CXX.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Platform\Windows-MSVC.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Platform\Windows.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Platform\WindowsPaths.cmake;K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\build_windows\CMakeFiles\3.24.1\CMakeCXXCompiler.cmake;K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\build_windows\CMakeFiles\3.24.1\CMakeRCCompiler.cmake;K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\build_windows\CMakeFiles\3.24.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\build_windows\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule K:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+I:\Programs\libs\CMake\3.24.1\windows-x86_64\bin\cmake.exe "-SK:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01" "-BK:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01/build_windows" --check-stamp-file "K:/progwork/books/Peter Shirley/1-Ray Tracing in One Weekend/code/Chpt01/Code01/build_windows/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeCXXCompiler.cmake.in;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeCXXCompilerABI.cpp;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeCXXInformation.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeCommonLanguageInclude.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeCompilerIdDetection.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineCXXCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineCompileFeatures.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineCompilerABI.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineCompilerId.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineRCCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeDetermineSystem.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeFindBinUtils.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeGenericSystem.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeInitializeConfigs.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeLanguageInformation.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeParseImplicitIncludeInfo.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeParseImplicitLinkInfo.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeParseLibraryArchitecture.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeRCCompiler.cmake.in;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeRCInformation.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeSystem.cmake.in;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeSystemSpecificInformation.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeSystemSpecificInitialize.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeTestCXXCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeTestCompilerCommon.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CMakeTestRCCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\ADSP-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\ARMCC-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\ARMClang-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\AppleClang-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Borland-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\CMakeCommonCompilerMacros.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Clang-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Cray-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\GHS-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\IAR-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\IBMClang-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Intel-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\LCC-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\MSVC-CXX.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\MSVC-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\MSVC.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\NVHPC-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\PGI-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\PathScale-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\SCO-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\TI-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\Watcom-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\CompilerId\VS-10.vcxproj.in;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Internal\FeatureTesting.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Platform\Windows-Determine-CXX.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Platform\Windows-MSVC-CXX.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Platform\Windows-MSVC.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Platform\Windows.cmake;I:\Programs\libs\CMake\3.24.1\windows-x86_64\share\cmake-3.24\Modules\Platform\WindowsPaths.cmake;K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\build_windows\CMakeFiles\3.24.1\CMakeCXXCompiler.cmake;K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\build_windows\CMakeFiles\3.24.1\CMakeRCCompiler.cmake;K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\build_windows\CMakeFiles\3.24.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\build_windows\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\08_Final_Render\src\camera.h" />
+    <ClInclude Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\08_Final_Render\src\color.h" />
+    <ClInclude Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\08_Final_Render\src\hittable.h" />
+    <ClInclude Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\08_Final_Render\src\hittable_list.h" />
+    <ClInclude Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\08_Final_Render\src\material.h" />
+    <ClInclude Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\08_Final_Render\src\ray.h" />
+    <ClInclude Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\08_Final_Render\src\rtweekend.h" />
+    <ClInclude Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\08_Final_Render\src\sphere.h" />
+    <ClInclude Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\08_Final_Render\src\vec3.h" />
+    <ClCompile Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\08_Final_Render\src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="K:\progwork\books\Peter Shirley\1-Ray Tracing in One Weekend\code\Chpt01\Code01\build_windows\ZERO_CHECK.vcxproj">
+      <Project>{06F738BC-91BD-3E9E-94B7-FD2E969AFDC0}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

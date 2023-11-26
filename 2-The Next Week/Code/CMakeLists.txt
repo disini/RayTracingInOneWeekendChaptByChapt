@@ -5,10 +5,10 @@ project( Code02
         LANGUAGES CXX
 )
 
-# Set to c++11
-set(CMAKE_CXX_STANDARD 11)
+# Set to c++ 20
+set(CMAKE_CXX_STANDARD 20)
 
-# Ωª≤Ê±‡“Î
+# ????
 #set(CMAKE_CROSSCOMPILING 1)
 #set(CROSS_COMPILE 1)
 
