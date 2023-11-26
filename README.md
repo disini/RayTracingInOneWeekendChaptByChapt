@@ -347,25 +347,21 @@ https://raytracing.github.io/v3/books/RayTracingTheRestOfYourLife.html
 # <center>Attention:
 
 
-## <center>copy the 2 dll files : libgcc_s_seh-1.dll, libstdc++-6.dll, into C:\Windows\System32\ before running any programs on windows, or you maybe see some errors.
+### <center>copy the 2 dll files : libgcc_s_seh-1.dll, libstdc++-6.dll, into C:\Windows\System32\ before running any programs on windows, or you maybe see some errors.
 
 # <center>Usage:
 
-## <center>For Book1~Book2, and for Book3：Chapter1~Chapter10, same as the book described, 
-## <center>e.g. : 
-## <center>12_Defocus_Blur.exe > 12_Defocus_Blur.ppm
-### <center>(windows)
+### <center>For Book1, Book2, and for Book3：Chapter1 to Chapter10, same as the book described, 
+### <center>e.g. : 
+### <center>12_Defocus_Blur.exe > 12_Defocus_Blur.ppm  (windows)
 
-## <center>./12_Defocus_Blur > 12_Defocus_Blur.ppm
-### <center>(linux)
+### <center>./12_Defocus_Blur > 12_Defocus_Blur.ppm  (linux)
 
-## <center>For Book3：Chapter12, console parameters input was added, you can execute the program by customizing 4 parameters: -depth, -spp, -width, -height, and an output filename, 
-## <center>e.g. :
-## <center>12_Cleaning_Up_PDF_Management.exe -depth 30 -spp 100 -width 300 -height 200 -o 12_Cleaning_Up_PDF_Management.ppm
-### <center>(windows)
+### <center>For Book3：Chapter12, console parameters input was added, you can execute the program by customizing 4 parameters: -depth, -spp, -width, -height, and an output filename, 
+### <center>e.g. :
+### <center>12_Cleaning_Up_PDF_Management.exe -depth 30 -spp 100 -width 300 -height 200 -o 12_Cleaning_Up_PDF_Management.ppm  (windows)
 
-## <center>./12_Cleaning_Up_PDF_Management -depth 30 -spp 100 -width 300 -height 200 -o 12_Cleaning_Up_PDF_Management.ppm
-### <center>(linux)
+### <center>./12_Cleaning_Up_PDF_Management -depth 30 -spp 100 -width 300 -height 200 -o 12_Cleaning_Up_PDF_Management.ppm  (linux)
 
 
 
