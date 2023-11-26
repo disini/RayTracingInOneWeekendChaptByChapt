@@ -24,8 +24,6 @@ https://raytracing.github.io/books/RayTracingTheRestOfYourLife.html
 
 
 
-<div align='center'><image src="https://github.com/disini/RayTracingInOneWeekendChaptByChapt/blob/main/1-Ray%20Tracing%20in%20One%20Weekend/images/output/book1/02_Output_PPM/02_Output_PPM_02.png></div>
-
 
 ## Barcelona Pavilion 
 
