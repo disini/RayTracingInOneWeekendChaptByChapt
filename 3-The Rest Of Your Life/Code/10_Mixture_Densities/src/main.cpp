@@ -291,7 +291,7 @@ int main()
 	// Render
 
 	std::cout << "P3\n" << image_width << " " << image_height << "\n255\n";
-	std::cerr << "image_width　==　" << image_width << "，　image_height　==　" << image_height << "\n";
+	std::cerr << "image_width == " << image_width << "， image_height == " << image_height << "\n";
 	for (int j = image_height -1; j >= 0; --j)
 	{
         std::cerr << "\n \r --------------------------- Scanlines remaining : " << j << " ------------------------------------ \n" << std::flush;

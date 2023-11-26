@@ -2,8 +2,8 @@
 
 
 
-RayTracingInOneWeekend, coding it myself Chapter By Chapter
-with the book series:
+RayTracingInOneWeekend, coding and packaging it Chapter By Chapter
+with the book series:(V3)
 
 https://github.com/RayTracing/raytracing.github.io
 
@@ -22,7 +22,7 @@ https://raytracing.github.io/v3/books/RayTracingTheRestOfYourLife.html
 
 
 
-
+<center>
 <!--<img alt="Daytime Barcelona Pavilion" src="images/output/book1/02_Output_PPM/02_Output_PPM_02.png" width="700" align="middle"/>-->
 <img src="images/output/book1/02_Output_PPM/02_Output_PPM_02.png" width="700" align="middle"/>
 
@@ -343,6 +343,31 @@ https://raytracing.github.io/v3/books/RayTracingTheRestOfYourLife.html
 
 
 ### <center>↑Book 3 : Chapter 12, Cleaning Up PDF Management
+
+#Attention:
+
+
+##copy the 2 dll files : libgcc_s_seh-1.dll, libstdc++-6.dll, into C:\Windows\System32\ before running any programs on windows, or you maybe see some errors.
+
+#Usage:
+
+##For Book1~Book2, and for Book3：Chapter1~Chapter10, same as the book described, 
+##e.g. : 
+##12_Defocus_Blur.exe > 12_Defocus_Blur.ppm
+###(windows)
+
+##./12_Defocus_Blur > 12_Defocus_Blur.ppm
+###(linux)
+
+##For Book3：Chapter12, console parameters input was added, you can execute the program by customizing 4 parameters: -depth, -spp, -width, -height, and an output filename, 
+##e.g. :
+##12_Cleaning_Up_PDF_Management.exe -depth 30 -spp 100 -width 300 -height 200 -o 12_Cleaning_Up_PDF_Management.ppm
+###(windows)
+
+##./12_Cleaning_Up_PDF_Management -depth 30 -spp 100 -width 300 -height 200 -o 12_Cleaning_Up_PDF_Management.ppm
+###(linux)
+
+
 
 
 
