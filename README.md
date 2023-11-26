@@ -18,17 +18,18 @@ https://raytracing.github.io/books/RayTracingTheRestOfYourLife.html
 #←↑→↓↖↗↘↙ <center>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## <center>↑Book 1 : Ray Tracing in One Weekend
 
-<center>
-![02_Output_PPM_02](https://raw.githubusercontent.com/disini/RayTracingInOneWeekendChaptByChapt/main/images/output/book1/02_Output_PPM/02_Output_PPM_02.png)
+<center>![02_Output_PPM_02](https://github.com/disini/RayTracingInOneWeekendChaptByChapt/blob/main/images/output/book1/02_Output_PPM/02_Output_PPM_02.png)
 #### <center> 02_Output_PPM-02.png, 256x256 Pixels
+
+
+
 
 <!--(<div align='center'><image src="https://github.com/disini/RayTracingInOneWeekendChaptByChapt/blob/main/1-Ray%20Tracing%20in%20One%20Weekend/images/output/book1/02_Output_PPM/02_Output_PPM_02.png></div>)-->
 
 
 ### <center>↑Book 1 : Chapter 2 : Output an Image↑
 
-<center>
-![04_Add_Rays](https://raw.githubusercontent.com/disini/RayTracingInOneWeekendChaptByChapt/main/images/output/book1/04_Add_Rays/04_Add_Rays.png)
+<center>![04_Add_Rays](https://raw.githubusercontent.com/disini/RayTracingInOneWeekendChaptByChapt/main/images/output/book1/04_Add_Rays/04_Add_Rays.png)
 #### <center>04_Add_Rays.png, 400x225 Pixels
 
 ### <center>↑Book 1 : Chapter 4 : Rays, a Simple Camera, and Background↑
