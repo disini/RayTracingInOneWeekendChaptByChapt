@@ -7,13 +7,14 @@ with the book series:
 
 https://github.com/RayTracing/raytracing.github.io
 
-https://raytracing.github.io
 
-https://raytracing.github.io/books/RayTracingInOneWeekend.html
+https://raytracing.github.io/v3/index.html
 
-https://raytracing.github.io/books/RayTracingTheNextWeek.html
+https://raytracing.github.io/v3/books/RayTracingInOneWeekend.html
 
-https://raytracing.github.io/books/RayTracingTheRestOfYourLife.html
+https://raytracing.github.io/v3/books/RayTracingTheNextWeek.html
+
+https://raytracing.github.io/v3/books/RayTracingTheRestOfYourLife.html
 
 #←↑→↓↖↗↘↙ <center>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## <center>Book 1 : Ray Tracing in One Weekend
