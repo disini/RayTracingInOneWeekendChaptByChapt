@@ -22,7 +22,7 @@ https://raytracing.github.io/books/RayTracingTheRestOfYourLife.html
 ![02_Output_PPM_02](https://raw.githubusercontent.com/disini/RayTracingInOneWeekendChaptByChapt/main/images/output/book1/02_Output_PPM/02_Output_PPM_02.png)
 #### <center> 02_Output_PPM-02.png, 256x256 Pixels
 
-(<div align='center'><image src="https://github.com/disini/RayTracingInOneWeekendChaptByChapt/blob/main/1-Ray%20Tracing%20in%20One%20Weekend/images/output/book1/02_Output_PPM/02_Output_PPM_02.png></div>)
+<!--(<div align='center'><image src="https://github.com/disini/RayTracingInOneWeekendChaptByChapt/blob/main/1-Ray%20Tracing%20in%20One%20Weekend/images/output/book1/02_Output_PPM/02_Output_PPM_02.png></div>)-->
 
 
 ### <center>↑Book 1 : Chapter 2 : Output an Image↑
